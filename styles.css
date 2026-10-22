@@ -1292,3 +1292,17 @@ summary:focus-visible {
 .contact-form .form-note[data-state="error"] {
   color: #a02d20;
 }
+
+/* All journey content remains readable when JavaScript is unavailable. */
+.journey-panels {
+  min-width: 0;
+}
+.journey-panel + .journey-panel {
+  margin-top: 20px;
+}
+.journey-panel[hidden] {
+  display: none;
+}
+.journey-panel[hidden] + .journey-panel {
+  margin-top: 0;
+}

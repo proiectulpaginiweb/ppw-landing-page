@@ -19,4 +19,16 @@ Open http://127.0.0.1:4173. No npm dependencies or build step are required. Any 
 - Fonts are loaded from Google Fonts, with local system fallbacks. No analytics or tracking scripts.
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 
-Edit `index.html` for page content, `styles.css` for the design, and `script.js` for interactions. Journey panel copy is in `script.js`.
+Edit `index.html` for page content, `styles.css` for the design, and `script.js` for interactions. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
+
+## Indexing and agent discovery
+
+Production URL: https://www.proiectulpaginiweb.ro/
+
+All four journey panels are present in the HTML response. With JavaScript disabled, every panel remains readable; with JavaScript enabled, the existing tab interface is preserved.
+
+After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator updates canonical/social metadata, JSON-LD (Organization, WebSite, WebPage and Services), content hashes, `robots.txt`, `sitemap.xml`, `llms.txt`, and `index.md` from the page content. Do not edit generated discovery files directly. Change `SITE` in `scripts/build_discovery.py` if the production domain changes.
+
+Publish `index.html`, `styles.css`, `script.js`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, and `index.md` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
+
+`robots.txt` permits crawling; it does not override host/CDN blocks or guarantee indexing. Ensure the deployed page and discovery files return HTTP 200 with no authentication, challenge, or `X-Robots-Tag: noindex`. Configure non-www/HTTP URLs to redirect to the canonical HTTPS www address at the hosting layer. Submit the sitemap in your search-console account if desired. `llms.txt` is supplementary guidance, not a guarantee that an AI service will use it.
