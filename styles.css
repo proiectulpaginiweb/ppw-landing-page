@@ -19,6 +19,8 @@ html {
 }
 body {
   margin: 0;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(to right, #002b7f 0% 33.333333%, #fcd116 33.333333% 66.666667%, #ce1126 66.666667% 100%) 1;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font);
