@@ -169,13 +169,7 @@ summary:focus-visible {
   align-items: center;
   gap: 18px;
 }
-.brand img {
-  width: 91px;
-  height: 80px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-}
-.brand span {
+.brand-tagline {
   font-size: 10px;
   font-weight: 600;
   line-height: 1.5;
@@ -838,6 +832,7 @@ summary:focus-visible {
   gap: 65px;
   padding-bottom: 48px;
 }
+.brand-wordmark,
 .footer-name {
   font-family: var(--heading);
   font-size: 28px;
@@ -949,11 +944,7 @@ summary:focus-visible {
     height: 85px;
     position: relative;
   }
-  .brand img {
-    width: 75px;
-    height: 65px;
-  }
-  .brand span {
+  .brand-tagline {
     font-size: 9px;
   }
   .menu-toggle {
@@ -1121,7 +1112,7 @@ summary:focus-visible {
   }
 }
 @media (max-width: 550px) {
-  .brand span {
+  .brand-tagline {
     display: none;
   }
   .hero h1 {
@@ -1247,6 +1238,7 @@ summary:focus-visible {
   .footer-top p {
     font-size: 11px;
   }
+  .brand-wordmark,
   .footer-name {
     font-size: 25px;
   }
@@ -1305,4 +1297,58 @@ summary:focus-visible {
 }
 .journey-panel[hidden] + .journey-panel {
   margin-top: 0;
+}
+
+.brand-wordmark {
+  font-size: 22px;
+  white-space: nowrap;
+}
+.brand-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 3px;
+  border-radius: 0;
+  vertical-align: baseline;
+  overflow: hidden;
+  line-height: 0;
+  background: currentColor;
+  font-size: 0;
+  color: var(--orange);
+  animation: brand-dot-blink 4.5s steps(1, end) infinite;
+}
+@keyframes brand-dot-blink {
+  0% {
+    color: var(--yellow);
+    opacity: 1;
+  }
+  25% {
+    color: var(--yellow);
+    opacity: 0;
+  }
+  33.333% {
+    color: var(--green);
+    opacity: 1;
+  }
+  58.333% {
+    color: var(--green);
+    opacity: 0;
+  }
+  66.666% {
+    color: var(--orange);
+    opacity: 1;
+  }
+  91.666% {
+    color: var(--orange);
+    opacity: 0;
+  }
+  100% {
+    color: var(--yellow);
+    opacity: 1;
+  }
+}
+@media (max-width: 1100px) {
+  .brand-tagline {
+    display: none;
+  }
 }
