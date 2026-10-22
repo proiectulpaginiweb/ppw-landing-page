@@ -1,26 +1,26 @@
 # Proiectul Pagini Web
 
-> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți AI, procese conectate și experiențe mai bune pentru clienți.
+> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
 
 Site oficial: https://www.proiectulpaginiweb.ro/
 
 Limba: română.
 
-O companie AI-native. Cu oamenii în centru.
+O companie construită în jurul inteligenței artificiale. Cu oamenii în centru.
 
 # Următorul pas este agentic .
 
-Tu aduci ambiția. Noi te ajutăm să transformi AI în agenți, procese și experiențe care îți duc afacerea mai departe.
+Tu aduci ambiția. Noi te ajutăm să transformi IA în agenți, procese și experiențe care îți duc afacerea mai departe.
 
 01 / Un alt punct de plecare
 
-## AI este un mijloc. Progresul este scopul.
+## IA este un mijloc. Progresul este scopul.
 
 Oportunitatea este să găsești un mod mai bun de a lucra.
 
-La Proiectul Pagini Web, pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta. Apoi stabilim împreună unde poate AI să aducă o îmbunătățire reală.
+La Proiectul Pagini Web, pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta. Apoi stabilim împreună unde poate IA să aducă o îmbunătățire reală.
 
-Pentru noi, AI-native înseamnă mai mult decât un chatbot. Înseamnă să integrăm inteligența în munca de zi cu zi, cu obiective clare, context relevant și oameni care păstrează controlul.
+Pentru noi, a construi în jurul inteligenței artificiale înseamnă mai mult decât un asistent conversațional. Înseamnă să integrăm inteligența în munca de zi cu zi, cu obiective clare, context relevant și oameni care păstrează controlul.
 
 02 / De la idee la practică
 
@@ -30,13 +30,13 @@ Pentru noi, AI-native înseamnă mai mult decât un chatbot. Înseamnă să inte
 
 ### Agenți cu un scop clar.
 
-Oferă echipei tale un colaborator AI care înțelege contextul, folosește instrumentele aprobate și ajută la ducerea sarcinilor la bun sfârșit.
+Oferă echipei tale un colaborator IA care înțelege contextul, folosește instrumentele aprobate și ajută la ducerea sarcinilor la bun sfârșit.
 
 - Asistenți pentru informare și cercetare
 
 - Asistenți pentru relația cu clienții
 
-- Agenți AI pentru sarcini concrete
+- Agenți IA pentru sarcini concrete
 
 ### Procese care lucrează împreună.
 
@@ -48,11 +48,11 @@ Conectează instrumentele, oamenii și deciziile din afacerea ta. Fă activită�
 
 - Verificare și aprobare umană
 
-### Experiențe cu AI integrat.
+### Experiențe cu IA integrată.
 
-Adu AI acolo unde clienții și echipa interacționează deja cu afacerea ta, prin site-uri și produse digitale gândite în jurul nevoilor lor.
+Adu IA acolo unde clienții și echipa interacționează deja cu afacerea ta, prin site-uri și produse digitale gândite în jurul nevoilor lor.
 
-- Experiențe web cu AI
+- Experiențe web cu IA
 
 - Instrumente și spații de lucru interne
 
@@ -72,7 +72,7 @@ Exemplu de proces pentru relația cu clienții.
 
 4. **Procesul continuă** — Răspunsul aprobat este trimis, iar evidența este actualizată.
 
-03 / Parcursul tău cu agenți AI
+03 / Parcursul tău cu agenți IA
 
 ## Începe cu un pas. Construiește cu sens. Mergi mai departe.
 
@@ -80,7 +80,7 @@ Nu ai nevoie de toate răspunsurile ca să începi. Ai nevoie de un prim pas uti
 
 ### O problemă reală. Un prim pas util.
 
-Analizăm împreună modul în care lucrezi, identificăm dificultățile și alegem o situație concretă în care AI poate ajuta. Stabilim cum arată un rezultat mai bun înainte să decidem ce construim.
+Analizăm împreună modul în care lucrezi, identificăm dificultățile și alegem o situație concretă în care IA poate ajuta. Stabilim cum arată un rezultat mai bun înainte să decidem ce construim.
 
 **Ce obții:** Un caz de utilizare clar, un criteriu de succes și un plan practic.
 
@@ -118,7 +118,7 @@ Stabilește ce poate accesa un agent, ce acțiuni poate face și când trebuie s
 
 ### Progres pe care îl poți evalua
 
-Testează situații reale, stabilește criterii de succes și folosește feedbackul pentru a îmbunătăți următoarea versiune.
+Testează situații reale, stabilește criterii de succes și folosește observațiile primite pentru a îmbunătăți următoarea versiune.
 
 Întrebări firești
 
@@ -126,9 +126,9 @@ Testează situații reale, stabilește criterii de succes și folosește feedbac
 
 ### Ce înseamnă, de fapt, „agentic”?
 
-Un sistem agentic folosește AI pentru a atinge un obiectiv prin mai mulți pași. În funcție de permisiuni, poate aduna informații, folosi instrumente, pregăti materiale sau realiza acțiuni aprobate. Te ajutăm să stabilești ce pași pot fi automatizați și care trebuie să rămână în grija unui om.
+Un sistem agentic folosește IA pentru a atinge un obiectiv prin mai mulți pași. În funcție de permisiuni, poate aduna informații, folosi instrumente, pregăti materiale sau realiza acțiuni aprobate. Te ajutăm să stabilești ce pași pot fi automatizați și care trebuie să rămână în grija unui om.
 
-### Trebuie să fim deja pregătiți pentru AI?
+### Trebuie să fim deja pregătiți pentru IA?
 
 Ai nevoie de o problemă care merită explorată. Putem începe prin a înțelege procesele, informațiile disponibile și nevoile echipei tale. Dacă o automatizare mai simplă este mai potrivită, o vom lua în calcul.
 
@@ -138,7 +138,7 @@ Da. Un proiect-pilot bine delimitat ne ajută să aflăm ce este util, ce necesi
 
 ### Ce se întâmplă cu datele noastre?
 
-Accesul la date, furnizorii de modele AI, perioada de păstrare și cerințele de verificare se stabilesc înainte de implementare. Începem prin a identifica informațiile de care sistemul are cu adevărat nevoie și limităm accesul în consecință.
+Accesul la date, furnizorii de modele IA, perioada de păstrare și cerințele de verificare se stabilesc înainte de implementare. Începem prin a identifica informațiile de care sistemul are cu adevărat nevoie și limităm accesul în consecință.
 
 Următoarea etapă începe aici
 

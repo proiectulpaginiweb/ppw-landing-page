@@ -1,5 +1,5 @@
 const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector("#navigation");
+const navigation = document.querySelector("#navigare");
 function closeMenu() {
   menuButton.setAttribute("aria-expanded", "false");
   navigation.classList.remove("is-open");
@@ -48,10 +48,10 @@ tabs.forEach((tab, index) => {
     }
   });
 });
-document.querySelector("#year").textContent = new Date().getFullYear();
-const contactForm = document.querySelector("#contact-form");
+document.querySelector("#an").textContent = new Date().getFullYear();
+const contactForm = document.querySelector("#formular-contact");
 const submitButton = contactForm.querySelector('button[type="submit"]');
-const formStatus = document.querySelector("#form-status");
+const formStatus = document.querySelector("#stare-formular");
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (submitButton.disabled || !contactForm.reportValidity()) return;

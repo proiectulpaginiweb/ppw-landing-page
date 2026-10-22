@@ -2,7 +2,7 @@
   "name": "proiectul-pagini-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Proiectul Pagini Web \u2014 an AI-native company",
+  "description": "Proiectul Pagini Web \u2014 o companie construită în jurul inteligenței artificiale",
   "scripts": {
     "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
     "start": "python3 -m http.server 4173 --bind 127.0.0.1",

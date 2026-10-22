@@ -1,16 +1,17 @@
 # Proiectul Pagini Web
 
-> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți AI, procese conectate și experiențe mai bune pentru clienți.
+> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
 
 Site oficial în limba română: https://www.proiectulpaginiweb.ro/
 
 ## Conținut
 
 - [Prezentare completă în Markdown](https://www.proiectulpaginiweb.ro/index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
+- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul complet al paginii.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
-- [Servicii](https://www.proiectulpaginiweb.ro/#possibilities): agenți AI, automatizarea proceselor și experiențe digitale cu AI.
-- [Parcursul colaborării](https://www.proiectulpaginiweb.ro/#journey): descoperire, proiectare, construcție și îmbunătățire.
-- [Întrebări frecvente](https://www.proiectulpaginiweb.ro/#questions): explicații despre agenți AI, proiecte-pilot și date.
+- [Servicii](https://www.proiectulpaginiweb.ro/#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
+- [Parcursul colaborării](https://www.proiectulpaginiweb.ro/#parcurs): descoperire, proiectare, construcție și îmbunătățire.
+- [Întrebări frecvente](https://www.proiectulpaginiweb.ro/#intrebari): explicații despre agenți IA, proiecte-pilot și date.
 - [Contact](https://www.proiectulpaginiweb.ro/#contact): formularul de contact.
 
-Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau testimoniale.
+Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau mărturii ale clienților.

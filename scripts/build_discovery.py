@@ -62,20 +62,20 @@ services = list(main.all(lambda n: n.tag == 'article' and 'service' in n.attrs.g
 service_nodes = []
 for i, service in enumerate(services, 1):
     service_nodes.append({
-        '@type': 'Service', '@id': SITE + '#service-' + str(i),
+        '@type': 'Service', '@id': SITE + '#serviciu-' + str(i),
         'name': service.first(lambda n: n.tag == 'h3').text(),
         'description': service.first(lambda n: n.tag == 'p').text(),
-        'url': SITE + '#possibilities', 'provider': {'@id': SITE + '#organization'},
+        'url': SITE + '#posibilitati', 'provider': {'@id': SITE + '#organizatie'},
     })
 graph = [
-    {'@type':'Organization', '@id':SITE+'#organization', 'name':NAME, 'url':SITE,
+    {'@type':'Organization', '@id':SITE+'#organizatie', 'name':NAME, 'url':SITE,
      'description':description, 'logo':SITE+'assets/ppw.png',
      'contactPoint':{'@type':'ContactPoint','contactType':'Informații despre servicii','url':SITE+'#contact','availableLanguage':['ro']},
-     'hasOfferCatalog':{'@type':'OfferCatalog','name':'Servicii AI','itemListElement':[
+     'hasOfferCatalog':{'@type':'OfferCatalog','name':'Servicii IA','itemListElement':[
          {'@type':'Offer','itemOffered':{'@id':s['@id']}} for s in service_nodes]}},
-    {'@type':'WebSite','@id':SITE+'#website','url':SITE,'name':NAME,'inLanguage':'ro','publisher':{'@id':SITE+'#organization'}},
-    {'@type':'WebPage','@id':SITE+'#webpage','url':SITE,'name':title,'description':description,'inLanguage':'ro',
-     'isPartOf':{'@id':SITE+'#website'},'about':{'@id':SITE+'#organization'}},
+    {'@type':'WebSite','@id':SITE+'#site','url':SITE,'name':NAME,'inLanguage':'ro','publisher':{'@id':SITE+'#organizatie'}},
+    {'@type':'WebPage','@id':SITE+'#pagina','url':SITE,'name':title,'description':description,'inLanguage':'ro',
+     'isPartOf':{'@id':SITE+'#site'},'about':{'@id':SITE+'#organizatie'}},
     *service_nodes,
 ]
 block = '\n'.join([
@@ -138,14 +138,18 @@ Site oficial în limba română: {SITE}
 ## Conținut
 
 - [Prezentare completă în Markdown]({SITE}index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
+- [Conținut integral]({SITE}llms-full.txt): textul complet al paginii.
 - [Pagina principală]({SITE}): versiunea HTML în română.
-- [Servicii]({SITE}#possibilities): agenți AI, automatizarea proceselor și experiențe digitale cu AI.
-- [Parcursul colaborării]({SITE}#journey): descoperire, proiectare, construcție și îmbunătățire.
-- [Întrebări frecvente]({SITE}#questions): explicații despre agenți AI, proiecte-pilot și date.
+- [Servicii]({SITE}#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
+- [Parcursul colaborării]({SITE}#parcurs): descoperire, proiectare, construcție și îmbunătățire.
+- [Întrebări frecvente]({SITE}#intrebari): explicații despre agenți IA, proiecte-pilot și date.
 - [Contact]({SITE}#contact): formularul de contact.
 
-Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau testimoniale.
+Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau mărturii ale clienților.
 ''')
+# Full content is regenerated from the Markdown page.
+(ROOT/'llms-full.txt').write_text((ROOT/'index.md').read_text())
+(ROOT/'.nojekyll').touch()
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+SITE+'sitemap.xml\n')
 (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>'+escape(SITE)+'</loc></url>\n</urlset>\n')
-print('Generated canonical metadata, JSON-LD, robots.txt, sitemap.xml, llms.txt and index.md from the Romanian HTML.')
+print('Au fost generate metadatele canonice, JSON-LD, robots.txt, sitemap.xml, llms.txt și index.md din pagina HTML în română.')
