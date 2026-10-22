@@ -1279,7 +1279,31 @@ summary:focus-visible {
   transform: none;
 }
 .contact-form .form-note[data-state="success"] {
-  color: #355d23;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  align-items: start;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #8eaf62;
+  border-radius: 6px;
+  background: #e8f2db;
+  color: #28471c;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.contact-form .form-note[data-state="success"]::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #355d23;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
 }
 .contact-form .form-note[data-state="error"] {
   color: #a02d20;
@@ -1305,8 +1329,8 @@ summary:focus-visible {
 }
 .brand-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   margin-left: 3px;
   border-radius: 0;
   vertical-align: baseline;
