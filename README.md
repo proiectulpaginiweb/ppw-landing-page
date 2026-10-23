@@ -16,7 +16,7 @@ Open http://127.0.0.1:4173. No npm dependencies or build step are required. Any 
 - Romanian positioning, services, illustrative workflow, interactive journey, principles, FAQs, and contact section.
 - Blog at `/blog/` with an article at `/blog/internetul-agentic-este-aici/`, using the same visual language and navigation as the landing page.
 - Accessible keyboard-controlled journey tabs, mobile navigation, and native FAQ disclosure controls.
-- Contact form submits to Web3Forms using the supplied public access key. Name, email, selected interest, and project details are combined into the message. Inline status feedback handles sending, success, and failure; failed submissions retain the visitor’s entries. All contact links point to the form; no recipient email address is displayed. Delivery goes to the recipient configured for the Web3Forms access key.
+- Contact form submits to Web3Forms using the supplied public access key. Name, email, optional phone number, selected interest, and project details are combined into the message. Inline status feedback handles sending, success, and failure; failed submissions retain the visitor’s entries. All contact links point to the form; no recipient email address is displayed. Delivery goes to the recipient configured for the Web3Forms access key.
 - Fonts are loaded from Google Fonts, with local system fallbacks. Google Analytics (`G-01VJRQR4TT`) loads only on `https://www.proiectulpaginiweb.ro` and `https://proiectulpaginiweb.ro`, using the default HTTPS port. Localhost, local IP addresses, file previews, and other preview domains do not load the Google tag or initialize analytics.
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 

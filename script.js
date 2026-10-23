@@ -59,14 +59,16 @@ contactForm.addEventListener("submit", async (event) => {
   const data = new FormData(contactForm);
   const name = String(data.get("name")).trim();
   const email = String(data.get("email")).trim();
+  const phone = String(data.get("phone") || "").trim();
   const interest = String(data.get("interest"));
   const message = String(data.get("message")).trim();
   data.set("name", name);
   data.set("email", email);
+  data.set("phone", phone);
   data.set("subject", `Solicitare Proiectul Pagini Web: ${interest}`);
   data.set(
     "message",
-    `Nume: ${name}\nE-mail: ${email}\nMă interesează: ${interest}\n\nCe aș vrea să îmbunătățesc:\n${message}`,
+    `Nume: ${name}\nE-mail: ${email}\n${phone ? `Telefon: ${phone}\n` : ""}Mă interesează: ${interest}\n\nCe aș vrea să îmbunătățesc:\n${message}`,
   );
 
   const originalContent = submitButton.innerHTML;
