@@ -131,7 +131,7 @@ lines.extend(['## Contact','','Folosește formularul de pe '+SITE+'#contact pent
 (ROOT/'index.md').write_text('\n'.join(lines))
 
 # Keep a readable article copy in sync with the visible HTML.
-article_path = ROOT/'blog/web-3-0-este-aici/index.html'
+article_path = ROOT/'blog/internetul-agentic-este-aici/index.html'
 article = Document(article_path.read_text()).root
 article_main = article.first(lambda n: n.tag == 'article' and 'post' in n.attrs.get('class', '').split())
 article_body = article_main.first(lambda n: 'post-body' in n.attrs.get('class', '').split())
@@ -150,7 +150,7 @@ def inline_markdown(node):
 article_lines = [
     '# ' + article_title, '',
     'Publicat: ' + article_date, '',
-    'Articol: ' + SITE + 'blog/web-3-0-este-aici/', '',
+    'Articol: ' + SITE + 'blog/internetul-agentic-este-aici/', '',
     article_lead, '',
 ]
 for child in article_body.children:
@@ -168,7 +168,7 @@ for child in article_body.children:
             paragraph = fact.first(lambda n: n.tag == 'p')
             article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(paragraph)).strip(), ''])
 article_markdown = '\n'.join(article_lines).rstrip() + '\n'
-(ROOT/'blog/web-3-0-este-aici/index.md').write_text(article_markdown)
+(ROOT/'blog/internetul-agentic-este-aici/index.md').write_text(article_markdown)
 
 (ROOT/'llms.txt').write_text(f'''# {NAME}
 
@@ -182,8 +182,8 @@ Site oficial în limba română: {SITE}
 - [Conținut integral]({SITE}llms-full.txt): textul paginii principale și al articolului.
 - [Pagina principală]({SITE}): versiunea HTML în română.
 - [Blog]({SITE}blog/): articole despre tehnologie și experiențe digitale.
-- [Web 3.0 este aici]({SITE}blog/web-3-0-este-aici/): articol despre webul semantic, modele LLM, internetul agentic și Web3 bazat pe blockchain.
-- [Articolul în Markdown]({SITE}blog/web-3-0-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
+- [Internetul agentic este aici]({SITE}blog/internetul-agentic-este-aici/): articol despre date clare, modele LLM, instrumente și controlul acțiunilor agenților IA.
+- [Articolul în Markdown]({SITE}blog/internetul-agentic-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
 - [Servicii]({SITE}#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
 - [Parcursul colaborării]({SITE}#parcurs): descoperire, proiectare, construcție și îmbunătățire.
 - [Întrebări frecvente]({SITE}#intrebari): explicații despre agenți IA, proiecte-pilot și date.
@@ -195,5 +195,5 @@ Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publi
 (ROOT/'llms-full.txt').write_text((ROOT/'index.md').read_text().rstrip() + '\n\n---\n\n' + article_markdown)
 (ROOT/'.nojekyll').touch()
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+SITE+'sitemap.xml\n')
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>'+escape(SITE)+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/')+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/web-3-0-este-aici/')+'</loc></url>\n</urlset>\n')
+(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>'+escape(SITE)+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/')+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/internetul-agentic-este-aici/')+'</loc></url>\n</urlset>\n')
 print('Au fost generate metadatele canonice, JSON-LD, robots.txt, sitemap.xml, llms.txt și index.md din pagina HTML în română.')

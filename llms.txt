@@ -10,8 +10,8 @@ Site oficial în limba română: https://www.proiectulpaginiweb.ro/
 - [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale și al articolului.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
 - [Blog](https://www.proiectulpaginiweb.ro/blog/): articole despre tehnologie și experiențe digitale.
-- [Web 3.0 este aici](https://www.proiectulpaginiweb.ro/blog/web-3-0-este-aici/): articol despre webul semantic, modele LLM, internetul agentic și Web3 bazat pe blockchain.
-- [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/web-3-0-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
+- [Internetul agentic este aici](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): articol despre date clare, modele LLM, instrumente și controlul acțiunilor agenților IA.
+- [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
 - [Servicii](https://www.proiectulpaginiweb.ro/#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
 - [Parcursul colaborării](https://www.proiectulpaginiweb.ro/#parcurs): descoperire, proiectare, construcție și îmbunătățire.
 - [Întrebări frecvente](https://www.proiectulpaginiweb.ro/#intrebari): explicații despre agenți IA, proiecte-pilot și date.

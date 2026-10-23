@@ -152,54 +152,54 @@ Folosește formularul de pe https://www.proiectulpaginiweb.ro/#contact pentru a 
 
 ---
 
-# Web 3.0 este aici. Întrebarea este ce construim cu el.
+# Internetul agentic este aici. De la informație la acțiune.
 
 Publicat: 2026-10-24
 
-Articol: https://www.proiectulpaginiweb.ro/blog/web-3-0-este-aici/
+Articol: https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/
 
-Modelele LLM pot interpreta informații și, când sunt conectate la instrumente, pot ajuta agenții IA să folosească servicii web. În paralel, unele forme de identitate și active digitale pot fi utilizate în servicii compatibile. În acest articol, „Web 3.0” este o etichetă editorială pentru aceste direcții distincte, nu un standard tehnic unic.
+Modelele LLM pot interpreta cereri în limbaj natural. Conectate la surse și instrumente, ele pot ajuta agenții IA să găsească informații și să îndeplinească sarcini pe web. Pentru ca asta să fie util, site-urile trebuie să ofere date clare, acțiuni bine definite și control pentru oameni.
 
-## Un termen, mai multe direcții
+## Ce este internetul agentic?
 
-„Web 3.0” este folosit în contexte diferite și nu desemnează un standard unic. [W3C descrie webul semantic](https://www.w3.org/2001/sw/SW-FAQ.html) ca o extindere a webului documentelor către date care pot fi partajate și corelate între aplicații. Astăzi, modelele lingvistice mari (LLM) adaugă o altă capacitate: interpretează limbajul natural și pot ajuta oamenii să găsească, să compare și să folosească servicii.
+În webul obișnuit, omul caută pagini, citește informații și apasă butoane. Într-un internet agentic, un program îl poate ajuta să parcurgă acești pași: interpretează o cerere, consultă surse, folosește instrumente și prezintă un rezultat verificabil. [Cloudflare descrie această direcție](https://blog.cloudflare.com/the-agentic-internet) prin resurse pe care agenții le pot citi, descoperi și apela.
 
-În alt sens, [„Web3” descrie viziunea blockchain](https://ethereum.org/web3/): identitate și active controlate de utilizator, aplicații deschise și plăți native. Cele două sensuri pot converge într-un produs, dar un agent bazat pe LLM nu are nevoie de blockchain ca să funcționeze, iar un portofel digital nu este, prin el însuși, un agent inteligent.
+Ideea unui web cu informații mai ușor de folosit de software este mai veche. [W3C descrie webul semantic](https://www.w3.org/2001/sw/SW-FAQ.html) ca o extindere de la documente către date care pot fi legate și reutilizate între aplicații. Modelele LLM adaugă interacțiunea în limbaj natural, însă au în continuare nevoie de informații clare și de acces controlat la instrumente.
 
 ## Ce există deja
 
-### 01 / Date legate
+### 01 / Date clare
 
-Identificatorii, metadatele și formatele structurate ajută software-ul să descopere și să coreleze informații între pagini și servicii.
+Titlurile, textul accesibil, metadatele și formatele structurate ajută un agent să identifice informația relevantă și sursa ei.
 
 ### 02 / Modele LLM
 
-Un model poate interpreta cereri în limbaj natural și poate sintetiza informații. Prin instrumente conectate, poate căuta sau folosi funcțiile unui serviciu.
+Un model poate interpreta o cerere și poate sintetiza informații. Răspunsul său trebuie confruntat cu sursele, mai ales când precizia contează.
 
-### 03 / Agenți IA
+### 03 / Instrumente
 
-Un agent poate planifica pași, consulta surse și folosi instrumentele și permisiunile pe care i le oferă aplicația. [Documentația OpenAI descrie instrumentele și accesul la web](https://developers.openai.com/tracks/building-agents).
+Prin API-uri sau interfețe, un agent poate folosi funcții precum căutarea, filtrarea sau pregătirea unei solicitări. [Documentația OpenAI explică folosirea instrumentelor](https://developers.openai.com/tracks/building-agents).
 
-### 04 / Proprietate digitală
+### 04 / Control
 
-Portofelele și rețelele blockchain oferă semnare, transfer și reguli programabile. În IPFS, [datele pot fi adresate după conținut](https://docs.ipfs.tech/concepts/content-addressing/), nu doar după locația unui server.
+Aplicația stabilește ce date și acțiuni sunt disponibile agentului. Pentru pași sensibili, poate opri fluxul până când omul verifică și aprobă acțiunea.
 
-## Internetul agentic este deja în formare
+## De la răspuns la acțiune
 
-Într-un web creat pentru oameni, vizitatorul citește pagini și apasă butoane. Într-un internet agentic, software-ul poate acționa în numele lui: găsește opțiuni, verifică informații și completează pași. [Aprobarea omului pentru acțiuni sensibile](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) trebuie proiectată și aplicată de sistem; nu apare automat doar pentru că agentul folosește un LLM. [Cloudflare descrie această direcție](https://blog.cloudflare.com/the-agentic-internet) prin resurse ușor de citit, descoperit și apelat de agenți.
+Imaginăm un vizitator care caută un serviciu potrivit. În loc să compare manual zeci de pagini, îi poate cere unui agent să adune criteriile, să arate sursele și să pregătească o listă scurtă. Dacă site-ul oferă informații actualizate și bine organizate, agentul are o bază mai bună pentru răspuns. Dacă oferă și o acțiune clară, precum o cerere de ofertă, agentul poate pregăti pasul următor.
 
-Aici se întâlnesc ideile: datele structurate fac informația mai clară pentru mașini; LLM-urile facilitează interacțiunea; instrumentele și API-urile permit acțiuni; identitatea și plățile pot stabili cine are dreptul să facă ce. Blockchain poate fi util în unele fluxuri, dar nu este o condiție pentru internetul agentic.
+Experiența bună nu se termină la automatizare. Omul trebuie să poată vedea ce informații au fost folosite, ce urmează să se întâmple și când este nevoie de acordul său. Un agent care poate acționa fără limite clare poate crea mai multă confuzie decât ajutor.
 
-## Ce rămâne dificil
+## Ce trebuie proiectat atent
 
-Un agent poate interpreta greșit o pagină sau poate executa o acțiune nepotrivită dacă primește prea mult acces. De aceea, sursele, permisiunile, confirmările și posibilitatea de a verifica rezultatul trebuie proiectate explicit. Un răspuns fluent al unui LLM nu garantează că informația este corectă.
+Un LLM poate produce un răspuns convingător, dar greșit. Un agent poate interpreta eronat o pagină sau poate încerca un pas pe care utilizatorul nu l-a dorit. De aceea sunt importante sursele verificabile, permisiunile restrânse, validarea datelor și rezultatele care pot fi revizuite.
 
-În zona blockchain, controlul direct vine cu alte responsabilități. Într-un portofel fără mecanism de recuperare, pierderea cheii poate însemna pierderea accesului la fonduri, după cum [explică Ethereum](https://ethereum.org/community/support/misconceptions/). Iar conținutul publicat pe IPFS [nu este privat în mod implicit](https://docs.ipfs.tech/concepts/privacy-and-encryption/).
+[Aprobarea umană pentru acțiuni sensibile](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) trebuie implementată explicit în sistem. Nu apare automat doar pentru că agentul folosește un model LLM. Protecția datelor și explicarea pașilor făcuți sunt la fel de importante ca răspunsul final.
 
-> Webul următor nu va fi definit de o singură tehnologie, ci de cât de bine pot oamenii și agenții lor să înțeleagă, să folosească și să controleze serviciile digitale.
+> Un internet util pentru agenți rămâne, înainte de toate, un internet în care oamenii înțeleg și controlează acțiunile făcute în numele lor.
 
 ## De unde începem
 
-Pentru un produs nou, întrebarea practică este: ce poate face utilizatorul mai bine cu ajutorul unui agent și ce control trebuie să păstreze? Porniți de la un caz concret, publicați informații clare și structurate, oferiți acțiuni bine delimitate prin interfețe sau API-uri și cereți confirmare pentru pașii cu efecte importante.
+Porniți cu un caz concret: ce întrebare vrea să rezolve utilizatorul sau ce sarcină îi consumă timp? Publicați informația esențială în text accesibil, cu titluri clare și date structurate care corespund conținutului vizibil. Oferiți acțiuni mici, bine definite, apoi limitați accesul agentului la ce îi este necesar.
 
-Dacă portabilitatea identității, dovada de proprietate sau transferul valorii rezolvă o nevoie reală, testați și componente Web3. Dacă nu, un agent LLM poate funcționa foarte bine pe infrastructura web obișnuită. Măsura succesului rămâne experiența omului, nu numărul de tehnologii din arhitectură.
+Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul la momentul corect și comunică limpede ce a făcut. Tehnologia există deja; calitatea experienței depinde de felul în care este proiectată.

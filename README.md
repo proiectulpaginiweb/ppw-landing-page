@@ -14,13 +14,13 @@ Open http://127.0.0.1:4173. No npm dependencies or build step are required. Any 
 ## Content and interactions
 
 - Romanian positioning, services, illustrative workflow, interactive journey, principles, FAQs, and contact section.
-- Blog at `/blog/` with an article at `/blog/web-3-0-este-aici/`, using the same visual language and navigation as the landing page.
+- Blog at `/blog/` with an article at `/blog/internetul-agentic-este-aici/`, using the same visual language and navigation as the landing page. Article sharing includes official LinkedIn, X, and Facebook embedded widgets, loaded as the share section approaches the viewport. The copy-link button sits beside the widgets. Widget scripts and frames contact their respective platforms when loaded.
 - Accessible keyboard-controlled journey tabs, mobile navigation, and native FAQ disclosure controls.
 - Contact form submits to Web3Forms using the supplied public access key. Name, email, selected interest, and project details are combined into the message. Inline status feedback handles sending, success, and failure; failed submissions retain the visitor’s entries. All contact links point to the form; no recipient email address is displayed. Delivery goes to the recipient configured for the Web3Forms access key.
 - Fonts are loaded from Google Fonts, with local system fallbacks. Google Analytics (`G-01VJRQR4TT`) loads only on `https://www.proiectulpaginiweb.ro` and `https://proiectulpaginiweb.ro`, using the default HTTPS port. Localhost, local IP addresses, file previews, and other preview domains do not load the Google tag or initialize analytics.
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 
-Edit `index.html` for page content, `styles.css` for the landing page design, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the blog menu. Blog content is in `blog/index.html` and `blog/web-3-0-este-aici/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
+Edit `index.html` for page content, `styles.css` for the landing page design, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the blog menu. Blog content is in `blog/index.html` and `blog/internetul-agentic-este-aici/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
 
 ## Indexing and agent discovery
 
@@ -28,7 +28,7 @@ Production URL: https://www.proiectulpaginiweb.ro/
 
 All four journey panels are present in the HTML response. With JavaScript disabled, every panel remains readable; with JavaScript enabled, the existing tab interface is preserved.
 
-After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator updates homepage canonical/social metadata, JSON-LD (Organization, WebSite, WebPage and Services), content hashes, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the article's Markdown copy at `blog/web-3-0-este-aici/index.md`. Do not edit generated discovery files directly. Change `SITE` in `scripts/build_discovery.py` if the production domain changes. Blog page metadata and BlogPosting JSON-LD are in their HTML source and should match visible content.
+After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator updates homepage canonical/social metadata, JSON-LD (Organization, WebSite, WebPage and Services), content hashes, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the article's Markdown copy at `blog/internetul-agentic-este-aici/index.md`. Do not edit generated discovery files directly. Change `SITE` in `scripts/build_discovery.py` if the production domain changes. Blog page metadata and BlogPosting JSON-LD are in their HTML source and should match visible content.
 
 Publish `index.html`, `styles.css`, `blog.css`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `index.md` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
 
