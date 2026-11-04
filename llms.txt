@@ -2,16 +2,18 @@
 
 > Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
 
-Site oficial în limba română: https://www.proiectulpaginiweb.ro/
+Site oficial: https://www.proiectulpaginiweb.ro/
 
 ## Conținut
 
 - [Prezentare completă în Markdown](https://www.proiectulpaginiweb.ro/index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
-- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale și al articolului.
+- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale și al tuturor articolelor.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
 - [Blog](https://www.proiectulpaginiweb.ro/blog/): articole despre tehnologie și experiențe digitale.
-- [Internetul agentic este aici](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): articol despre date clare, modele LLM, instrumente și controlul acțiunilor agenților IA.
-- [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
+- [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): Cum schimbă modelele LLM și agenții IA felul în care folosim webul: date clare, instrumente conectate, permisiuni și verificarea rezultatelor.
+- [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): Internetul agentic este aici. De la informație la acțiune.
+- [The Next Step in AI Is Training Models for Your Business](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/): Proiectul Pagini Web explores how models trained for specific businesses can support AI agents, connected workflows, and useful digital experiences.
+- [Article in Markdown](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/index.md): The Next Step in AI Is Training Models for Your Business
 - [Servicii](https://www.proiectulpaginiweb.ro/#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
 - [Parcursul colaborării](https://www.proiectulpaginiweb.ro/#parcurs): descoperire, proiectare, construcție și îmbunătățire.
 - [Întrebări frecvente](https://www.proiectulpaginiweb.ro/#intrebari): explicații despre agenți IA, proiecte-pilot și date.

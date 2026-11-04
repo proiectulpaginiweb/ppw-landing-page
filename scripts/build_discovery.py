@@ -130,15 +130,6 @@ markdown(main)
 lines.extend(['## Contact','','Folosește formularul de pe '+SITE+'#contact pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.',''])
 (ROOT/'index.md').write_text('\n'.join(lines))
 
-# Keep a readable article copy in sync with the visible HTML.
-article_path = ROOT/'blog/internetul-agentic-este-aici/index.html'
-article = Document(article_path.read_text()).root
-article_main = article.first(lambda n: n.tag == 'article' and 'post' in n.attrs.get('class', '').split())
-article_body = article_main.first(lambda n: 'post-body' in n.attrs.get('class', '').split())
-article_title = article_main.first(lambda n: n.tag == 'h1').text()
-article_lead = article_main.first(lambda n: 'post-lead' in n.attrs.get('class', '').split()).text()
-article_date = article_main.first(lambda n: n.tag == 'time').attrs['datetime']
-
 def inline_markdown(node):
     if isinstance(node, str):
         return node
@@ -147,43 +138,70 @@ def inline_markdown(node):
         return '[' + content.strip() + '](' + node.attrs['href'] + ')'
     return content
 
-article_lines = [
-    '# ' + article_title, '',
-    'Publicat: ' + article_date, '',
-    'Articol: ' + SITE + 'blog/internetul-agentic-este-aici/', '',
-    article_lead, '',
-]
-for child in article_body.children:
-    if not isinstance(child, Node):
-        continue
-    if child.tag == 'h2':
-        article_lines.extend(['## ' + child.text(), ''])
-    elif child.tag == 'p':
-        article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(child)).strip(), ''])
-    elif child.tag == 'blockquote':
-        article_lines.extend(['> ' + child.text(), ''])
-    elif 'post-facts' in child.attrs.get('class', '').split():
-        for fact in child.all(lambda n: n.tag == 'div'):
-            article_lines.extend(['### ' + fact.first(lambda n: n.tag == 'strong').text(), ''])
-            paragraph = fact.first(lambda n: n.tag == 'p')
-            article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(paragraph)).strip(), ''])
-article_markdown = '\n'.join(article_lines).rstrip() + '\n'
-(ROOT/'blog/internetul-agentic-este-aici/index.md').write_text(article_markdown)
+# Keep a readable copy of every article in sync with its visible HTML.
+articles = []
+for article_path in sorted((ROOT/'blog').glob('*/index.html')):
+    article = Document(article_path.read_text()).root
+    article_main = article.first(lambda n: n.tag == 'article' and 'post' in n.attrs.get('class', '').split())
+    article_body = article_main.first(lambda n: 'post-body' in n.attrs.get('class', '').split())
+    article_title = article_main.first(lambda n: n.tag == 'h1').text()
+    article_lead = article_main.first(lambda n: 'post-lead' in n.attrs.get('class', '').split()).text()
+    article_date = article_main.first(lambda n: n.tag == 'time').attrs['datetime']
+    article_description = article.first(lambda n: n.tag == 'meta' and n.attrs.get('name') == 'description').attrs['content']
+    article_language = article.first(lambda n: n.tag == 'html').attrs['lang']
+    article_url = article.first(lambda n: n.tag == 'link' and 'canonical' in n.attrs.get('rel', '').split()).attrs['href']
+    is_english = article_language.split('-')[0].lower() == 'en'
+    article_lines = [
+        '# ' + article_title, '',
+        ('Published: ' if is_english else 'Publicat: ') + article_date, '',
+        ('Article: ' if is_english else 'Articol: ') + article_url, '',
+        article_lead, '',
+    ]
+    for child in article_body.children:
+        if not isinstance(child, Node):
+            continue
+        if child.tag in {'h2', 'h3'}:
+            article_lines.extend(['#' * int(child.tag[1]) + ' ' + child.text(), ''])
+        elif child.tag == 'p':
+            article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(child)).strip(), ''])
+        elif child.tag == 'blockquote':
+            article_lines.extend(['> ' + child.text(), ''])
+        elif child.tag in {'ul', 'ol'}:
+            for i, item in enumerate((n for n in child.children if isinstance(n, Node) and n.tag == 'li'), 1):
+                prefix = f'{i}. ' if child.tag == 'ol' else '- '
+                article_lines.extend([prefix + re.sub(r'\s+', ' ', inline_markdown(item)).strip(), ''])
+        elif 'post-facts' in child.attrs.get('class', '').split():
+            for fact in child.all(lambda n: n.tag == 'div'):
+                article_lines.extend(['### ' + fact.first(lambda n: n.tag == 'strong').text(), ''])
+                paragraph = fact.first(lambda n: n.tag == 'p')
+                article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(paragraph)).strip(), ''])
+    article_markdown = '\n'.join(article_lines).rstrip() + '\n'
+    article_path.with_suffix('.md').write_text(article_markdown)
+    articles.append({
+        'title': article_title, 'date': article_date, 'description': article_description,
+        'language': article_language, 'url': article_url, 'markdown': article_markdown,
+    })
+
+article_links = []
+for article in articles:
+    article_links.append(f"- [{article['title']}]({article['url']}): {article['description']}")
+    markdown_label = 'Article in Markdown' if article['language'].split('-')[0].lower() == 'en' else 'Articolul în Markdown'
+    article_links.append(f"- [{markdown_label}]({article['url'].rstrip('/')}/index.md): {article['title']}")
+article_links = '\n'.join(article_links)
 
 (ROOT/'llms.txt').write_text(f'''# {NAME}
 
 > {description}
 
-Site oficial în limba română: {SITE}
+Site oficial: {SITE}
 
 ## Conținut
 
 - [Prezentare completă în Markdown]({SITE}index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
-- [Conținut integral]({SITE}llms-full.txt): textul paginii principale și al articolului.
+- [Conținut integral]({SITE}llms-full.txt): textul paginii principale și al tuturor articolelor.
 - [Pagina principală]({SITE}): versiunea HTML în română.
 - [Blog]({SITE}blog/): articole despre tehnologie și experiențe digitale.
-- [Internetul agentic este aici]({SITE}blog/internetul-agentic-este-aici/): articol despre date clare, modele LLM, instrumente și controlul acțiunilor agenților IA.
-- [Articolul în Markdown]({SITE}blog/internetul-agentic-este-aici/index.md): copia textuală completă, cu trimiteri către sursele citate.
+{article_links}
 - [Servicii]({SITE}#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
 - [Parcursul colaborării]({SITE}#parcurs): descoperire, proiectare, construcție și îmbunătățire.
 - [Întrebări frecvente]({SITE}#intrebari): explicații despre agenți IA, proiecte-pilot și date.
@@ -192,8 +210,9 @@ Site oficial în limba română: {SITE}
 Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau mărturii ale clienților.
 ''')
 # Full content is regenerated from the visible pages.
-(ROOT/'llms-full.txt').write_text((ROOT/'index.md').read_text().rstrip() + '\n\n---\n\n' + article_markdown)
+(ROOT/'llms-full.txt').write_text('\n\n---\n\n'.join([(ROOT/'index.md').read_text().rstrip(), *(article['markdown'].rstrip() for article in articles)]) + '\n')
 (ROOT/'.nojekyll').touch()
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+SITE+'sitemap.xml\n')
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>'+escape(SITE)+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/')+'</loc></url>\n  <url><loc>'+escape(SITE+'blog/internetul-agentic-este-aici/')+'</loc></url>\n</urlset>\n')
-print('Au fost generate metadatele canonice, JSON-LD, robots.txt, sitemap.xml, llms.txt și index.md din pagina HTML în română.')
+sitemap_urls = [SITE, SITE+'blog/', *(article['url'] for article in articles)]
+(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>'+escape(url)+'</loc></url>\n' for url in sitemap_urls) + '</urlset>\n')
+print('Au fost generate metadatele canonice, JSON-LD, robots.txt, sitemap.xml, llms.txt și copiile Markdown din paginile HTML.')
