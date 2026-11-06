@@ -10,6 +10,8 @@ Site oficial: https://www.proiectulpaginiweb.ro/
 - [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale și al tuturor articolelor.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
 - [Blog](https://www.proiectulpaginiweb.ro/blog/): articole despre tehnologie și experiențe digitale.
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/): Chatul este interfața de conversație; agentul gestionează pașii unei sarcini. Exemple practice despre instrumente, autonomie și rezultate pentru business.
+- [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/index.md): Chat AI și agent AI: care este diferența?
 - [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): Cum schimbă modelele LLM și agenții IA felul în care folosim webul: date clare, instrumente conectate, permisiuni și verificarea rezultatelor.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): Internetul agentic este aici. De la informație la acțiune.
 - [The Next Step in AI Is Training Models for Your Business](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/): Proiectul Pagini Web explores how models trained for specific businesses can support AI agents, connected workflows, and useful digital experiences.
