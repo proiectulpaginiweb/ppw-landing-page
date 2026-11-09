@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7ef" />
+  <title>Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP — Proiectul Pagini Web</title>
+  <meta name="description" content="Java/Spring, Ruby/Rails sau JavaScript/React? Două grafice explică ce consumă tokeni când scrii cod cu AI și cum să alegi un stack pentru startup." />
+  <link rel="canonical" href="https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:title" content="Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP" />
+  <meta property="og:description" content="Java/Spring, Ruby/Rails sau JavaScript/React? Două grafice explică ce consumă tokeni când scrii cod cu AI și cum să alegi un stack pentru startup." />
+  <meta property="og:url" content="https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/" />
+  <meta property="og:image" content="https://www.proiectulpaginiweb.ro/assets/ppw.png" />
+  <meta property="og:image:alt" content="Sigla Proiectul Pagini Web" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2026-11-09" />
+  <meta property="article:modified_time" content="2026-11-09" />
+  <link rel="alternate" type="text/markdown" href="https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/index.md" title="Articol în format Markdown" />
+  <link rel="describedby" href="https://www.proiectulpaginiweb.ro/llms.txt" type="text/plain" />
+  <link rel="icon" href="../../assets/ppw.png" type="image/png" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../blog.css?v=20a7db72" />
+  <script src="../../blog.js?v=bf5220c9" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP","description":"Java/Spring, Ruby/Rails sau JavaScript/React? Două grafice explică ce consumă tokeni când scrii cod cu AI și cum să alegi un stack pentru startup.","datePublished":"2026-11-09","dateModified":"2026-11-09","inLanguage":"ro","url":"https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/"},"author":{"@type":"Organization","name":"Proiectul Pagini Web","url":"https://www.proiectulpaginiweb.ro/"},"publisher":{"@type":"Organization","name":"Proiectul Pagini Web","logo":{"@type":"ImageObject","url":"https://www.proiectulpaginiweb.ro/assets/ppw.png"}}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Proiectul Pagini Web — Acasă"><span class="brand-wordmark">Proiectul<br />Pagini Web<span class="brand-dot" aria-hidden="true"></span></span><span class="brand-tagline">Gândire independentă.<br />Posibilități inteligente.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigare">Meniu <span aria-hidden="true">＋</span></button>
+    <nav id="navigare" aria-label="Navigare principală"><a href="../../#abordare">Abordarea noastră</a><a href="../../#posibilitati">Ce construim</a><a href="../" aria-current="page">Blog</a><a class="button small dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="continut">
+    <article class="post section-shell">
+      <nav class="post-breadcrumb" aria-label="Fir de navigare"><a href="../../">Acasă</a><span>/</span><a href="../">Blog</a><span>/</span><span>Java, Ruby sau JavaScript?</span></nav>
+      <header class="post-header"><p class="blog-meta"><time datetime="2026-11-09">9 noiembrie 2026</time><span>·</span> Dezvoltare cu AI <span>·</span> 6 minute de citit</p><h1>Java, Ruby sau JavaScript?<br /><em>Cât costă în tokeni să construiești un MVP</em></h1><p class="post-lead">Când un agent AI scrie cod cu tine, alegerea limbajului schimbă atât codul pe care îl generează, cât și informațiile de care are nevoie ca să verifice o modificare. Pentru un startup, aș evalua câți tokeni și cât timp îi trebuie echipei ca să pună în mâna unui client o funcționalitate care merge.</p></header>
+      <div class="post-layout"><aside class="post-sidebar"><span>În acest articol</span><a href="#consum">Ce consumă tokeni</a><a href="#cod">O regulă în trei limbaje</a><a href="#stackuri">Trei aplicații comparabile</a><a href="#alegere">Ce aș alege la început</a><a href="#masurare">Cum măsori pe proiectul tău</a></aside><div class="post-body">
+        <h2 id="consum">Ce consumă tokeni când lucrezi cu un agent AI</h2>
+        <p>Tokenii de intrare includ cerința, istoricul și fragmentele de cod sau de loguri pe care agentul le trimite modelului. Tokenii de ieșire includ răspunsurile și, la modelele care îi raportează astfel, tokenii de raționament. O modificare poate trece prin mai multe apeluri, iar o parte din intrare poate fi refolosită din cache și tarifată diferit. Aici urmărim consumul din timpul dezvoltării. Dacă aplicația oferă și o funcție AI clienților, apelurile acelei funcții au propriul consum. <a href="https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens">Cum sunt numărați tokenii</a> · <a href="https://developers.openai.com/api/docs/guides/prompt-caching">Documentația despre cache</a></p>
+        <p>Imaginează-ți că testul pentru expirarea unei invitații pică. Un agent primește funcția și testul relevant. În altă sesiune, primește și fișiere din alte module, plus loguri complete. În graficul de mai jos, am presupus aceeași ieșire în ambele sesiuni ca să izolăm efectul intrării.</p>
+        <figure>
+          <img src="tokeni-sesiune.svg" alt="Sesiuni ipotetice pentru aceeași modificare. Contextul restrâns totalizează 14 000 de tokeni, iar cel larg, 44 000." width="560" height="328" />
+          <figcaption>În scenariul ilustrativ, intrarea crește de la 12 000 la 42 000 de tokeni. Ieșirea este de 2 000 de tokeni în ambele sesiuni.</figcaption>
+        </figure>
+        <p>Dacă ai un buget fix, urmărește ce citește agentul între încercări și cât de precis îi arată testele unde a greșit. Un test care indică exact cazul de expirare poate scurta căutarea prin proiect.</p>
+
+        <h2 id="cod">O regulă în Java, Ruby și JavaScript</h2>
+        <p>Un coleg poate accepta o invitație dacă aceasta e nefolosită și încă nu a expirat. La momentul exact al expirării, răspunsul este fals. Cele trei fragmente primesc aceleași date, un indicator boolean și două momente exprimate în milisecunde, în intervalul de întregi reprezentabil exact în JavaScript.</p>
+        <h3>Java</h3>
+        <pre><code class="language-java">static boolean canAcceptInvite(long expiresAt, long now, boolean used) {
+    return !used &amp;&amp; now &lt; expiresAt;
+}</code></pre>
+        <h3>Ruby</h3>
+        <pre><code class="language-ruby">def can_accept_invite(expires_at, now, used)
+  !used &amp;&amp; now &lt; expires_at
+end</code></pre>
+        <h3>JavaScript</h3>
+        <pre><code class="language-javascript">function canAcceptInvite(expiresAt, now, used) {
+  return !used &amp;&amp; now &lt; expiresAt;
+}</code></pre>
+        <figure>
+          <img src="tokeni-cod.svg" alt="Măsurare cu o200k_base. Fragmentul Java are 27 de tokeni, Ruby are 23, iar JavaScript are 24." width="560" height="328" loading="lazy" />
+          <figcaption>Număr de tokeni pentru fragmentele afișate, fără eticheta limbajului sau un rând nou la final. Calculul este reproductibil cu <code>len(tiktoken.get_encoding("o200k_base").encode(fragment))</code>. <a href="https://github.com/openai/tiktoken">Tokenizerul tiktoken</a></figcaption>
+        </figure>
+        <p>Patru tokeni separă Java de Ruby în aceste fragmente. Graficul măsoară textul afișat, inclusiv numele, tipurile și formatarea. Pentru o funcționalitate întreagă, măsurarea trebuie să includă și codul citit, testele și încercările de corectare.</p>
+
+        <h2 id="stackuri">Trei stack-uri pentru aceeași aplicație</h2>
+        <p>React este o bibliotecă pentru interfețe. Ca să comparăm aplicații complete, folosim Java cu Spring Boot și Thymeleaf, Ruby cu Rails și Hotwire, respectiv JavaScript cu React și Next.js. În toate trei, utilizatorul invită un coleg, invitația expiră și poate fi folosită o singură dată, inclusiv dacă sosesc două cereri de acceptare în același timp. <a href="https://spring.io/guides/gs/serving-web-content">Spring MVC cu Thymeleaf</a> · <a href="https://guides.rubyonrails.org/getting_started.html">Ghidul Rails</a> · <a href="https://react.dev/learn/creating-a-react-app">Cadre de lucru pentru React</a></p>
+        <div class="post-facts">
+          <div><strong>Ruby cu Rails</strong><p>Convențiile pentru rute, modele, migrații și formulare îi dau agentului repere previzibile. Dacă portalul urmează structura Rails, un formular și o validare pot fi schimbate cu puțin context propriu proiectului. Testele îi arată agentului reguli care altfel pot rămâne implicite, cum ar fi cine are voie să invite pe cine.</p></div>
+          <div><strong>Java cu Spring Boot</strong><p>Într-un proiect cu controller, serviciu și repository separate, agentul poate avea mai multe fișiere de parcurs. Tipurile și compilatorul oferă însă feedback imediat despre contractele din cod, iar Spring Data JPA poate genera implementarea unor metode de acces la date. O regulă de acces concentrată într-un singur serviciu poate fi ușor de găsit, modificat și testat. <a href="https://spring.io/guides/gs/accessing-data-jpa">Ghidul Spring Data JPA</a></p></div>
+          <div><strong>JavaScript cu React și Next.js</strong><p>Agentul poate lucra la formular și la logica de pe server în același proiect. Când adaugi stări interactive, trebuie să înțeleagă și ce rulează în browser, unde se validează datele și ce se întâmplă după trimitere. Dacă portalul folosește deja o convenție pentru aceste lucruri, agentul o poate urma la fiecare schimbare. <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Componente de server și client în Next.js</a></p></div>
+        </div>
+
+        <h2 id="alegere">Ce aș alege pentru un startup</h2>
+        <p><strong>Aș începe cu Rails pentru un MVP de business</strong> când echipa pornește de la zero și produsul înseamnă în principal conturi, formulare, permisiuni și operații uzuale pe date. Convențiile îți permit să testezi primul flux cu clienții înainte de a lua multe decizii de arhitectură.</p>
+        <p><strong>Aș alege React cu Next.js</strong> când interfața e o parte esențială din produs, de exemplu un editor vizual, sau când echipa are deja experiență în ecosistemul JavaScript și poate verifica rapid ce generează agentul. TypeScript merită luat în calcul dacă echipa vrea verificări statice pentru contractele dintre componente și server.</p>
+        <p><strong>Aș alege Spring Boot</strong> când echipa lucrează deja bine în Java, are integrări în acel ecosistem sau când regulile de business au nevoie de contracte explicite între module. Dacă verifici și corectezi rapid o propunere a agentului, experiența echipei poate cântări mai mult decât diferența de tokeni dintre două fragmente.</p>
+
+        <h2 id="masurare">Cum măsori pe proiectul tău</h2>
+        <p>Ia câte o cerință reprezentativă, cum ar fi un formular nou, o schimbare de permisiuni sau o interacțiune importantă în browser. Începe din proiecte cu funcționalitate și maturitate comparabile. Folosește același agent, model, buget de încercări și aceleași criterii de acceptare. Repetă fiecare probă în sesiuni noi și păstrează separat costul de inițializare a proiectului.</p>
+        <p>Pentru fiecare stack, împarte totalul tokenilor din toate încercările la numărul de soluții care trec testele. Notează și rata de succes, timpul până la o soluție validă și factura estimată pe baza tokenilor de intrare fără cache, a celor de intrare serviți din cache și a celor de ieșire, conform tarifării furnizorului. Dacă nicio încercare nu trece, raportează consumul și rata de succes de 0%.</p>
+        <p>La primul MVP contează și cât de repede poate echipa să schimbe ceva după ce vorbește cu un client. Proba cu invitațiile merită rulată tocmai pentru că trece prin interfață, date, permisiuni și teste, așa cum o vor face și multe dintre schimbările din produs.</p>
+        <div class="post-end"><span>Proiectul Pagini Web</span><a href="../">← Înapoi la blog</a></div>
+      </div></div>
+    </article>
+    <section class="blog-cta section-shell"><p>Ai o idee pentru o aplicație?</p><a class="button dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer section-shell"><div class="footer-top"><a class="footer-name" href="../../">Proiectul<br />Pagini Web<span class="orange">.</span></a><p>Ambiție umană.<br />Posibilități cu agenți IA.</p><a class="back-top" href="#">Înapoi sus <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© 2026 Proiectul Pagini Web</span><span>Construit cu IA. Centrat pe oameni.</span><a href="../../#contact">Scrie-ne ↗</a></div></footer>
+</body>
+</html>

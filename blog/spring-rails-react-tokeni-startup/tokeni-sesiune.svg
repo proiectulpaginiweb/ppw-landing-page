@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="328" viewBox="0 0 560 328" role="img" aria-labelledby="titlu descriere" xml:lang="ro">
+  <title id="titlu">Aceeași funcție, două sesiuni de lucru cu un agent AI</title>
+  <desc id="descriere">Exemplu ilustrativ. Cu un context focalizat, agentul consumă 12 000 de tokeni la intrare și 2 000 la ieșire, în total 14 000. Cu un context larg consumă 42 000 la intrare și 2 000 la ieșire, în total 44 000. Scara pornește de la zero și ajunge la 50 000 de tokeni.</desc>
+  <rect x="0.5" y="0.5" width="559" height="327" rx="14" fill="#f7f7ef" stroke="#d4d7c7"/>
+
+  <g font-family="system-ui, sans-serif" fill="#263223">
+    <text x="26" y="35" font-size="18" font-weight="700" fill="#456b28">Exemplu ilustrativ</text>
+    <text x="26" y="70" font-size="29" font-weight="750">Tokeni pe sesiune</text>
+
+    <rect x="26" y="87" width="15" height="15" rx="2" fill="#456b28"/>
+    <text x="50" y="100" font-size="20">Intrare</text>
+    <rect x="144" y="87" width="15" height="15" rx="2" fill="#ad471a"/>
+    <text x="168" y="100" font-size="20">Ieșire</text>
+
+    <g font-size="22" font-weight="650">
+      <text x="26" y="146">Context focalizat</text>
+      <text x="534" y="146" text-anchor="end">14 000 total</text>
+      <text x="26" y="220">Context larg</text>
+      <text x="534" y="220" text-anchor="end">44 000 total</text>
+    </g>
+
+    <g fill="#e6eadc">
+      <rect x="26" y="158" width="508" height="23" rx="3"/>
+      <rect x="26" y="232" width="508" height="23" rx="3"/>
+    </g>
+    <g fill="#456b28">
+      <rect x="26" y="158" width="121.92" height="23"/>
+      <rect x="26" y="232" width="426.72" height="23"/>
+    </g>
+    <g fill="#ad471a">
+      <rect x="147.92" y="158" width="20.32" height="23"/>
+      <rect x="452.72" y="232" width="20.32" height="23"/>
+    </g>
+
+    <path d="M26 271v7h508v-7m-254 0v7" fill="none" stroke="#717663"/>
+    <g font-size="18" fill="#4a5043">
+      <text x="26" y="305">0</text>
+      <text x="280" y="305" text-anchor="middle">25 000</text>
+      <text x="534" y="305" text-anchor="end">50 000</text>
+    </g>
+  </g>
+</svg>

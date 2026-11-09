@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="328" viewBox="0 0 560 328" role="img" aria-labelledby="titlu descriere" xml:lang="ro">
+  <title id="titlu">Tokeni pentru aceeași regulă, măsurați cu o200k_base</title>
+  <desc id="descriere">Cele trei fragmente de cod din articol au 27 de tokeni în Java, 23 în Ruby și 24 în JavaScript. Scara pornește de la zero și ajunge la 30 de tokeni.</desc>
+  <rect x="0.5" y="0.5" width="559" height="327" rx="14" fill="#f7f7ef" stroke="#d4d7c7"/>
+
+  <g font-family="system-ui, sans-serif" fill="#263223">
+    <text x="26" y="35" font-size="18" font-weight="700" fill="#456b28">Măsurare de cod · o200k_base</text>
+    <text x="26" y="70" font-size="29" font-weight="750">Tokeni pentru aceeași regulă</text>
+
+    <g font-size="22" font-weight="650">
+      <text x="26" y="112">Java</text>
+      <text x="534" y="112" text-anchor="end">27</text>
+      <text x="26" y="172">Ruby</text>
+      <text x="534" y="172" text-anchor="end">23</text>
+      <text x="26" y="232">JavaScript</text>
+      <text x="534" y="232" text-anchor="end">24</text>
+    </g>
+
+    <g fill="#e6eadc">
+      <rect x="26" y="124" width="508" height="21" rx="3"/>
+      <rect x="26" y="184" width="508" height="21" rx="3"/>
+      <rect x="26" y="244" width="508" height="21" rx="3"/>
+    </g>
+    <g fill="#456b28">
+      <rect x="26" y="124" width="457.2" height="21" rx="3"/>
+      <rect x="26" y="184" width="389.47" height="21" rx="3"/>
+      <rect x="26" y="244" width="406.4" height="21" rx="3"/>
+    </g>
+
+    <path d="M26 276v7h508v-7m-254 0v7" fill="none" stroke="#717663"/>
+    <g font-size="18" fill="#4a5043">
+      <text x="26" y="309">0</text>
+      <text x="280" y="309" text-anchor="middle">15</text>
+      <text x="534" y="309" text-anchor="end">30</text>
+    </g>
+  </g>
+</svg>

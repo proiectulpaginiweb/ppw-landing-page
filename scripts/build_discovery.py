@@ -4,6 +4,7 @@ from hashlib import sha256
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin
 import json
 import re
 
@@ -136,6 +137,8 @@ def inline_markdown(node):
     content = ''.join(inline_markdown(c) for c in node.children)
     if node.tag == 'a':
         return '[' + content.strip() + '](' + node.attrs['href'] + ')'
+    if node.tag == 'code':
+        return '`' + content + '`'
     return content
 
 # Keep a readable copy of every article in sync with its visible HTML.
@@ -164,6 +167,15 @@ for article_path in sorted((ROOT/'blog').glob('*/index.html')):
             article_lines.extend(['#' * int(child.tag[1]) + ' ' + child.text(), ''])
         elif child.tag == 'p':
             article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(child)).strip(), ''])
+        elif child.tag == 'pre':
+            code = child.first(lambda n: n.tag == 'code')
+            language = code.attrs.get('class', '').partition('language-')[2]
+            article_lines.extend(['```' + language, ''.join(code.children), '```', ''])
+        elif child.tag == 'figure':
+            image = child.first(lambda n: n.tag == 'img')
+            caption = child.first(lambda n: n.tag == 'figcaption')
+            image_url = urljoin(article_url, image.attrs['src'])
+            article_lines.extend([f"![{image.attrs['alt']}]({image_url})", '', inline_markdown(caption).strip(), ''])
         elif child.tag == 'blockquote':
             article_lines.extend(['> ' + child.text(), ''])
         elif child.tag in {'ul', 'ol'}:
