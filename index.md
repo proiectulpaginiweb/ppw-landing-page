@@ -8,7 +8,7 @@ Limba: română.
 
 O companie construită în jurul inteligenței artificiale. Cu oamenii în centru.
 
-# Următorul pas este agentic .
+# Următorul pas este agentic.
 
 Tu aduci ambiția. Noi te ajutăm să transformi IA în agenți, procese și experiențe care îți duc afacerea mai departe.
 

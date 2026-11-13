@@ -16,7 +16,13 @@ class Node:
     def __init__(self, tag='', attrs=()):
         self.tag, self.attrs, self.children = tag, dict(attrs), []
     def text(self):
-        return re.sub(r'\s+', ' ', ' '.join(c.text() if isinstance(c, Node) else c for c in self.children)).strip()
+        def content(node):
+            if isinstance(node, str):
+                return node
+            if node.attrs.get('aria-hidden') == 'true':
+                return ''
+            return ''.join(content(child) for child in node.children)
+        return re.sub(r'\s+', ' ', content(self)).strip()
     def all(self, predicate):
         for c in self.children:
             if isinstance(c, Node):
@@ -54,7 +60,7 @@ class Document(HTMLParser):
         self.stack[-1].children.append(text)
 
 html_path = ROOT / 'index.html'
-source = html_path.read_text()
+source = html_path.read_text(encoding='utf-8')
 doc = Document(source).root
 main = doc.first(lambda n: n.tag == 'main')
 description = doc.first(lambda n: n.tag == 'meta' and n.attrs.get('name') == 'description').attrs['content']
@@ -102,7 +108,7 @@ else:
 for asset in ('script.js','styles.css'):
     version=sha256((ROOT/asset).read_bytes()).hexdigest()[:12]
     source=re.sub(r'((?:src|href)="'+re.escape(asset)+r')(?:\?[^\"]*)?"',lambda m:m[1]+'?v='+version+'"',source)
-html_path.write_text(source)
+html_path.write_text(source, encoding='utf-8')
 
 # Content is taken from visible headings, prose, lists and every journey panel.
 lines = ['# '+NAME, '', '> '+description, '', 'Site oficial: '+SITE, '', 'Limba: română.', '']
@@ -129,22 +135,57 @@ def markdown(node):
         if isinstance(child, Node): markdown(child)
 markdown(main)
 lines.extend(['## Contact','','Folosește formularul de pe '+SITE+'#contact pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.',''])
-(ROOT/'index.md').write_text('\n'.join(lines))
+(ROOT/'index.md').write_text('\n'.join(lines), encoding='utf-8')
 
-def inline_markdown(node):
+def inline_markdown(node, base_url=None):
     if isinstance(node, str):
         return node
-    content = ''.join(inline_markdown(c) for c in node.children)
+    if base_url and (node.tag in IGNORE or node.attrs.get('aria-hidden') == 'true'):
+        return ''
+    content = ''.join(inline_markdown(c, base_url) for c in node.children)
     if node.tag == 'a':
-        return '[' + content.strip() + '](' + node.attrs['href'] + ')'
+        href = urljoin(base_url, node.attrs['href']) if base_url else node.attrs['href']
+        return '[' + content.strip() + '](' + href + ')'
     if node.tag == 'code':
         return '`' + content + '`'
     return content
 
+# Ordinary pages keep their own metadata and do not use blog publication fields.
+pages = []
+for page_path in (ROOT/'echipa/index.html',):
+    if not page_path.exists():
+        continue
+    page = Document(page_path.read_text(encoding='utf-8')).root
+    page_main = page.first(lambda n: n.tag == 'main')
+    page_url = page.first(lambda n: n.tag == 'link' and 'canonical' in n.attrs.get('rel', '').split()).attrs['href']
+    page_title = page.first(lambda n: n.tag == 'title').text()
+    page_description = page.first(lambda n: n.tag == 'meta' and n.attrs.get('name') == 'description').attrs['content']
+    page_lines = ['Pagina: ' + page_url, '']
+    block_tags = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'dl'}
+
+    def page_markdown(node):
+        if node.tag in IGNORE or node.attrs.get('aria-hidden') == 'true':
+            return
+        has_blocks = any(True for _ in node.all(lambda n: n.tag in block_tags))
+        if node.tag in block_tags - {'ul', 'ol', 'dl'} or (node.tag in {'li', 'a', 'dt', 'dd', 'figcaption', 'summary'} and not has_blocks):
+            content = re.sub(r'\s+', ' ', inline_markdown(node, page_url)).strip()
+            if content:
+                prefix = '#' * int(node.tag[1]) + ' ' if node.tag.startswith('h') else '- ' if node.tag == 'li' else ''
+                page_lines.extend([prefix + content, ''])
+            return
+        for child in node.children:
+            if isinstance(child, Node):
+                page_markdown(child)
+
+    page_markdown(page_main)
+    page_content = '\n'.join(page_lines).rstrip() + '\n'
+    page_path.with_suffix('.md').write_text(page_content, encoding='utf-8')
+    pages.append({'title': page_title, 'description': page_description, 'url': page_url, 'markdown': page_content})
+
 # Keep a readable copy of every article in sync with its visible HTML.
 articles = []
 for article_path in sorted((ROOT/'blog').glob('*/index.html')):
-    article = Document(article_path.read_text()).root
+    article = Document(article_path.read_text(encoding='utf-8')).root
     article_main = article.first(lambda n: n.tag == 'article' and 'post' in n.attrs.get('class', '').split())
     article_body = article_main.first(lambda n: 'post-body' in n.attrs.get('class', '').split())
     article_title = article_main.first(lambda n: n.tag == 'h1').text()
@@ -188,7 +229,7 @@ for article_path in sorted((ROOT/'blog').glob('*/index.html')):
                 paragraph = fact.first(lambda n: n.tag == 'p')
                 article_lines.extend([re.sub(r'\s+', ' ', inline_markdown(paragraph)).strip(), ''])
     article_markdown = '\n'.join(article_lines).rstrip() + '\n'
-    article_path.with_suffix('.md').write_text(article_markdown)
+    article_path.with_suffix('.md').write_text(article_markdown, encoding='utf-8')
     articles.append({
         'title': article_title, 'date': article_date, 'description': article_description,
         'language': article_language, 'url': article_url, 'markdown': article_markdown,
@@ -200,6 +241,11 @@ for article in articles:
     markdown_label = 'Article in Markdown' if article['language'].split('-')[0].lower() == 'en' else 'Articolul în Markdown'
     article_links.append(f"- [{markdown_label}]({article['url'].rstrip('/')}/index.md): {article['title']}")
 article_links = '\n'.join(article_links)
+page_links = '\n'.join(
+    f"- [{page['title']}]({page['url']}): {page['description']}\n"
+    f"- [Pagina în Markdown]({page['url'].rstrip('/')}/index.md): {page['title']}"
+    for page in pages
+)
 
 (ROOT/'llms.txt').write_text(f'''# {NAME}
 
@@ -210,8 +256,9 @@ Site oficial: {SITE}
 ## Conținut
 
 - [Prezentare completă în Markdown]({SITE}index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
-- [Conținut integral]({SITE}llms-full.txt): textul paginii principale și al tuturor articolelor.
+- [Conținut integral]({SITE}llms-full.txt): textul paginii principale, al paginii despre echipă și al tuturor articolelor.
 - [Pagina principală]({SITE}): versiunea HTML în română.
+{page_links}
 - [Blog]({SITE}blog/): articole despre tehnologie și experiențe digitale.
 {article_links}
 - [Servicii]({SITE}#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
@@ -220,11 +267,11 @@ Site oficial: {SITE}
 - [Contact]({SITE}#contact): formularul de contact.
 
 Exemplul de proces pentru relația cu clienții este ilustrativ. Pagina nu publică prețuri, garanții de performanță sau mărturii ale clienților.
-''')
+''', encoding='utf-8')
 # Full content is regenerated from the visible pages.
-(ROOT/'llms-full.txt').write_text('\n\n---\n\n'.join([(ROOT/'index.md').read_text().rstrip(), *(article['markdown'].rstrip() for article in articles)]) + '\n')
+(ROOT/'llms-full.txt').write_text('\n\n---\n\n'.join([(ROOT/'index.md').read_text(encoding='utf-8').rstrip(), *(page['markdown'].rstrip() for page in pages), *(article['markdown'].rstrip() for article in articles)]) + '\n', encoding='utf-8')
 (ROOT/'.nojekyll').touch()
-(ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+SITE+'sitemap.xml\n')
-sitemap_urls = [SITE, SITE+'blog/', *(article['url'] for article in articles)]
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>'+escape(url)+'</loc></url>\n' for url in sitemap_urls) + '</urlset>\n')
+(ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+SITE+'sitemap.xml\n', encoding='utf-8')
+sitemap_urls = [SITE, *(page['url'] for page in pages), SITE+'blog/', *(article['url'] for article in articles)]
+(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>'+escape(url)+'</loc></url>\n' for url in sitemap_urls) + '</urlset>\n', encoding='utf-8')
 print('Au fost generate metadatele canonice, JSON-LD, robots.txt, sitemap.xml, llms.txt și copiile Markdown din paginile HTML.')

@@ -7,8 +7,10 @@ Site oficial: https://www.proiectulpaginiweb.ro/
 ## Conținut
 
 - [Prezentare completă în Markdown](https://www.proiectulpaginiweb.ro/index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
-- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale și al tuturor articolelor.
+- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale, al paginii despre echipă și al tuturor articolelor.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
+- [Echipa — Sîrbu Nicolae-Cezar | Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/echipa/): Cunoaște echipa PPW: Sîrbu Nicolae-Cezar, inginer software cu peste 15 ani în IT. Parcursul profesional, proiectele open source și experiența tehnică.
+- [Pagina în Markdown](https://www.proiectulpaginiweb.ro/echipa/index.md): Echipa — Sîrbu Nicolae-Cezar | Proiectul Pagini Web
 - [Blog](https://www.proiectulpaginiweb.ro/blog/): articole despre tehnologie și experiențe digitale.
 - [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/): Chatul este interfața de conversație; agentul gestionează pașii unei sarcini. Exemple practice despre instrumente, autonomie și rezultate pentru business.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/index.md): Chat AI și agent AI: care este diferența?

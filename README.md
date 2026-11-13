@@ -11,16 +11,19 @@ npm run dev
 
 Open http://127.0.0.1:4173. No npm dependencies or build step are required. Any static host can serve this directory.
 
+The local server (`scripts/serve.py`) declares `charset=utf-8` for Markdown and other text responses so browsers display Romanian diacritics correctly. Keep source and generated text files in UTF-8; the discovery generator reads and writes that encoding explicitly. Production hosting should serve `.md` files as `text/markdown; charset=utf-8` and `.txt` files as `text/plain; charset=utf-8`.
+
 ## Content and interactions
 
 - Romanian positioning, services, illustrative workflow, interactive journey, principles, FAQs, and contact section.
+- Team page at `/echipa/`, introducing Sîrbu Nicolae-Cezar, his technical background, and public sources for the projects and experience described. It shares the site branding and mobile menu.
 - Blog at `/blog/`, using the same visual language and navigation as the landing page. Articles cover AI chat versus agents in Romanian at `/blog/chat-ai-vs-agent-ai/`, the agentic internet in Romanian at `/blog/internetul-agentic-este-aici/`, and training AI models for specific applications and businesses in Romanian at `/blog/training-ai-models-for-specific-businesses/`.
 - Accessible keyboard-controlled journey tabs, mobile navigation, and native FAQ disclosure controls.
 - Contact form submits to Web3Forms using the supplied public access key. Name, email, optional phone number, selected interest, and project details are combined into the message. Inline status feedback handles sending, success, and failure; failed submissions retain the visitor’s entries. All contact links point to the form; no recipient email address is displayed. Delivery goes to the recipient configured for the Web3Forms access key.
 - Fonts are loaded from Google Fonts, with local system fallbacks. Google Analytics (`G-01VJRQR4TT`) loads only on `https://www.proiectulpaginiweb.ro` and `https://proiectulpaginiweb.ro`, using the default HTTPS port. Localhost, local IP addresses, file previews, and other preview domains do not load the Google tag or initialize analytics.
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 
-Edit `index.html` for page content, `styles.css` for the landing page design, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the blog menu. The blog listing is in `blog/index.html`; each article is in its own `blog/<slug>/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
+Edit `index.html` for page content, `styles.css` for the landing page design, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the shared secondary-page menu. The team page is in `echipa/index.html`, with page-specific styles in `echipa.css`. The blog listing is in `blog/index.html`; each article is in its own `blog/<slug>/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
 
 ## Indexing and agent discovery
 
@@ -28,9 +31,9 @@ Production URL: https://www.proiectulpaginiweb.ro/
 
 All four journey panels are present in the HTML response. With JavaScript disabled, every panel remains readable; with JavaScript enabled, the existing tab interface is preserved.
 
-After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator updates homepage canonical/social metadata, JSON-LD (Organization, WebSite, WebPage and Services), content hashes, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `index.md`. It discovers every `blog/*/index.html` article, generates its adjacent `index.md`, and includes all articles in the sitemap and both LLM discovery files. Article titles, publication dates, descriptions, languages, and canonical URLs come from the HTML; English articles use English publication and article labels in Markdown. Do not edit generated discovery files directly. Change `SITE` in `scripts/build_discovery.py` if the production domain changes. Blog page metadata and BlogPosting JSON-LD are in their HTML source and should match visible content.
+After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator updates homepage canonical/social metadata, JSON-LD (Organization, WebSite, WebPage and Services), content hashes, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `index.md`. It generates `echipa/index.md` from the visible team page, preserving source links, and includes the team page in the sitemap and both LLM discovery files. It also discovers every `blog/*/index.html` article, generates its adjacent `index.md`, and includes all articles in those discovery files. Article titles, publication dates, descriptions, languages, and canonical URLs come from the HTML; English articles use English publication and article labels in Markdown. Do not edit generated discovery files directly. Change `SITE` in `scripts/build_discovery.py` if the production domain changes. Team page metadata, person JSON-LD, and blog page metadata and BlogPosting JSON-LD are in their HTML source and should match visible content.
 
-Publish `index.html`, `styles.css`, `blog.css`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the Google verification file `google83152e7ab05f6d9b.html` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
+Publish `index.html`, `styles.css`, `echipa.css`, `echipa/`, `blog.css`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the Google verification file `google83152e7ab05f6d9b.html` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
 
 `robots.txt` permits crawling; it does not override host/CDN blocks or guarantee indexing. Ensure the deployed page and discovery files return HTTP 200 with no authentication, challenge, or `X-Robots-Tag: noindex`. Configure non-www/HTTP URLs to redirect to the canonical HTTPS www address at the hosting layer. Submit the sitemap in your search-console account if desired. `llms.txt` is supplementary guidance, not a guarantee that an AI service will use it.
 
