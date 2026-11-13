@@ -26,7 +26,7 @@ class AssetBuildTests(unittest.TestCase):
         return json.loads((self.root/'assets/asset-manifest.json').read_text())['assets']
 
     def pages(self):
-        return [self.root/'index.html', self.root/'echipa/index.html',
+        return [self.root/'index.html', self.root/'404.html', self.root/'echipa/index.html',
                 self.root/'blog/index.html', *sorted((self.root/'blog').glob('*/index.html'))]
 
     def snapshot(self):
@@ -50,7 +50,11 @@ class AssetBuildTests(unittest.TestCase):
             self.assertEqual(len(preloads), 4)
             self.assertTrue(set(preloads) <= css_urls)
             for reference in preloads:
-                self.assertTrue((page.parent/reference).is_file())
+                target = self.root/reference.lstrip('/') if reference.startswith('/') else page.parent/reference
+                self.assertTrue(target.is_file())
+        error_page = (self.root/'404.html').read_text()
+        self.assertIn('content="noindex, follow"', error_page)
+        self.assertNotIn('/404.html', (self.root/'sitemap.xml').read_text())
         homepage = (self.root/'index.html').read_text()
         self.assertIn(assets['assets/proiectul-pagini-web-logo-2013.webp'], homepage)
         self.assertIn(assets['assets/proiectul-pagini-web-logo-2013.png'], homepage)
