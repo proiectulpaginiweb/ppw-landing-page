@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 import re
-from seo import update_metadata
+from seo import update_error_page, update_metadata
 from markdown_content import inline_markdown, render_markdown
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -60,6 +60,7 @@ class Document(HTMLParser):
         self.stack[-1].children.append(text)
 
 update_metadata(ROOT, SITE, NAME, Document)
+update_error_page(ROOT, SITE)
 html_path = ROOT / 'index.html'
 source = html_path.read_text(encoding='utf-8')
 doc = Document(source).root

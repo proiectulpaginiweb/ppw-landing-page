@@ -10,6 +10,7 @@ const bundles = {
   'home.min.css': ['home.css'],
   'blog.min.css': ['blog.css'],
   'echipa.min.css': ['echipa.css'],
+  '404.min.css': ['404.css'],
 };
 for (const [output, sources] of Object.entries(bundles)) {
   const input = sources.map(file => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');

@@ -28,6 +28,31 @@ def page_styles(root, page_style, relative_root):
     return css
 
 
+def update_error_page(root, site):
+    """Use root-relative assets because a 404 can be served at any URL depth."""
+    path = root/'404.html'
+    if not path.is_file():
+        return
+    assets = AssetCatalog(root, site)
+    source = assets.rewrite_html(path.read_text(encoding='utf-8'), path, hashed=False)
+    for block in ('scripts', 'favicon', 'fonts', 'styles'):
+        source = re.sub(r'\s*<!-- '+block+r':start -->.*?<!-- '+block+r':end -->', '', source, flags=re.S)
+    head, body = source.split('</head>', 1)
+    preloads = '\n'.join(
+        f'<link rel="preload" href="/{assets.assets["assets/fonts/"+filename]}" '
+        'as="font" type="font/woff2" crossorigin />' for filename in FONT_PRELOADS)
+    blocks = '\n'.join([
+        '<!-- scripts:start -->', '<script src="/blog.js" defer></script>',
+        '<script src="/analytics.js" defer></script>', '<!-- scripts:end -->',
+        '<!-- favicon:start -->',
+        '<link id="site-favicon" rel="icon" type="image/svg+xml" sizes="any" href="/assets/favicon.svg" />',
+        '<!-- favicon:end -->', '<!-- fonts:start -->', preloads, '<!-- fonts:end -->',
+        '<!-- styles:start -->', '<style id="site-styles">', page_styles(root, '404', '/'),
+        '</style>', '<!-- styles:end -->'])
+    output = head.rstrip()+'\n'+blocks+'\n</head>'+body
+    path.write_text(assets.rewrite_html(output, path), encoding='utf-8')
+
+
 def update_metadata(root, site, name, Document):
     assets = AssetCatalog(root, site)
     def has_class(node, value):
