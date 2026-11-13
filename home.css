@@ -112,9 +112,8 @@
   justify-content: center;
 }
 .logo-sticker img {
-  width: 94%;
+  width: 60%;
   height: auto;
-  border-radius: 50%;
 }
 .logo-sticker > span {
   position: absolute;

@@ -33,11 +33,11 @@ def update_metadata(root, site, name, Document):
 
     home = catalog[0]
     organization = {'@type': 'Organization', '@id': site+'#organizatie', 'name': name,
-                    'url': site, 'description': home['description'], 'logo': site+'assets/ppw.png',
+                    'url': site, 'description': home['description'], 'logo': site+'assets/proiectul-pagini-web-logo-2013.png',
                     'contactPoint': {'@type': 'ContactPoint', 'contactType': 'Informații despre servicii',
                                      'url': site+'#contact', 'availableLanguage': ['ro']}}
     publisher = {'@type': 'Organization', '@id': organization['@id'], 'name': name, 'url': site,
-                 'logo': {'@type': 'ImageObject', 'url': site+'assets/ppw.png'}}
+                 'logo': {'@type': 'ImageObject', 'url': site+'assets/proiectul-pagini-web-logo-2013.png'}}
 
     for entry in catalog:
         path, doc, url, kind = (entry[k] for k in ('path', 'doc', 'url', 'kind'))
@@ -47,7 +47,7 @@ def update_metadata(root, site, name, Document):
                    'name': entry['title'], 'description': entry['description'],
                    'inLanguage': entry['language'], 'isPartOf': {'@id': site+'#site'}}
         graph = [webpage]
-        image, image_alt = site+'assets/ppw.png', 'Sigla '+name
+        image, image_alt = site+'assets/proiectul-pagini-web-logo-2013.png', 'Sigla '+name
         dates = []
 
         if kind == 'home':
