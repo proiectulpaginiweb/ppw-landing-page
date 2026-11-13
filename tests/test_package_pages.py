@@ -37,6 +37,7 @@ class PackagePagesTests(unittest.TestCase):
     def test_only_public_files_are_packaged(self):
         public = {
             'CNAME': b'example.com', '.nojekyll': b'', 'google123.html': b'verification',
+            '404.html': b'<h1>Page not found</h1>',
             'analytics.js': b'current', 'styles.min.css': b'body{}',
             'assets/fonts/dm-sans-OFL.txt': b'license',
             fingerprint_path('analytics.js', b'old'): b'old',

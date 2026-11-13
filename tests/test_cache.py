@@ -47,6 +47,8 @@ class CacheTests(unittest.TestCase):
         (cls.root/f'script.{cls.current_hash}.js').write_bytes(cls.current)
         cls.html = b'<!doctype html><html lang="ro"><title>PPW</title></html>'
         (cls.root/'index.html').write_bytes(cls.html)
+        cls.not_found = '<!doctype html><html lang="ro"><title>Pagina nu a fost găsită</title></html>'.encode('utf-8')
+        (cls.root/'404.html').write_bytes(cls.not_found)
         cls.root_patch = patch.object(serve, 'ROOT', cls.root)
         cls.root_patch.start()
         cls.server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(cls.root)))
@@ -147,6 +149,41 @@ class CacheTests(unittest.TestCase):
         status, headers, _ = self.request('/assets/static/missing.123456789abc.js')
         self.assertEqual(status, 404)
         self.assertEqual(headers['Cache-Control'], 'no-cache')
+
+    def test_missing_deep_paths_serve_custom_html_with_real_404_status(self):
+        for path in ('/o/pagina/inexistenta/', '/missing-script.js'):
+            for method in ('GET', 'HEAD'):
+                with self.subTest(path=path, method=method):
+                    status, headers, body = self.request(path, method=method)
+                    self.assertEqual(status, 404)
+                    self.assertEqual(headers['Content-Type'], 'text/html; charset=utf-8')
+                    self.assertEqual(headers['Cache-Control'], 'no-cache')
+                    self.assertEqual(int(headers['Content-Length']), len(self.not_found))
+                    self.assertEqual(body, self.not_found if method == 'GET' else b'')
+
+    def test_custom_404_keeps_status_for_conditional_and_gzip_requests(self):
+        status, headers, body = self.request('/missing/', {
+            'Accept-Encoding': 'gzip', 'If-None-Match': '*',
+        })
+        self.assertEqual(status, 404)
+        self.assertEqual(headers['Cache-Control'], 'no-cache')
+        self.assertEqual(headers['Vary'], 'Accept-Encoding')
+        self.assertEqual(gzip.decompress(body) if headers.get('Content-Encoding') == 'gzip' else body,
+                         self.not_found)
+
+    def test_other_errors_and_missing_custom_file_keep_standard_error_responses(self):
+        status, _, body = self.request('/', method='POST')
+        self.assertEqual(status, 501)
+        self.assertNotEqual(body, self.not_found)
+        page = self.root/'404.html'
+        page.unlink()
+        try:
+            status, headers, body = self.request('/missing-without-custom-page/')
+        finally:
+            page.write_bytes(self.not_found)
+        self.assertEqual(status, 404)
+        self.assertEqual(headers['Cache-Control'], 'no-cache')
+        self.assertNotEqual(body, self.not_found)
 
 
 if __name__ == '__main__':

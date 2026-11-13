@@ -13,7 +13,7 @@ from asset_files import (ASSET_DIRECTORY, IMAGE_EXTENSIONS, MANIFEST,
 
 ROOT = Path(__file__).resolve().parent.parent
 ROOT_FILES = (
-    'index.html', 'index.md', 'robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt',
+    'index.html', '404.html', 'index.md', 'robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt',
     'script.js', 'blog.js', 'analytics.js', 'CNAME', '.nojekyll',
     'styles.min.css', 'home.min.css', 'blog.min.css', 'echipa.min.css',
 )

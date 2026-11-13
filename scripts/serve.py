@@ -105,6 +105,31 @@ class UTF8Handler(SimpleHTTPRequestHandler):
             return content_type + '; charset=utf-8'
         return content_type
 
+    def send_error(self, code, message=None, explain=None):
+        if code == 404:
+            try:
+                data = (ROOT/'404.html').read_bytes()
+            except OSError:
+                pass
+            else:
+                self.log_error('code %d, message %s', code, message or 'File not found')
+                self._cache_control = 'no-cache'
+                encoded = gzip.compress(data, mtime=0) if self.accepts_gzip() else data
+                compressed = len(encoded) < len(data)
+                body = encoded if compressed else data
+                self.send_response(404, message or 'File not found')
+                self.send_header('Connection', 'close')
+                self.send_header('Content-Type', 'text/html; charset=utf-8')
+                self.send_header('Content-Length', str(len(body)))
+                self.send_header('Vary', 'Accept-Encoding')
+                if compressed:
+                    self.send_header('Content-Encoding', 'gzip')
+                self.end_headers()
+                if self.command != 'HEAD':
+                    self.wfile.write(body)
+                return
+        super().send_error(code, message, explain)
+
     def end_headers(self):
         self.send_header('Cache-Control', getattr(self, '_cache_control', 'no-cache'))
         # Non-HTML copies cannot carry a <link rel="canonical"> in their body.
