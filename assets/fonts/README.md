@@ -21,4 +21,4 @@ npm run build
 
 Scriptul folosește FontTools și Brotli într-un mediu Python izolat; aceste dependențe nu sunt necesare pentru build-ul obișnuit sau servirea site-ului. Verifică acoperirea Unicode, axa variabilă și metricile verticale, apoi compară contururile și lățimile tuturor celor zece caractere la greutățile folosite de site (400, 500, 600, 650, 700, plus 750 și 800 pentru Manrope). Timestampul original este păstrat pentru rezultate reproductibile; două generări consecutive au produs aceleași hashuri SHA-256.
 
-La înlocuirea unui font, păstrează declarațiile Unicode corespunzătoare și rulează `npm run build`. Build-ul actualizează automat hashurile din CSS-ul publicat și din preîncărcări. Păstrează fiecare URL identic între preîncărcare și `@font-face` pentru a reutiliza aceeași cerere.
+La înlocuirea unui font, păstrează declarațiile Unicode corespunzătoare și rulează `npm run build`. Build-ul actualizează automat numele fizice cu hash din `assets/static/`, URL-urile din CSS-ul publicat și preîncărcările. Păstrează fiecare URL identic între preîncărcare și `@font-face` pentru a reutiliza aceeași cerere.

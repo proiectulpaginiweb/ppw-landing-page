@@ -24,7 +24,7 @@ Tokenii de intrare includ cerința, istoricul și fragmentele de cod sau de logu
 
 Imaginează-ți că testul pentru expirarea unei invitații pică. Un agent primește funcția și testul relevant. În altă sesiune, primește și fișiere din alte module, plus loguri complete. În graficul de mai jos, am presupus aceeași ieșire în ambele sesiuni ca să izolăm efectul intrării.
 
-![Sesiuni ipotetice pentru aceeași modificare. Contextul restrâns totalizează 14 000 de tokeni, iar cel larg, 44 000.](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/tokeni-sesiune.svg)
+![Sesiuni ipotetice pentru aceeași modificare. Contextul restrâns totalizează 14 000 de tokeni, iar cel larg, 44 000.](https://www.proiectulpaginiweb.ro/assets/static/blog/spring-rails-react-tokeni-startup/tokeni-sesiune.bf7a89dd838c.svg)
 
 În scenariul ilustrativ, intrarea crește de la 12 000 la 42 000 de tokeni. Ieșirea este de 2 000 de tokeni în ambele sesiuni.
 
@@ -58,7 +58,7 @@ function canAcceptInvite(expiresAt, now, used) {
 }
 ```
 
-![Măsurare cu o200k_base. Fragmentul Java are 27 de tokeni, Ruby are 23, iar JavaScript are 24.](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/tokeni-cod.svg)
+![Măsurare cu o200k_base. Fragmentul Java are 27 de tokeni, Ruby are 23, iar JavaScript are 24.](https://www.proiectulpaginiweb.ro/assets/static/blog/spring-rails-react-tokeni-startup/tokeni-cod.e65706cd87f2.svg)
 
 Număr de tokeni pentru fragmentele afișate, fără eticheta limbajului sau un rând nou la final. Calculul este reproductibil cu `len(tiktoken.get_encoding("o200k_base").encode(fragment))`. [Tokenizerul tiktoken](https://github.com/openai/tiktoken)
 

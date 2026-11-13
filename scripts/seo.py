@@ -1,9 +1,9 @@
 """Keep search metadata consistent with the site's visible, authored content."""
-from hashlib import sha256
 from html import escape
 import json
 import re
 from urllib.parse import urljoin, urlsplit
+from asset_files import AssetCatalog
 
 FONT_PRELOADS = ('manrope-latin.woff2', 'manrope-romanian.woff2',
                  'dm-sans-latin.woff2', 'dm-sans-romanian.woff2')
@@ -29,6 +29,7 @@ def page_styles(root, page_style, relative_root):
 
 
 def update_metadata(root, site, name, Document):
+    assets = AssetCatalog(root, site)
     def has_class(node, value):
         return value in node.attrs.get('class', '').split()
 
@@ -41,7 +42,7 @@ def update_metadata(root, site, name, Document):
              *sorted((root/'blog').glob('*/index.html'))]
     catalog = []
     for path in paths:
-        source = path.read_text(encoding='utf-8')
+        source = assets.rewrite_html(path.read_text(encoding='utf-8'), path, hashed=False)
         doc = Document(source).root
         relative = path.parent.relative_to(root).as_posix()
         url = site if relative == '.' else urljoin(site, relative + '/')
@@ -227,8 +228,7 @@ def update_metadata(root, site, name, Document):
         head = re.sub(r'<(?:meta|link)\b[^>]*>', strip_managed, head)
         relative_root = '../' * len(path.parent.relative_to(root).parts)
         def favicon_url(filename):
-            digest = sha256((root/'assets'/filename).read_bytes()).hexdigest()[:12]
-            return relative_root+'assets/'+filename+'?v='+digest
+            return relative_root+assets.assets['assets/'+filename]
 
         favicon = '\n'.join(['<!-- favicon:start -->',
             '<link id="site-favicon" rel="icon" type="image/svg+xml" sizes="any" '
@@ -236,9 +236,7 @@ def update_metadata(root, site, name, Document):
             '<!-- favicon:end -->'])
         preloads = []
         for filename in FONT_PRELOADS:
-            font_path = root/'assets/fonts'/filename
-            digest = sha256(font_path.read_bytes()).hexdigest()[:12]
-            href = relative_root+'assets/fonts/'+filename+'?v='+digest
+            href = relative_root+assets.assets['assets/fonts/'+filename]
             preloads.append(f'<link rel="preload" href="{href}" as="font" type="font/woff2" crossorigin />')
         fonts = '\n'.join(['<!-- fonts:start -->', *preloads, '<!-- fonts:end -->'])
         page_style = 'home' if kind == 'home' else 'echipa' if kind == 'profile' else 'blog'
@@ -252,16 +250,6 @@ def update_metadata(root, site, name, Document):
                              '<!-- scripts:end -->'])
         head = head.rstrip()+'\n'+scripts+'\n'+favicon+'\n'+fonts+'\n'+styles+'\n'
 
-        def version_asset(match):
-            prefix, href = match[1], match[2]
-            parsed = urlsplit(href)
-            if parsed.scheme or parsed.netloc:
-                return match[0]
-            asset = (path.parent/parsed.path).resolve()
-            if asset.is_relative_to(root) and asset.is_file() and asset.suffix in {'.css', '.js'}:
-                return prefix+parsed.path+'?v='+sha256(asset.read_bytes()).hexdigest()[:12]+'"'
-            return match[0]
-
-        head = re.sub(r'((?:src|href)=")([^"]+)"', version_asset, head)
         head = re.sub(r'\n[ \t]*\n(?:[ \t]*\n)+', '\n\n', head)
-        path.write_text(head.rstrip()+'\n'+block+'\n</head>'+body, encoding='utf-8')
+        output = head.rstrip()+'\n'+block+'\n</head>'+body
+        path.write_text(assets.rewrite_html(output, path), encoding='utf-8')

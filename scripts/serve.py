@@ -9,6 +9,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from io import BytesIO
 from os import fstat
 from pathlib import Path
+import re
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -55,7 +56,10 @@ class UTF8Handler(SimpleHTTPRequestHandler):
 
         digest = sha256(data).hexdigest()
         version = parse_qs(request.query).get('v')
-        if target.suffix.lower() in self.cacheable_assets and version == [digest[:12]]:
+        fingerprint = re.fullmatch(r'.+\.([0-9a-f]{12})\.[^.]+', target.name)
+        physical_version = (target.resolve().is_relative_to((ROOT/'assets/static').resolve())
+                            and fingerprint and fingerprint[1] == digest[:12])
+        if target.suffix.lower() in self.cacheable_assets and (physical_version or version == [digest[:12]]):
             self._cache_control = 'public, max-age=31536000, immutable'
 
         content_type = self.guess_type(str(target))

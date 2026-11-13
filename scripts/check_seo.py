@@ -13,6 +13,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 from seo import page_styles
+from asset_files import AssetCatalog, ASSET_DIRECTORY, fingerprint_path, is_fingerprinted_asset
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -105,6 +106,7 @@ class Audit:
         self.pages = {}
         self.titles = defaultdict(list)
         self.descriptions = defaultdict(list)
+        self.assets = AssetCatalog(ROOT)
 
     def require(self, condition, path, message):
         if not condition:
@@ -308,7 +310,8 @@ class Audit:
                      'page styles must not require render-blocking CSS requests')
         scripts = [node for node in nodes if node.tag == 'script' and node.attrs.get('src')]
         expected_scripts = ['script.js' if path == ROOT/'index.html' else 'blog.js', 'analytics.js']
-        self.require([urlsplit(node.attrs['src']).path.rsplit('/', 1)[-1] for node in scripts] == expected_scripts,
+        self.require([urlsplit(urljoin(canonical, node.attrs['src'])).path.lstrip('/') for node in scripts] ==
+                     [self.assets.assets.get(filename) for filename in expected_scripts],
                      path, 'shared analytics.js must follow the page interaction script exactly once')
         self.require(all('defer' in node.attrs for node in scripts), path,
                      'page and analytics scripts must not block HTML parsing')
@@ -318,7 +321,8 @@ class Audit:
         for filename in ('dm-sans-latin.woff2', 'manrope-latin.woff2',
                          'dm-sans-romanian.woff2', 'manrope-romanian.woff2'):
             preloads = [node for node in links if 'preload' in node.attrs.get('rel', '').split()
-                        and urlsplit(node.attrs.get('href', '')).path.endswith('/'+filename)]
+                        and urlsplit(urljoin(canonical, node.attrs.get('href', ''))).path.lstrip('/') ==
+                        self.assets.assets.get('assets/fonts/'+filename)]
             self.require(len(preloads) == 1 and preloads[0].attrs.get('as') == 'font'
                          and preloads[0].attrs.get('type') == 'font/woff2'
                          and 'crossorigin' in preloads[0].attrs, path,
@@ -424,6 +428,22 @@ class Audit:
         except (OSError, UnicodeError) as error:
             self.require(False, font_css, f'cannot validate local fonts ({error})')
 
+    def fingerprints(self):
+        self.require(bool(self.assets.assets), ROOT/'assets/asset-manifest.json',
+                     'asset manifest is missing or empty; run npm run build')
+        for logical, generated in self.assets.assets.items():
+            source, target = ROOT/logical, ROOT/generated
+            if not self.require(source.is_file() and target.is_file(), target,
+                                'fingerprinted asset or its source is missing'):
+                continue
+            data = source.read_bytes()
+            self.require(generated == fingerprint_path(logical, data) and target.read_bytes() == data,
+                         target, 'asset filename and bytes must match the source content hash')
+        for asset in (ROOT/ASSET_DIRECTORY).rglob('*'):
+            if asset.is_file():
+                self.require(is_fingerprinted_asset(asset, ROOT, asset.read_bytes()), asset,
+                             'generated assets must retain the bytes identified by their filenames')
+
     def run(self):
         paths = [ROOT / 'index.html', ROOT / 'blog/index.html', ROOT / 'echipa/index.html',
                  *sorted((ROOT / 'blog').glob('*/index.html'))]
@@ -435,6 +455,7 @@ class Audit:
                              f'duplicate {label}: ' + ', '.join(str(path.relative_to(ROOT)) for path in duplicates))
         self.sitemap(paths)
         self.css()
+        self.fingerprints()
         if self.errors:
             print(f'SEO validation failed ({len(self.errors)} issues):')
             for error in self.errors:

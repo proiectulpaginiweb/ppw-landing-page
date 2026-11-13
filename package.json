@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "python3 scripts/serve.py",
     "start": "python3 scripts/serve.py",
-    "build": "node scripts/build_assets.cjs && python3 scripts/build_discovery.py && python3 scripts/check_seo.py && python3 scripts/check_geo.py",
+    "build": "python3 scripts/asset_files.py && node scripts/build_assets.cjs && python3 scripts/build_discovery.py && python3 scripts/check_seo.py && python3 scripts/check_geo.py",
+    "build:pages": "npm run build && python3 scripts/package_pages.py --history",
+    "test": "python3 -m unittest discover -s tests -v",
     "check:seo": "python3 scripts/check_seo.py",
     "check:geo": "python3 scripts/check_geo.py"
   },
