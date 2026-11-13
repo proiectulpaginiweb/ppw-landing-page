@@ -111,8 +111,11 @@
   align-items: center;
   justify-content: center;
 }
-.logo-sticker img {
+.logo-sticker picture {
   width: 60%;
+}
+.logo-sticker img {
+  width: 100%;
   height: auto;
 }
 .logo-sticker > span {
@@ -976,4 +979,33 @@
 }
 .journey-panel[hidden] + .journey-panel {
   margin-top: 0;
+}
+
+/* Render mobile sections as they approach the viewport. The browser remembers
+   their measured height; these initial estimates exclude each section's padding.
+   Content stays available to search, accessibility and keyboard navigation. */
+@media screen and (max-width: 800px) {
+  .approach,
+  .possibilities,
+  .journey,
+  .principles,
+  .faq,
+  .contact {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto var(--section-placeholder, 600px);
+  }
+  .approach { --section-placeholder: 580px; }
+  .possibilities { --section-placeholder: 2310px; }
+  .journey { --section-placeholder: 1080px; }
+  .principles { --section-placeholder: 670px; }
+  .faq { --section-placeholder: 550px; }
+  .contact { --section-placeholder: 1000px; }
+
+  /* Resolve fragment destinations and focused controls immediately, including
+     service anchors nested inside a deferred section. */
+  main > section:target,
+  main > section:has(:target),
+  main > section:focus-within {
+    content-visibility: visible;
+  }
 }

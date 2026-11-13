@@ -5,7 +5,27 @@ import json
 import re
 from urllib.parse import urljoin, urlsplit
 
-FONT_PRELOADS = ('dm-sans-latin.woff2', 'manrope-latin.woff2')
+FONT_PRELOADS = ('manrope-latin.woff2', 'manrope-romanian.woff2',
+                 'dm-sans-latin.woff2', 'dm-sans-romanian.woff2')
+
+
+def page_styles(root, page_style, relative_root):
+    """Ship these small styles with HTML, without a render-blocking CSS fetch."""
+    css = '\n'.join((root/(name+'.min.css')).read_text(encoding='utf-8').strip()
+                    for name in ('styles', page_style))
+
+    def rebase(match):
+        reference = match[2]
+        parsed = urlsplit(reference)
+        if parsed.scheme or parsed.netloc or reference.startswith(('/', '#')):
+            return match[0]
+        # External CSS resolves URLs from the root; inline CSS uses the page URL.
+        return 'url("'+relative_root+reference+'")'
+
+    css = re.sub(r'url\((["\']?)([^)"\']+)\1\)', rebase, css)
+    if re.search(r'</style', css, flags=re.I):
+        raise ValueError('Stylesheet contains an unsafe HTML closing tag.')
+    return css
 
 
 def update_metadata(root, site, name, Document):
@@ -171,9 +191,20 @@ def update_metadata(root, site, name, Document):
         source = entry['source']
         source = re.sub(r'\s*<!-- discovery:start;.*?<!-- discovery:end -->', '', source, flags=re.S)
         source = re.sub(r'\s*<!-- fonts:start -->.*?<!-- fonts:end -->', '', source, flags=re.S)
+        source = re.sub(r'\s*<!-- styles:start -->.*?<!-- styles:end -->', '', source, flags=re.S)
+        source = re.sub(r'\s*<!-- scripts:start -->.*?<!-- scripts:end -->', '', source, flags=re.S)
         source = re.sub(r'\s*<!-- favicon:start -->.*?<!-- favicon:end -->', '', source, flags=re.S)
         head, body = source.split('</head>', 1)
         head = re.sub(r'\s*<script\b[^>]*\btype=["\']application/ld\+json["\'][^>]*>.*?</script>', '', head, flags=re.S)
+
+        def strip_page_script(match):
+            tag = Document(match[0]).root.children[0]
+            asset = urlsplit(tag.attrs.get('src', ''))
+            if not asset.netloc and asset.path.rsplit('/', 1)[-1] in {'script.js', 'blog.js', 'analytics.js'}:
+                return ''
+            return match[0]
+
+        head = re.sub(r'<script\b[^>]*>\s*</script>', strip_page_script, head)
 
         def strip_managed(match):
             tag = Document(match[0]).root.children[0]
@@ -211,9 +242,15 @@ def update_metadata(root, site, name, Document):
             preloads.append(f'<link rel="preload" href="{href}" as="font" type="font/woff2" crossorigin />')
         fonts = '\n'.join(['<!-- fonts:start -->', *preloads, '<!-- fonts:end -->'])
         page_style = 'home' if kind == 'home' else 'echipa' if kind == 'profile' else 'blog'
-        styles = '\n'.join(f'<link rel="stylesheet" href="{relative_root}{name}.min.css" />'
-                           for name in ('styles', page_style))
-        head = head.rstrip()+'\n'+favicon+'\n'+fonts+'\n'+styles+'\n'
+        styles = '\n'.join(['<!-- styles:start -->', '<style id="site-styles">',
+                            page_styles(root, page_style, relative_root),
+                            '</style>', '<!-- styles:end -->'])
+        page_script = 'script.js' if kind == 'home' else 'blog.js'
+        scripts = '\n'.join(['<!-- scripts:start -->',
+                             f'<script src="{relative_root}{page_script}" defer></script>',
+                             f'<script src="{relative_root}analytics.js" defer></script>',
+                             '<!-- scripts:end -->'])
+        head = head.rstrip()+'\n'+scripts+'\n'+favicon+'\n'+fonts+'\n'+styles+'\n'
 
         def version_asset(match):
             prefix, href = match[1], match[2]

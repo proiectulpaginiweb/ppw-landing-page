@@ -85,6 +85,33 @@ Avertizarea de **13 KiB JavaScript** rămasă indică două fișiere `chrome-ext
 
 Aceste rezultate provin dintr-un test local de laborator pentru Blog. Nu sunt măsurători din trafic real și nu reprezintă scoruri confirmate pentru toate paginile publicate. Resursele noi și fișierele HTML trebuie publicate împreună, apoi domeniul public trebuie testat separat.
 
+### Optimizare mobil — 13 noiembrie 2026
+
+Am inclus CSS-ul minificat comun și specific paginii direct în HTML, prin generatorul de metadate. Astfel dispar cele două cereri CSS care blocau prima afișare. Ordinea regulilor, media queries și stilurile fără JavaScript sunt păstrate; URL-urile fonturilor sunt adaptate inclusiv pentru articolele din subdirectoare. Fișierele CSS lizibile rămân sursele de editat.
+
+Am adăugat subseturi variabile mici pentru diacriticele românești și preîncarc cele patru fișiere folosite efectiv: Latin și românesc pentru fiecare familie. Fonturile Latin-ext originale rămân disponibile pentru celelalte caractere. Pentru conținutul românesc, fonturile transferate scad de la **114.876 la 55.248 bytes (−51,9%)**. Scriptul opțional `scripts/subset_fonts.py` verifică metricile, contururile și axele variabile. Sigla din homepage folosește WebP fără pierderi, cu PNG fallback: **27.596 → 19.692 bytes (−28,6%)**.
+
+Pe mobil, secțiunile de sub primul ecran sunt randate când se apropie de viewport, folosind `content-visibility: auto` și dimensiuni inițiale. Ancorele, elementele focalizate și navigarea cu tastatura activează imediat secțiunea necesară.
+
+Google Analytics este în `analytics.js`, cu tag `defer` imediat după scriptul de interacțiuni pe fiecare dintre cele opt pagini. Evenimentele sunt puse în coadă imediat; biblioteca Google se încarcă cu prioritate mică după evenimentul `load`, când browserul are timp liber. Restricția la domeniile de producție prin HTTPS rămâne activă.
+
+Măsurătorile folosesc **Lighthouse 13.5.0**, Chrome headless 157, profilul mobil implicit (412 × 823, rețea simulată 1.638,4 Kbps / 150 ms RTT, CPU ×4), cu cache resetat. Profilul și throttling-ul nu au fost relaxate.
+
+| Pagina principală, local | Înainte | După |
+| --- | --- | --- |
+| Performanță mobil | 99 | 100, în trei rulări consecutive |
+| FCP | 1,36 s | 0,60 s |
+| LCP | 1,81 s | 1,36 s |
+| Speed Index | 1,36 s | 0,60 s |
+| CLS | 0 | 0 |
+| Performanță desktop | — | 100 |
+
+În testul HTTP local, unde biblioteca Google Analytics nu se activează, toate cele **opt pagini** au obținut **100/100 la performanță mobilă**: homepage, Blog, Echipă și cele cinci articole. Build-ul și verificările SEO/GEO trec pentru toate cele opt pagini. Două build-uri consecutive produc fișiere identice. Meniul mobil, parcursul interactiv și afișarea unui articol la 390 px au fost verificate în browser, fără depășire orizontală.
+
+Am testat separat copia locală HTTPS/HTTP2, același protocol ca Cloudflare, cu Google Analytics activ pe toate paginile. Rețeaua raportului confirmă încărcarea bibliotecii Google și trimiterea `page_view`, fără blocarea sau simularea Analytics. Pagina principală a obținut **100 pe mobil în două rulări consecutive** (FCP 0,77 s, LCP 1,29 s, TBT 54–57 ms, CLS 0), plus **100 pe desktop**. Blogul, Echipa și trei articole au obținut 100; articolele GEO și costuri/tokeni au obținut 99, cu aproximativ 106–116 ms TBT. Scorurile cu scriptul Google pot varia cu încărcarea externă și timpul de procesare; acestea sunt valorile observate, fără modificarea profilului mobil.
+
+Rezultatele sunt teste locale de laborator. Domeniul public a variat între 99 și 100 înaintea acestei actualizări; acest lucru nu confirmă publicarea versiunii noi. Publicarea trebuie să includă toate cele opt HTML-uri regenerate, noile fișiere WOFF2 și WebP, apoi scorul trebuie reverificat pe URL-ul public.
+
 ### UTF-8 și fișiere de descoperire
 
 Fișierele Markdown au fost verificate pentru UTF-8, diacritice românești și normalizare Unicode NFC. Generatorul citește și scrie explicit UTF-8, iar serverul local declară `charset=utf-8` pentru răspunsurile text.

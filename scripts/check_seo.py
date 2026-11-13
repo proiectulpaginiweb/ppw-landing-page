@@ -12,6 +12,8 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
+from seo import page_styles
+
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = 'https://www.proiectulpaginiweb.ro/'
@@ -292,13 +294,29 @@ class Audit:
                 self.require(value == canonical, path, 'og:url differs from canonical')
             elif property_name == 'og:site_name':
                 self.require(value == NAME, path, 'og:site_name differs from site identity')
-        font_links = [node for node in links if 'stylesheet' in node.attrs.get('rel', '').split()
-                      and urlsplit(urljoin(canonical, node.attrs.get('href', ''))).path == '/styles.min.css']
-        self.require(len(font_links) == 1, path, 'one local shared stylesheet with font faces is required')
+        styles = [node for node in nodes if node.tag == 'style' and node.attrs.get('id') == 'site-styles']
+        page_style = 'home' if path == ROOT/'index.html' else 'echipa' if path == ROOT/'echipa/index.html' else 'blog'
+        relative_root = '../' * len(path.parent.relative_to(ROOT).parts)
+        self.require(len(styles) == 1, path, 'one generated inline stylesheet is required')
+        if styles:
+            css = styles[0].raw_text().strip()
+            self.require(css == page_styles(ROOT, page_style, relative_root), path,
+                         'inline styles must match the page bundles; run npm run build')
+            for reference in re.findall(r'url\([\"\']?([^\)\"\']+)', css):
+                self.local_ref(path, reference, 'inline CSS resource')
+        self.require(not any('stylesheet' in node.attrs.get('rel', '').split() for node in links), path,
+                     'page styles must not require render-blocking CSS requests')
+        scripts = [node for node in nodes if node.tag == 'script' and node.attrs.get('src')]
+        expected_scripts = ['script.js' if path == ROOT/'index.html' else 'blog.js', 'analytics.js']
+        self.require([urlsplit(node.attrs['src']).path.rsplit('/', 1)[-1] for node in scripts] == expected_scripts,
+                     path, 'shared analytics.js must follow the page interaction script exactly once')
+        self.require(all('defer' in node.attrs for node in scripts), path,
+                     'page and analytics scripts must not block HTML parsing')
         self.require(not any(urlsplit(node.attrs.get('href', '')).hostname in
                              {'fonts.googleapis.com', 'fonts.gstatic.com'} for node in links), path,
                      'font loading must not depend on third-party font connections')
-        for filename in ('dm-sans-latin.woff2', 'manrope-latin.woff2'):
+        for filename in ('dm-sans-latin.woff2', 'manrope-latin.woff2',
+                         'dm-sans-romanian.woff2', 'manrope-romanian.woff2'):
             preloads = [node for node in links if 'preload' in node.attrs.get('rel', '').split()
                         and urlsplit(node.attrs.get('href', '')).path.endswith('/'+filename)]
             self.require(len(preloads) == 1 and preloads[0].attrs.get('as') == 'font'
@@ -379,16 +397,20 @@ class Audit:
         try:
             source = font_css.read_text(encoding='utf-8')
             faces = re.findall(r'@font-face\s*\{([^}]+)\}', source, flags=re.I)
-            self.require(len(faces) == 4, font_css, 'expected Latin and Latin-ext variable faces for both fonts')
+            self.require(len(faces) == 6, font_css,
+                         'expected Latin, Latin-ext fallback and Romanian variable faces for both fonts')
             for family, weights in (('DM Sans', '400 700'), ('Manrope', '400 800')):
                 matching = [face for face in faces if re.search(
                     r'font-family:\s*[\"\']'+re.escape(family)+r'[\"\']', face)]
-                self.require(len(matching) == 2, font_css, f'{family} needs Latin and Latin-ext faces')
+                self.require(len(matching) == 3, font_css, f'{family} needs Latin, Latin-ext and Romanian faces')
                 for face in matching:
                     self.require(bool(re.search(r'font-weight:\s*'+weights+r'\s*;', face)), font_css,
                                  f'{family} must preserve the authored variable weight range')
                     self.require(bool(re.search(r'font-display:\s*swap\s*;', face)), font_css,
                                  'font-display: swap keeps text visible while fonts load')
+                self.require(bool(matching) and 'romanian.woff2' in matching[-1] and all(
+                    code in matching[-1] for code in ('U+0102-0103', 'U+015E-015F', 'U+0162-0163', 'U+0218-021B')),
+                    font_css, f'{family} must prefer its small Romanian subset for diacritics')
             for reference in re.findall(r'url\([\"\']?([^\)\"\']+)', source):
                 font = (ROOT/unquote(urlsplit(reference).path)).resolve()
                 self.require(font.is_relative_to(ROOT) and font.suffix == '.woff2' and
