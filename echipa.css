@@ -148,6 +148,7 @@
   margin-bottom: 26px;
 }
 .career-list {
+  --career-date-line-height: 19.2px;
   list-style: none;
   margin: 0;
   padding: 0 0 0 25px;
@@ -165,8 +166,8 @@
   content: "";
   position: absolute;
   left: -25.5px;
-  top: 7px;
-  transform: translateX(-50%);
+  top: calc(var(--career-date-line-height) / 2);
+  transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
   border: 2px solid var(--paper);
@@ -174,7 +175,7 @@
   background: #7d9460;
 }
 .career-list li + li::before {
-  top: 34px;
+  top: calc(27px + var(--career-date-line-height) / 2);
 }
 .career-list .career-current::before {
   background: var(--orange);
@@ -182,6 +183,7 @@
 }
 .career-date {
   font-size: 12px;
+  line-height: var(--career-date-line-height);
   color: #626858;
   margin-bottom: 10px;
 }

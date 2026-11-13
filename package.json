@@ -2,12 +2,15 @@
   "name": "proiectul-pagini-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Proiectul Pagini Web \u2014 o companie construită în jurul inteligenței artificiale",
+  "description": "Proiectul Pagini Web — o companie construită în jurul inteligenței artificiale",
   "scripts": {
     "dev": "python3 scripts/serve.py",
     "start": "python3 scripts/serve.py",
-    "build": "python3 scripts/build_discovery.py && python3 scripts/check_seo.py && python3 scripts/check_geo.py",
+    "build": "node scripts/build_assets.cjs && python3 scripts/build_discovery.py && python3 scripts/check_seo.py && python3 scripts/check_geo.py",
     "check:seo": "python3 scripts/check_seo.py",
     "check:geo": "python3 scripts/check_geo.py"
+  },
+  "devDependencies": {
+    "clean-css": "5.3.3"
   }
 }

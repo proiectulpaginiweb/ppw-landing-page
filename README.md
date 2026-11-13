@@ -1,15 +1,17 @@
 # Proiectul Pagini Web
 
-Responsive, buildless landing page for an AI-native company. Uses the supplied `ppw.png` brand asset and its yellow, green, and orange palette.
+Responsive static site for an AI-native company. Uses the supplied `ppw.png` brand asset and its yellow, green, and orange palette.
 
 ## Local preview
 
 ```sh
-cd ~/projects/proiectul-pagini-web
+cd ~/projects/ppw/proiectul-pagini-web
 npm run dev
 ```
 
-Open http://127.0.0.1:4173. No npm dependencies or build step are required. Any static host can serve this directory.
+Open http://127.0.0.1:4173. Checked-in generated assets allow preview without npm dependencies. After editing CSS or content, run `npm ci` once, then `npm run build`. The only npm dependency is the build-time CSS minifier; the published site has no npm runtime dependencies. Any static host can serve the generated files.
+
+The local server also compresses text with gzip, supports conditional requests and caches static assets for one year only when their `?v=` matches the current content hash. HTML and unversioned files revalidate to keep edits visible. These preview headers do not configure GitHub Pages or Cloudflare.
 
 The local server (`scripts/serve.py`) declares `charset=utf-8` for Markdown and other text responses so browsers display Romanian diacritics correctly. Keep source and generated text files in UTF-8; the discovery generator reads and writes that encoding explicitly. Production hosting should serve `.md` files as `text/markdown; charset=utf-8` and `.txt` files as `text/plain; charset=utf-8`.
 
@@ -20,10 +22,10 @@ The local server (`scripts/serve.py`) declares `charset=utf-8` for Markdown and 
 - Blog at `/blog/`, using the same visual language and navigation as the landing page. Articles cover AI chat versus agents in Romanian at `/blog/chat-ai-vs-agent-ai/`, the agentic internet in Romanian at `/blog/internetul-agentic-este-aici/`, and training AI models for specific applications and businesses in Romanian at `/blog/training-ai-models-for-specific-businesses/`.
 - Accessible keyboard-controlled journey tabs, mobile navigation, and native FAQ disclosure controls.
 - Contact form submits to Web3Forms using the supplied public access key. Name, email, optional phone number, selected interest, and project details are combined into the message. Inline status feedback handles sending, success, and failure; failed submissions retain the visitor’s entries. All contact links point to the form; no recipient email address is displayed. Delivery goes to the recipient configured for the Web3Forms access key.
-- Fonts are loaded through early stylesheet links and preconnects to Google Fonts, with `display=swap` and local system fallbacks. The brand PNG is losslessly compressed, and all content images have explicit dimensions. Google Analytics (`G-01VJRQR4TT`) loads only on `https://www.proiectulpaginiweb.ro` and `https://proiectulpaginiweb.ro`, using the default HTTPS port. Localhost, local IP addresses, file previews, and other preview domains do not load the Google tag or initialize analytics.
+- DM Sans and Manrope variable WOFF2 fonts are served locally with Latin and Latin-ext subsets, `font-display: swap`, two Latin preloads and system fallbacks. Publish their OFL licenses in `assets/fonts/`. CSS is minified during the build; homepage rules are excluded from blog and team pages. The logo blink uses opacity-only animations and respects reduced-motion preferences. The brand PNG is losslessly compressed, and all content images have explicit dimensions. Google Analytics (`G-01VJRQR4TT`) loads only on `https://www.proiectulpaginiweb.ro` and `https://proiectulpaginiweb.ro`, using the default HTTPS port. Localhost, local IP addresses, file previews, and other preview domains do not load the Google tag or initialize analytics.
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 
-Edit `index.html` for page content, `styles.css` for the landing page design, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the shared secondary-page menu. The team page is in `echipa/index.html`, with page-specific styles in `echipa.css`. The blog listing is in `blog/index.html`; each article is in its own `blog/<slug>/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
+Edit `index.html` for page content, `styles.css` for shared styles, `home.css` for the landing page design, `fonts.css` for font declarations, `blog.css` for blog styling, `script.js` for landing page interactions, and `blog.js` for the shared secondary-page menu. The team page is in `echipa/index.html`, with page-specific styles in `echipa.css`. The blog listing is in `blog/index.html`; each article is in its own `blog/<slug>/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
 
 ## Indexing and agent discovery
 
@@ -35,7 +37,9 @@ See [the GEO implementation and citation notes](docs/GEO.md) for the standalone 
 
 All four journey panels are present in the HTML response. With JavaScript disabled, every panel remains readable; with JavaScript enabled, the existing tab interface is preserved.
 
-After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator and `scripts/seo.py` keep all seven HTML pages consistent: canonical URLs, indexing directives, Open Graph/Twitter previews, font links, asset content hashes and JSON-LD. Schema uses Organization/WebSite/Services on the homepage, CollectionPage/ItemList on the blog, ProfilePage/Person on the team page, BlogPosting on articles, and BreadcrumbList matching visible navigation. Article authorship remains the named organization; no personal authorship, reviews, addresses or contact details are invented.
+Do not edit `*.min.css`: `scripts/build_assets.cjs` generates them with clean-css, preserving rule order. Shared `styles.min.css` includes font declarations; each page additionally loads its own minified stylesheet.
+
+After any content, CSS, or JavaScript edit, run `npm run build`. The CSS minifier, discovery generator and `scripts/seo.py` keep all seven HTML pages consistent: canonical URLs, indexing directives, Open Graph/Twitter previews, font links, asset content hashes and JSON-LD. Schema uses Organization/WebSite/Services on the homepage, CollectionPage/ItemList on the blog, ProfilePage/Person on the team page, BlogPosting on articles, and BreadcrumbList matching visible navigation. Article authorship remains the named organization; no personal authorship, reviews, addresses or contact details are invented.
 
 Edit each page's authored `<title>`, description, visible copy and breadcrumbs. Article publication dates come from the first visible `<time>` in `.post-header`; the authored `data-date-modified` on `.post` is the source for its modification date. Set it only when there is a real editorial update, and show that update in the page when it differs from publication. Keep the factual Person entity on the team page accurate; it is retained when its metadata block is regenerated. Do not manually edit other contents inside `discovery:start`/`discovery:end` or the generated font blocks.
 
@@ -53,7 +57,7 @@ The crawler audit on 13 November 2026 found HTTP 200 for the public homepage wit
 
 The same-day Search Console inspection confirmed that the verified www property inherits **Search generative AI: Include** from the domain. That setting was already active and was left unchanged. The overview reported six indexed pages and no Core Web Vitals data; these observations concern the published site, not the new local content. See the GEO section in `docs/SEO.md` for status and follow-up measurement.
 
-Publish `index.html`, `styles.css`, `echipa.css`, `echipa/`, `blog.css`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the Google verification file `google83152e7ab05f6d9b.html` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
+Publish `index.html`, `styles.min.css`, `home.min.css`, `blog.min.css`, `echipa.min.css`, `echipa/`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the Google verification file `google83152e7ab05f6d9b.html` together at the domain root. Keep `scripts/`, `node_modules/`, `package.json`, `package-lock.json`, authored CSS sources, and this README out of the public deployment if your host supports an explicit file list.
 
 `robots.txt` permits crawling; it does not override host/CDN blocks or guarantee indexing. Ensure the deployed page and discovery files return HTTP 200 with no authentication, challenge, or `X-Robots-Tag: noindex`. Configure non-www/HTTP URLs to redirect to the canonical HTTPS www address at the hosting layer. Submit the sitemap in your search-console account if desired. `llms.txt` is supplementary guidance, not a guarantee that an AI service will use it.
 

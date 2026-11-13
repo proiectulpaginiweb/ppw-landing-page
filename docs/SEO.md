@@ -52,12 +52,38 @@ Marcajele trebuie să descrie conținutul real al paginii. JSON-LD valid nu gara
 
 ### Performanță și afișare
 
-- Am înlocuit `@import` pentru Google Fonts cu legături în HTML și conexiuni anticipate, păstrând fonturile și `display=swap`.
+- Fonturile variabile DM Sans și Manrope sunt găzduite local în WOFF2, cu subseturile Latin și Latin-ext pentru diacritice, licențe OFL, `font-display: swap` și două preîncărcări Latin. Am eliminat conexiunile Google Fonts din încărcarea paginilor.
+- Am separat CSS-ul paginii principale de stilurile comune și am introdus minificarea la build. Blogul încarcă aproximativ **14 KB CSS**, față de **31 KB** înainte. Sursele rămân lizibile; HTML-ul folosește fișierele `*.min.css` cu hash de conținut.
+- Am corectat contrastul textelor, numele accesibile ale siglei și linkurilor de articole. Animația siglei folosește doar opacitate, cu preferința pentru mișcare redusă păstrată.
+- Serverul local folosește gzip, cereri condiționale și cache lung numai pentru resurse statice cu hash valid. Aceste antete sunt pentru preview; compresia și cache-ul domeniului public țin de GitHub Pages/Cloudflare.
 - Am comprimat fără pierderi sigla PNG: **25.752 → 24.880 bytes**, cu pixeli și metadate păstrate.
 - Imaginile au dimensiuni explicite. Graficele aflate sub primul ecran sunt încărcate cu `loading="lazy"`; portretul principal rămâne prioritar.
 - Am verificat afișarea pe mobil și aspectul paginii principale pe desktop.
 
 Aceste modificări reduc întârzieri și riscuri de deplasare a conținutului. Ele nu reprezintă o măsurare Core Web Vitals. [Recomandări Google despre experiența paginii](https://developers.google.com/search/docs/appearance/page-experience).
+
+### Verificarea Lighthouse după remedieri
+
+Am repetat raportul deschis în Chrome pentru `http://localhost:4173/blog/`, pe desktop, cu **Lighthouse 13.5.0**. Configurația celor două rapoarte este identică; extensiile browserului au rămas active. Raportul final a fost capturat la **13 noiembrie 2026, 20:10**, ora României.
+
+| Indicator | Înainte | După |
+| --- | --- | --- |
+| Performanță | 88 | 100 |
+| Accesibilitate | 95 | 100 |
+| Bune practici | 100 | 100 |
+| SEO | 100 | 100 |
+| Agentic Browsing | 3/3 | 3/3 |
+| FCP | 0,9 s | 0,3 s |
+| LCP | 0,9 s | 0,4 s |
+| Speed Index | 8,8 s | 0,3 s |
+| Total Blocking Time | 0 ms | 0 ms |
+| Cumulative Layout Shift | 0 | 0 |
+
+Au dispărut constatările privind contrastul, minificarea CSS, CSS-ul neutilizat, animația necompozitată, cache-ul și lipsa compresiei documentului. Au trecut și build-ul, verificările SEO/GEO pentru șapte pagini, verificările mobile la 390 px și verificările HTTP ale serverului local.
+
+Avertizarea de **13 KiB JavaScript** rămasă indică două fișiere `chrome-extension://`, nu scripturi PPW. Estimarea de **130 ms** pentru resurse care blochează randarea se referă la cele două foi CSS locale necesare afișării; am păstrat încărcarea normală pentru a evita afișarea temporară fără stiluri. Google recomandă reducerea CSS-ului necesar primei afișări și arată că majoritatea site-urilor pot atinge țintele de performanță fără tehnici avansate de CSS inline. [Documentația Chrome despre render-blocking](https://developer.chrome.com/docs/performance/insights/render-blocking), [animații compozitate](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations).
+
+Aceste rezultate provin dintr-un test local de laborator pentru Blog. Nu sunt măsurători din trafic real și nu reprezintă scoruri confirmate pentru toate paginile publicate. Resursele noi și fișierele HTML trebuie publicate împreună, apoi domeniul public trebuie testat separat.
 
 ### UTF-8 și fișiere de descoperire
 
@@ -122,7 +148,7 @@ Descoperirea unei adrese, indexarea conținutului și poziționarea în rezultat
 
 ## 5. Publicare și verificare
 
-1. Rulează `npm run build` și rezolvă eventualele erori.
+1. Rulează `npm ci` la prima instalare, apoi `npm run build` și rezolvă eventualele erori.
 2. Publică toate paginile HTML, stilurile, scripturile, imaginile și fișierele generate împreună. Include `/echipa/` și sitemap-ul actualizat. Lista fișierelor de publicat este în `README.md`.
 3. Verifică pe domeniul public că fiecare adresă canonică răspunde cu 200, că redirecturile funcționează și că nu există `noindex` pe paginile dorite în Google.
 4. Verifică în Search Console procesarea [sitemap-ului PPW](https://www.proiectulpaginiweb.ro/sitemap.xml). Trimite-l dacă nu este deja înregistrat.

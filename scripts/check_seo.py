@@ -293,9 +293,18 @@ class Audit:
             elif property_name == 'og:site_name':
                 self.require(value == NAME, path, 'og:site_name differs from site identity')
         font_links = [node for node in links if 'stylesheet' in node.attrs.get('rel', '').split()
-                      and urlsplit(node.attrs.get('href', '')).hostname == 'fonts.googleapis.com']
-        self.require(len(font_links) == 1 and 'display=swap' in font_links[0].attrs.get('href', ''), path,
-                     'one Google Fonts stylesheet with display=swap is required')
+                      and urlsplit(urljoin(canonical, node.attrs.get('href', ''))).path == '/styles.min.css']
+        self.require(len(font_links) == 1, path, 'one local shared stylesheet with font faces is required')
+        self.require(not any(urlsplit(node.attrs.get('href', '')).hostname in
+                             {'fonts.googleapis.com', 'fonts.gstatic.com'} for node in links), path,
+                     'font loading must not depend on third-party font connections')
+        for filename in ('dm-sans-latin.woff2', 'manrope-latin.woff2'):
+            preloads = [node for node in links if 'preload' in node.attrs.get('rel', '').split()
+                        and urlsplit(node.attrs.get('href', '')).path.endswith('/'+filename)]
+            self.require(len(preloads) == 1 and preloads[0].attrs.get('as') == 'font'
+                         and preloads[0].attrs.get('type') == 'font/woff2'
+                         and 'crossorigin' in preloads[0].attrs, path,
+                         f'{filename} needs one cross-origin-compatible WOFF2 font preload')
         identifiers = [node.attrs['id'] for node in nodes if 'id' in node.attrs]
         self.require(len(identifiers) == len(set(identifiers)), path, 'duplicate HTML IDs')
         self.linked_resources(path, nodes)
@@ -365,6 +374,33 @@ class Audit:
                          'CSS @import delays resource discovery; use HTML stylesheet links')
             self.require(not re.search(r'url\(\s*[\"\']?(?:http://|//)', source, flags=re.I), path,
                          'CSS contains an insecure resource URL')
+
+        font_css = ROOT/'fonts.css'
+        try:
+            source = font_css.read_text(encoding='utf-8')
+            faces = re.findall(r'@font-face\s*\{([^}]+)\}', source, flags=re.I)
+            self.require(len(faces) == 4, font_css, 'expected Latin and Latin-ext variable faces for both fonts')
+            for family, weights in (('DM Sans', '400 700'), ('Manrope', '400 800')):
+                matching = [face for face in faces if re.search(
+                    r'font-family:\s*[\"\']'+re.escape(family)+r'[\"\']', face)]
+                self.require(len(matching) == 2, font_css, f'{family} needs Latin and Latin-ext faces')
+                for face in matching:
+                    self.require(bool(re.search(r'font-weight:\s*'+weights+r'\s*;', face)), font_css,
+                                 f'{family} must preserve the authored variable weight range')
+                    self.require(bool(re.search(r'font-display:\s*swap\s*;', face)), font_css,
+                                 'font-display: swap keeps text visible while fonts load')
+            for reference in re.findall(r'url\([\"\']?([^\)\"\']+)', source):
+                font = (ROOT/unquote(urlsplit(reference).path)).resolve()
+                self.require(font.is_relative_to(ROOT) and font.suffix == '.woff2' and
+                             font.is_file() and font.read_bytes()[:4] == b'wOF2', font_css,
+                             f'missing or invalid local WOFF2 font: {reference}')
+            for family in ('dm-sans', 'manrope'):
+                license_path = ROOT/'assets/fonts'/(family+'-OFL.txt')
+                self.require(license_path.is_file() and 'SIL Open Font License' in
+                             license_path.read_text(encoding='utf-8'), font_css,
+                             f'{family} font license must accompany the font files')
+        except (OSError, UnicodeError) as error:
+            self.require(False, font_css, f'cannot validate local fonts ({error})')
 
     def run(self):
         paths = [ROOT / 'index.html', ROOT / 'blog/index.html', ROOT / 'echipa/index.html',

@@ -5,8 +5,7 @@ import json
 import re
 from urllib.parse import urljoin, urlsplit
 
-FONT_URL = ('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700'
-            '&family=Manrope:wght@400;500;600;650;700;750;800&display=swap')
+FONT_PRELOADS = ('dm-sans-latin.woff2', 'manrope-latin.woff2')
 
 
 def update_metadata(root, site, name, Document):
@@ -184,14 +183,26 @@ def update_metadata(root, site, name, Document):
                 rel = tag.attrs.get('rel', '')
                 if rel in {'canonical', 'describedby', 'sitemap'} or (rel == 'alternate' and tag.attrs.get('type') == 'text/markdown'):
                     return ''
+                asset = urlsplit(tag.attrs.get('href', ''))
+                managed_styles = {'styles.css', 'home.css', 'blog.css', 'echipa.css', 'fonts.css',
+                                  'styles.min.css', 'home.min.css', 'blog.min.css', 'echipa.min.css'}
+                if rel == 'stylesheet' and not asset.netloc and asset.path.rsplit('/', 1)[-1] in managed_styles:
+                    return ''
             return match[0]
 
         head = re.sub(r'<(?:meta|link)\b[^>]*>', strip_managed, head)
-        fonts = '\n'.join(['<!-- fonts:start -->',
-            '<link rel="preconnect" href="https://fonts.googleapis.com" />',
-            '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
-            f'<link rel="stylesheet" href="{escape(FONT_URL, quote=True)}" />', '<!-- fonts:end -->'])
-        head = re.sub(r'<link\b(?=[^>]*rel="stylesheet")[^>]*>', lambda m: fonts+'\n'+m[0], head, count=1)
+        relative_root = '../' * len(path.parent.relative_to(root).parts)
+        preloads = []
+        for filename in FONT_PRELOADS:
+            font_path = root/'assets/fonts'/filename
+            digest = sha256(font_path.read_bytes()).hexdigest()[:12]
+            href = relative_root+'assets/fonts/'+filename+'?v='+digest
+            preloads.append(f'<link rel="preload" href="{href}" as="font" type="font/woff2" crossorigin />')
+        fonts = '\n'.join(['<!-- fonts:start -->', *preloads, '<!-- fonts:end -->'])
+        page_style = 'home' if kind == 'home' else 'echipa' if kind == 'profile' else 'blog'
+        styles = '\n'.join(f'<link rel="stylesheet" href="{relative_root}{name}.min.css" />'
+                           for name in ('styles', page_style))
+        head = head.rstrip()+'\n'+fonts+'\n'+styles+'\n'
 
         def version_asset(match):
             prefix, href = match[1], match[2]
