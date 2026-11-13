@@ -112,6 +112,12 @@ Am testat separat copia locală HTTPS/HTTP2, același protocol ca Cloudflare, cu
 
 Rezultatele sunt teste locale de laborator. Domeniul public a variat între 99 și 100 înaintea acestei actualizări; acest lucru nu confirmă publicarea versiunii noi. Publicarea trebuie să includă toate cele opt HTML-uri regenerate, noile fișiere WOFF2 și WebP, apoi scorul trebuie reverificat pe URL-ul public.
 
+### Fișiere statice cu amprentă de conținut
+
+Build-ul generează fișiere fizice cu hash SHA-256 în `assets/static/`, inclusiv scripturi, fonturi, sigle, portret și graficele articolelor. Referințele HTML, preîncărcările, CSS-ul inline, metadatele sociale, JSON-LD și linkurile de imagini din exporturi sunt actualizate împreună. Fișierele neschimbate păstrează URL-ul, iar versiunile anterioare rămân disponibile. Manifestul este `assets/asset-manifest.json`.
+
+Workflow-ul GitHub Pages rulează testele și `npm run build:pages` la fiecare push pe `main`. Pachetul `dist/` include și resursele istorice reconstruite din istoricul Git complet al ramurii publicate. Sursa Pages trebuie setată o singură dată la **GitHub Actions** în setările repository-ului. Configurarea Cloudflare pentru Browser TTL de un an se aplică exclusiv prefixului `/assets/static/`; HTML-ul și manifestul rămân cu durată scurtă. Build-ul nu modifică antetele publice sau contul Cloudflare.
+
 ### UTF-8 și fișiere de descoperire
 
 Fișierele Markdown au fost verificate pentru UTF-8, diacritice românești și normalizare Unicode NFC. Generatorul citește și scrie explicit UTF-8, iar serverul local declară `charset=utf-8` pentru răspunsurile text.
