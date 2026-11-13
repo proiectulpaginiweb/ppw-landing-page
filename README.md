@@ -31,6 +31,8 @@ Production URL: https://www.proiectulpaginiweb.ro/
 
 See [the SEO implementation and indexing notes](docs/SEO.md) for the Romanian report, deployment status, Google indexing requirements, and the post-publication checklist. Keep `docs/` out of the public deployment.
 
+See [the GEO implementation and citation notes](docs/GEO.md) for the standalone Romanian report on generative search, crawler access, source preservation and follow-up measurement.
+
 All four journey panels are present in the HTML response. With JavaScript disabled, every panel remains readable; with JavaScript enabled, the existing tab interface is preserved.
 
 After any content, CSS, or JavaScript edit, run `npm run build`. The dependency-free generator and `scripts/seo.py` keep all seven HTML pages consistent: canonical URLs, indexing directives, Open Graph/Twitter previews, font links, asset content hashes and JSON-LD. Schema uses Organization/WebSite/Services on the homepage, CollectionPage/ItemList on the blog, ProfilePage/Person on the team page, BlogPosting on articles, and BreadcrumbList matching visible navigation. Article authorship remains the named organization; no personal authorship, reviews, addresses or contact details are invented.
@@ -39,7 +41,17 @@ Edit each page's authored `<title>`, description, visible copy and breadcrumbs. 
 
 The build regenerates `index.md`, `echipa/index.md`, `blog/index.md` and every article's adjacent `index.md`, plus `robots.txt`, `sitemap.xml`, `llms.txt` and `llms-full.txt`. All files stay UTF-8. The sitemap contains only canonical HTML pages; optional `lastmod`, `priority` and `changefreq` values are omitted rather than fabricated. Supplemental Markdown and LLM files do not replace indexable HTML or Google's supported indexing signals. A domain change must update `SITE` in `scripts/build_discovery.py`, `SITE`/`HOSTS` in the validator, `CNAME`, authored profile URLs and the CDN rules together.
 
-`npm run build` also runs `scripts/check_seo.py`, checking metadata, structured data/content consistency, sitemap coverage, links, image dimensions and font loading. Run `npm run check:seo` for validation without regeneration. These checks cover repository-controlled requirements; they do not simulate Google's indexing or measure field Core Web Vitals.
+`npm run build` also runs `scripts/check_seo.py`, checking metadata, structured data/content consistency, sitemap coverage, links, image dimensions and font loading, and `scripts/check_geo.py`, checking summaries, source preservation, absolute Markdown links and entity consistency. Run `npm run check:seo` or `npm run check:geo` for validation without regeneration. These checks cover repository-controlled requirements; they do not simulate indexing, AI citations or field Core Web Vitals.
+
+### Generative search (GEO)
+
+The homepage defines Proiectul Pagini Web and its services in visible copy. The Organization and WebSite use the full company name without an `alternateName`. Services have stable anchors, and each article has three reader-facing takeaways at `#pe-scurt`. Article JSON-LD includes an abstract from that summary and citations taken only from the article's visible external source links. Personal LinkedIn/GitHub profiles remain attached to the Person, not the Organization. Publication dates are preserved; the actual summary updates are dated 13 November 2026.
+
+`scripts/markdown_content.py` renders the same content recursively into Markdown, preserving nested summaries/lists, emphasis, code, figures and simple tables. All source links resolve against the page's canonical URL, so they also work in `llms-full.txt`. `llms.txt` is a supplemental directory grouped into PPW, services, team, articles and contact. It is not a crawler access policy or a promise of AI visibility. Google does not use it for generative-search visibility and does not require special GEO files/schema. See [Google's generative AI guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+The crawler audit on 13 November 2026 found HTTP 200 for the public homepage with search/user-agent identifiers from Google, Bing, OpenAI, Anthropic and Perplexity, and no injected robots disallow block. These are user-agent smoke tests, not verification of real crawler IP access. No crawler permissions or model-training preferences were changed. Search and model training have separate controls: [OpenAI](https://developers.openai.com/api/docs/bots), [Anthropic](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), [Perplexity](https://docs.perplexity.ai/docs/resources/perplexity-crawlers).
+
+The same-day Search Console inspection confirmed that the verified www property inherits **Search generative AI: Include** from the domain. That setting was already active and was left unchanged. The overview reported six indexed pages and no Core Web Vitals data; these observations concern the published site, not the new local content. See the GEO section in `docs/SEO.md` for status and follow-up measurement.
 
 Publish `index.html`, `styles.css`, `echipa.css`, `echipa/`, `blog.css`, `blog.js`, `script.js`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `index.md`, and the Google verification file `google83152e7ab05f6d9b.html` together at the domain root. Keep `scripts/`, `package.json`, and this README out of the public deployment if your host supports an explicit file list.
 

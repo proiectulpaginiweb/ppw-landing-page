@@ -6,7 +6,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startu
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Când un agent AI scrie cod cu tine, alegerea limbajului schimbă atât codul pe care îl generează, cât și informațiile de care are nevoie ca să verifice o modificare. Pentru un startup, aș evalua câți tokeni și cât timp îi trebuie echipei ca să pună în mâna unui client o funcționalitate care merge.
+
+## Pe scurt
+
+- Costul dezvoltării cu AI depinde de contextul citit, codul generat, teste și încercările de corectare; diferența dintre fragmente scurte nu stabilește costul unui MVP.
+
+- Scenariul ilustrativ cu aceeași ieșire totalizează 14.000 de tokeni cu context restrâns și 44.000 cu context larg.
+
+- Alegerea între Rails, Spring Boot și React/Next.js depinde de produs, integrări și experiența echipei. Comparația practică folosește aceleași cerințe și criterii de acceptare.
 
 ## Ce consumă tokeni când lucrezi cu un agent AI
 
@@ -58,25 +68,25 @@ Patru tokeni separă Java de Ruby în aceste fragmente. Graficul măsoară textu
 
 React este o bibliotecă pentru interfețe. Ca să comparăm aplicații complete, folosim Java cu Spring Boot și Thymeleaf, Ruby cu Rails și Hotwire, respectiv JavaScript cu React și Next.js. În toate trei, utilizatorul invită un coleg, invitația expiră și poate fi folosită o singură dată, inclusiv dacă sosesc două cereri de acceptare în același timp. [Spring MVC cu Thymeleaf](https://spring.io/guides/gs/serving-web-content) · [Ghidul Rails](https://guides.rubyonrails.org/getting_started.html) · [Cadre de lucru pentru React](https://react.dev/learn/creating-a-react-app)
 
-### Ruby cu Rails
+### **Ruby cu Rails**
 
 Convențiile pentru rute, modele, migrații și formulare îi dau agentului repere previzibile. Dacă portalul urmează structura Rails, un formular și o validare pot fi schimbate cu puțin context propriu proiectului. Testele îi arată agentului reguli care altfel pot rămâne implicite, cum ar fi cine are voie să invite pe cine.
 
-### Java cu Spring Boot
+### **Java cu Spring Boot**
 
 Într-un proiect cu controller, serviciu și repository separate, agentul poate avea mai multe fișiere de parcurs. Tipurile și compilatorul oferă însă feedback imediat despre contractele din cod, iar Spring Data JPA poate genera implementarea unor metode de acces la date. O regulă de acces concentrată într-un singur serviciu poate fi ușor de găsit, modificat și testat. [Ghidul Spring Data JPA](https://spring.io/guides/gs/accessing-data-jpa)
 
-### JavaScript cu React și Next.js
+### **JavaScript cu React și Next.js**
 
 Agentul poate lucra la formular și la logica de pe server în același proiect. Când adaugi stări interactive, trebuie să înțeleagă și ce rulează în browser, unde se validează datele și ce se întâmplă după trimitere. Dacă portalul folosește deja o convenție pentru aceste lucruri, agentul o poate urma la fiecare schimbare. [Componente de server și client în Next.js](https://nextjs.org/docs/app/getting-started/server-and-client-components)
 
 ## Ce aș alege pentru un startup
 
-Aș începe cu Rails pentru un MVP de business când echipa pornește de la zero și produsul înseamnă în principal conturi, formulare, permisiuni și operații uzuale pe date. Convențiile îți permit să testezi primul flux cu clienții înainte de a lua multe decizii de arhitectură.
+**Aș începe cu Rails pentru un MVP de business** când echipa pornește de la zero și produsul înseamnă în principal conturi, formulare, permisiuni și operații uzuale pe date. Convențiile îți permit să testezi primul flux cu clienții înainte de a lua multe decizii de arhitectură.
 
-Aș alege React cu Next.js când interfața e o parte esențială din produs, de exemplu un editor vizual, sau când echipa are deja experiență în ecosistemul JavaScript și poate verifica rapid ce generează agentul. TypeScript merită luat în calcul dacă echipa vrea verificări statice pentru contractele dintre componente și server.
+**Aș alege React cu Next.js** când interfața e o parte esențială din produs, de exemplu un editor vizual, sau când echipa are deja experiență în ecosistemul JavaScript și poate verifica rapid ce generează agentul. TypeScript merită luat în calcul dacă echipa vrea verificări statice pentru contractele dintre componente și server.
 
-Aș alege Spring Boot când echipa lucrează deja bine în Java, are integrări în acel ecosistem sau când regulile de business au nevoie de contracte explicite între module. Dacă verifici și corectezi rapid o propunere a agentului, experiența echipei poate cântări mai mult decât diferența de tokeni dintre două fragmente.
+**Aș alege Spring Boot** când echipa lucrează deja bine în Java, are integrări în acel ecosistem sau când regulile de business au nevoie de contracte explicite între module. Dacă verifici și corectezi rapid o propunere a agentului, experiența echipei poate cântări mai mult decât diferența de tokeni dintre două fragmente.
 
 ## Cum măsori pe proiectul tău
 
@@ -86,8 +96,12 @@ Pentru fiecare stack, împarte totalul tokenilor din toate încercările la num�
 
 La primul MVP contează și cât de repede poate echipa să schimbe ceva după ce vorbește cu un client. Proba cu invitațiile merită rulată tocmai pentru că trece prin interfață, date, permisiuni și teste, așa cum o vor face și multe dintre schimbările din produs.
 
-Citește și
+**Citește și**
 
-[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)

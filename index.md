@@ -12,15 +12,21 @@ O companie construită în jurul inteligenței artificiale. Cu oamenii în centr
 
 Tu aduci ambiția. Noi construim agenți IA, conectăm procesele afacerii tale și dezvoltăm experiențe web utile pentru echipă și clienți.
 
+[Construim împreună](https://www.proiectulpaginiweb.ro/#contact)
+
+[Descoperă posibilitățile](https://www.proiectulpaginiweb.ro/#posibilitati)
+
 01 / Un alt punct de plecare
 
 ## IA este un mijloc. Progresul este scopul.
 
 Oportunitatea este să găsești un mod mai bun de a lucra.
 
-La Proiectul Pagini Web, pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta. Apoi stabilim împreună unde poate IA să aducă o îmbunătățire reală.
+Proiectul Pagini Web (PPW) dezvoltă agenți IA, automatizări de procese și aplicații web pentru afaceri. Pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta, apoi stabilim împreună unde poate IA să aducă o îmbunătățire reală.
 
 Pentru noi, a construi în jurul inteligenței artificiale înseamnă mai mult decât un asistent conversațional. Înseamnă să integrăm inteligența în munca de zi cu zi, cu obiective clare, context relevant și oameni care păstrează controlul.
+
+[Un partener la fiecare pas](https://www.proiectulpaginiweb.ro/#parcurs)
 
 02 / De la idee la practică
 
@@ -124,6 +130,10 @@ Testează situații reale, stabilește criterii de succes și folosește observa
 
 ## Totul începe cu o întrebare.
 
+### Ce servicii oferă Proiectul Pagini Web?
+
+Proiectul Pagini Web (PPW) construiește agenți IA pentru sarcini concrete, conectează procese și instrumente prin automatizări și dezvoltă experiențe web cu IA integrată. Colaborarea începe cu alegerea unei probleme, continuă cu un prototip și un proiect-pilot, apoi cu evaluarea și îmbunătățirea rezultatului.
+
 ### Ce înseamnă, de fapt, „agentic”?
 
 Un sistem agentic folosește IA pentru a atinge un obiectiv prin mai mulți pași. În funcție de permisiuni, poate aduna informații, folosi instrumente, pregăti materiale sau realiza acțiuni aprobate. Te ajutăm să stabilești ce pași pot fi automatizați și care trebuie să rămână în grija unui om.
@@ -148,4 +158,4 @@ Spune-ne la ce lucrezi, ce te împiedică să avansezi și unde ai vrea să ajun
 
 ## Contact
 
-Folosește formularul de pe https://www.proiectulpaginiweb.ro/#contact pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.
+Folosește [formularul de contact](https://www.proiectulpaginiweb.ro/#contact) pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.

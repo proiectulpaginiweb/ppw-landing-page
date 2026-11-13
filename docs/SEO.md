@@ -149,3 +149,35 @@ Validatorul `scripts/check_seo.py` verifică metadatele, canonicalele, datele st
 Build-ul este idempotent: o repetare fără modificări nu schimbă fișierele generate. Au fost verificate și răspunsurile HTTP locale pentru șapte pagini HTML, șapte copii Markdown și cele trei fișiere auxiliare.
 
 Aceste verificări nu înlocuiesc rapoartele Google, evaluarea calității conținutului sau măsurarea experienței utilizatorilor reali. La fiecare pagină nouă, menține accesul din navigație, metadatele și datele editoriale corecte, regenerează sitemap-ul și actualizează regula Cloudflare pentru noua copie Markdown.
+
+## 7. GEO — vizibilitate în răspunsurile cu IA
+
+Raportul separat și pașii de întreținere sunt în [GEO.md](GEO.md).
+
+În această intervenție, GEO înseamnă **Generative Engine Optimization**: conținut clar, verificabil și accesibil pentru oameni și pentru sistemele care caută surse pentru răspunsuri cu IA.
+
+Verificarea ulterioară din Search Console, în aceeași zi, a confirmat că proprietatea PPW este verificată și moștenește controlul **Search generative AI: Include** de la domeniu. Setarea era deja activă și nu a fost modificată. Panoul raporta șase pagini indexate și lipsa datelor Core Web Vitals. Aceasta este starea raportată de Google pentru versiunea publică, nu validarea modificărilor locale noi; Rich Results Test nu a fost rulat.
+
+### Modificări realizate în proiect
+
+- Definiție vizibilă a Proiectului Pagini Web, plus o întrebare frecventă despre serviciile oferite.
+- Adrese cu fragment pentru fiecare serviciu: `#agenti-ia`, `#automatizari`, `#aplicatii-web`.
+- Câte trei idei „Pe scurt” în fiecare dintre cele patru articole, accesibile la `#pe-scurt`. Acestea rezumă argumentele existente, fără rezultate sau experiențe inventate.
+- Actualizări editoriale reale datate **13 noiembrie 2026**, fără schimbarea datelor publicării inițiale.
+- Numele complet al organizației, rezumate `abstract` și surse `citation` în articole, toate preluate din textul vizibil. Profilurile personale rămân asociate persoanei.
+- Conversie Markdown recursivă, care păstrează rezumatele, listele imbricate, evidențierile, codul, figurile și tabelele simple. Linkurile relative au fost transformate în linkuri absolute, inclusiv în fișierul agregat.
+- Un index `llms.txt` mai clar și verificări automate prin `npm run check:geo`, integrate în build.
+
+Aceste modificări sunt locale până la publicarea noii versiuni HTML și a fișierelor generate.
+
+### Acces pentru crawlere și limite
+
+Auditul public a găsit `robots.txt` cu acces permis și răspunsuri 200 pentru homepage la cereri cu identificatorii Googlebot, bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot și Perplexity-User. Acest test nu confirmă accesul de la IP-urile crawlerelor reale și nici includerea în răspunsuri.
+
+Nu am schimbat preferințele de antrenare sau protecțiile CDN. Accesul pentru căutare este separat de antrenarea modelelor: de exemplu, OpenAI distinge OAI-SearchBot de GPTBot, iar Anthropic distinge Claude-SearchBot de ClaudeBot. [OpenAI Crawlers](https://developers.openai.com/api/docs/bots), [Anthropic Crawlers](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler).
+
+### Ce trebuie urmărit după publicare
+
+Google cere o bază SEO corectă și pagini eligibile pentru indexare și fragmente de rezultat. Ghidul actual indică și verificarea includerii în funcțiile generative din Search Console. Nu există un format GEO special obligatoriu; Google nu folosește `llms.txt` pentru vizibilitate sau ranking. Rezumatele sunt pentru cititori, nu o cerință tehnică Google. [Ghidul Google pentru IA generativă](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+După publicare, urmărește rapoartele disponibile în Search Console și, pentru Bing, [AI Performance](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/). Compară în timp paginile citate, întrebările relevante și vizitele utile. Nu există o citare sau o poziție garantată în ChatGPT, Google, Claude ori Perplexity.

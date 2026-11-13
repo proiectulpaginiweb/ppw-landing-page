@@ -1,10 +1,8 @@
 Pagina: https://www.proiectulpaginiweb.ro/blog/
 
-[Acasă](https://www.proiectulpaginiweb.ro/)
-
 Jurnal / Idei pentru web
 
-# IA pentru afaceri.
+# IA pentru *afaceri.*
 
 Explicații și exemple despre agenți IA, modele specializate pentru afaceri și dezvoltare software cu AI.
 

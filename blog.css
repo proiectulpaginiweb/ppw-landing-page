@@ -14,3 +14,9 @@
 .post-related>p{font-size:15px;margin-bottom:12px}
 .post-related ul{padding-left:22px;margin:0;font-size:16px;line-height:1.7}
 .post-related li+li{margin-top:8px}
+
+.post-summary{margin-bottom:45px;padding:26px 28px;background:#edf1e3;border-left:3px solid var(--green);border-radius:0 6px 6px 0}
+.post-body .post-summary h2{font-size:23px;letter-spacing:-.035em;margin:0 0 17px}
+.post-summary ul{margin:0;padding-left:21px;font-size:16px;line-height:1.75;color:#44483e}
+.post-summary li+li{margin-top:12px}
+@media(max-width:550px){.post-summary{padding:22px 20px}.post-summary ul{font-size:15px}}

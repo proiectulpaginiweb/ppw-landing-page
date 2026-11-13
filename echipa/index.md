@@ -1,7 +1,5 @@
 Pagina: https://www.proiectulpaginiweb.ro/echipa/
 
-[Acasă](https://www.proiectulpaginiweb.ro/)
-
 Echipa / Proiectul Pagini Web
 
 # Sîrbu Nicolae-Cezar.
@@ -32,9 +30,9 @@ proiecte, experimente și contribuții
 
 ## Un parcurs construit scriind cod.
 
-Cunoscut online ca sarbull și pe GitHub ca Cezar Sîrbu, Nicolae-Cezar a trecut prin dezvoltare web, inginerie software în organizații mari și contribuții la proiecte publice. Parcursul profesional include CustomSoft, OkapiStudio, Deutsche Bank, Thales, ING Hubs Romania și Adobe.
+Cunoscut online ca **sarbull** și pe GitHub ca **Cezar Sîrbu**, Nicolae-Cezar a trecut prin dezvoltare web, inginerie software în organizații mari și contribuții la proiecte publice. Parcursul profesional include CustomSoft, OkapiStudio, Deutsche Bank, Thales, ING Hubs Romania și Adobe.
 
-Interesul pentru probleme de inginerie, performanță și software clar, ușor de întreținut, leagă aceste etape. Astăzi, direcția continuă cu rolul de AI-Native Software Engineer la Adobe și cu preocuparea PPW pentru agenți IA și experiențe digitale utile.
+Interesul pentru probleme de inginerie, performanță și software clar, ușor de întreținut, leagă aceste etape. Astăzi, direcția continuă cu rolul de **AI-Native Software Engineer la Adobe** și cu preocuparea PPW pentru agenți IA și experiențe digitale utile.
 
 [Profilul profesional pe LinkedIn](https://www.linkedin.com/in/sarbull/)
 
@@ -46,53 +44,55 @@ Rolurile și perioadele din profilul LinkedIn, de la primele experiențe la ingi
 
 [Vezi experiența pe LinkedIn](https://www.linkedin.com/in/sarbull/details/experience/)
 
-Octombrie 2026 — prezent
+1. Octombrie 2026 — prezent
 
-### Adobe
+   ### Adobe
 
-AI-Native Software Engineer
+   AI-Native Software Engineer
 
-Martie 2025 — octombrie 2026
+   Rol actual
 
-### Adobe
+2. Martie 2025 — octombrie 2026
 
-Software Engineer
+   ### Adobe
 
-Octombrie 2020 — martie 2025
+   Software Engineer
 
-### ING Hubs Romania
+3. Octombrie 2020 — martie 2025
 
-Software Engineer
+   ### ING Hubs Romania
 
-Noiembrie 2017 — octombrie 2020
+   Software Engineer
 
-### Thales
+4. Noiembrie 2017 — octombrie 2020
 
-Software Engineer
+   ### Thales
 
-Septembrie 2015 — noiembrie 2017
+   Software Engineer
 
-### Deutsche Bank
+5. Septembrie 2015 — noiembrie 2017
 
-Software Engineer
+   ### Deutsche Bank
 
-Iunie 2014 — septembrie 2015
+   Software Engineer
 
-### OkapiStudio
+6. Iunie 2014 — septembrie 2015
 
-Software Engineer
+   ### OkapiStudio
 
-Iunie 2013 — ianuarie 2014
+   Software Engineer
 
-### CustomSoft
+7. Iunie 2013 — ianuarie 2014
 
-Junior Software Engineer
+   ### CustomSoft
 
-Octombrie 2012 — decembrie 2012
+   Junior Software Engineer
 
-### ROSEdu
+8. Octombrie 2012 — decembrie 2012
 
-Voluntar
+   ### ROSEdu
+
+   Voluntar
 
 Fundația tehnică / 2011–2015
 
@@ -108,19 +108,19 @@ Formare continuă: „Personal effectiveness for IT professionals” — Global 
 
 Competențe declarate pe [LinkedIn](https://www.linkedin.com/in/sarbull/details/skills/) și tehnologii documentate în proiectele publice de pe GitHub.
 
-Interfețe și aplicații web
+**Interfețe și aplicații web**
 
 JavaScript, TypeScript, AngularJS, HTML, CSS, jQuery și AJAX.
 
-Limbaje și backend
+**Limbaje și backend**
 
 Ruby, Ruby on Rails, PHP, Node.js, Java, C++, Python și Django.
 
-Date și schimb de informații
+**Date și schimb de informații**
 
 MySQL, SQL, JSON și XML.
 
-Instrumente și medii de lucru
+**Instrumente și medii de lucru**
 
 Git, Docker, Linux și Bash. Competențe de grafică în Photoshop.
 

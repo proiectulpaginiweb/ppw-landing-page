@@ -57,13 +57,14 @@ def update_metadata(root, site, name, Document):
                 services.append({'@type': 'Service', '@id': site+'#serviciu-'+str(i),
                                  'name': service.first(lambda n: n.tag == 'h3').text(),
                                  'description': service.first(lambda n: n.tag == 'p').text(),
-                                 'url': site+'#posibilitati', 'provider': {'@id': organization['@id']}})
+                                 'url': site+'#'+service.attrs.get('id', 'posibilitati'),
+                                 'provider': {'@id': organization['@id']}})
             organization['hasOfferCatalog'] = {'@type': 'OfferCatalog', 'name': 'Servicii IA',
                 'itemListElement': [{'@type': 'Offer', 'itemOffered': {'@id': service['@id']}} for service in services]}
             webpage['about'] = {'@id': organization['@id']}
             graph = [organization,
                      {'@type': 'WebSite', '@id': site+'#site', 'url': site, 'name': name,
-                      'alternateName': 'PPW', 'inLanguage': entry['language'],
+                      'inLanguage': entry['language'],
                       'publisher': {'@id': organization['@id']}}, webpage, *services]
 
         elif kind == 'blog':
@@ -90,6 +91,7 @@ def update_metadata(root, site, name, Document):
             webpage['@type'] = 'ProfilePage'
             webpage['mainEntity'] = {'@id': person['@id']}
             person['affiliation'] = {'@type': 'Organization', '@id': organization['@id'], 'name': name, 'url': site}
+            person['mainEntityOfPage'] = {'@id': webpage['@id']}
             graph.append(person)
             image = person['image']
             image_alt = person['name']
@@ -108,6 +110,19 @@ def update_metadata(root, site, name, Document):
                        'inLanguage': entry['language'], 'mainEntityOfPage': {'@id': webpage['@id']},
                        'author': {'@type': 'Organization', '@id': organization['@id'], 'name': name, 'url': site},
                        'publisher': publisher}
+            body = post.first(lambda n: has_class(n, 'post-body'))
+            summary = next(body.all(lambda n: has_class(n, 'post-summary')), None)
+            if summary:
+                article['abstract'] = ' '.join(item.text() for item in summary.all(lambda n: n.tag == 'li'))
+            citations = []
+            for link in body.all(lambda n: n.tag == 'a' and 'href' in n.attrs):
+                target = urljoin(url, link.attrs['href'])
+                parsed = urlsplit(target)
+                if (parsed.scheme in {'http', 'https'} and parsed.hostname != urlsplit(site).hostname
+                        and parsed.hostname != urlsplit(site).hostname.removeprefix('www.') and target not in citations):
+                    citations.append(target)
+            if citations:
+                article['citation'] = citations
             webpage['mainEntity'] = {'@id': article['@id']}
             pictures = list(post.all(lambda n: n.tag == 'img'))
             if pictures:

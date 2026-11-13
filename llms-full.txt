@@ -12,15 +12,21 @@ O companie construită în jurul inteligenței artificiale. Cu oamenii în centr
 
 Tu aduci ambiția. Noi construim agenți IA, conectăm procesele afacerii tale și dezvoltăm experiențe web utile pentru echipă și clienți.
 
+[Construim împreună](https://www.proiectulpaginiweb.ro/#contact)
+
+[Descoperă posibilitățile](https://www.proiectulpaginiweb.ro/#posibilitati)
+
 01 / Un alt punct de plecare
 
 ## IA este un mijloc. Progresul este scopul.
 
 Oportunitatea este să găsești un mod mai bun de a lucra.
 
-La Proiectul Pagini Web, pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta. Apoi stabilim împreună unde poate IA să aducă o îmbunătățire reală.
+Proiectul Pagini Web (PPW) dezvoltă agenți IA, automatizări de procese și aplicații web pentru afaceri. Pornim de la oamenii, deciziile și dificultățile de zi cu zi din afacerea ta, apoi stabilim împreună unde poate IA să aducă o îmbunătățire reală.
 
 Pentru noi, a construi în jurul inteligenței artificiale înseamnă mai mult decât un asistent conversațional. Înseamnă să integrăm inteligența în munca de zi cu zi, cu obiective clare, context relevant și oameni care păstrează controlul.
+
+[Un partener la fiecare pas](https://www.proiectulpaginiweb.ro/#parcurs)
 
 02 / De la idee la practică
 
@@ -124,6 +130,10 @@ Testează situații reale, stabilește criterii de succes și folosește observa
 
 ## Totul începe cu o întrebare.
 
+### Ce servicii oferă Proiectul Pagini Web?
+
+Proiectul Pagini Web (PPW) construiește agenți IA pentru sarcini concrete, conectează procese și instrumente prin automatizări și dezvoltă experiențe web cu IA integrată. Colaborarea începe cu alegerea unei probleme, continuă cu un prototip și un proiect-pilot, apoi cu evaluarea și îmbunătățirea rezultatului.
+
 ### Ce înseamnă, de fapt, „agentic”?
 
 Un sistem agentic folosește IA pentru a atinge un obiectiv prin mai mulți pași. În funcție de permisiuni, poate aduna informații, folosi instrumente, pregăti materiale sau realiza acțiuni aprobate. Te ajutăm să stabilești ce pași pot fi automatizați și care trebuie să rămână în grija unui om.
@@ -148,13 +158,11 @@ Spune-ne la ce lucrezi, ce te împiedică să avansezi și unde ai vrea să ajun
 
 ## Contact
 
-Folosește formularul de pe https://www.proiectulpaginiweb.ro/#contact pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.
+Folosește [formularul de contact](https://www.proiectulpaginiweb.ro/#contact) pentru a trimite numele, adresa de e-mail, interesul și descrierea proiectului.
 
 ---
 
 Pagina: https://www.proiectulpaginiweb.ro/echipa/
-
-[Acasă](https://www.proiectulpaginiweb.ro/)
 
 Echipa / Proiectul Pagini Web
 
@@ -186,9 +194,9 @@ proiecte, experimente și contribuții
 
 ## Un parcurs construit scriind cod.
 
-Cunoscut online ca sarbull și pe GitHub ca Cezar Sîrbu, Nicolae-Cezar a trecut prin dezvoltare web, inginerie software în organizații mari și contribuții la proiecte publice. Parcursul profesional include CustomSoft, OkapiStudio, Deutsche Bank, Thales, ING Hubs Romania și Adobe.
+Cunoscut online ca **sarbull** și pe GitHub ca **Cezar Sîrbu**, Nicolae-Cezar a trecut prin dezvoltare web, inginerie software în organizații mari și contribuții la proiecte publice. Parcursul profesional include CustomSoft, OkapiStudio, Deutsche Bank, Thales, ING Hubs Romania și Adobe.
 
-Interesul pentru probleme de inginerie, performanță și software clar, ușor de întreținut, leagă aceste etape. Astăzi, direcția continuă cu rolul de AI-Native Software Engineer la Adobe și cu preocuparea PPW pentru agenți IA și experiențe digitale utile.
+Interesul pentru probleme de inginerie, performanță și software clar, ușor de întreținut, leagă aceste etape. Astăzi, direcția continuă cu rolul de **AI-Native Software Engineer la Adobe** și cu preocuparea PPW pentru agenți IA și experiențe digitale utile.
 
 [Profilul profesional pe LinkedIn](https://www.linkedin.com/in/sarbull/)
 
@@ -200,53 +208,55 @@ Rolurile și perioadele din profilul LinkedIn, de la primele experiențe la ingi
 
 [Vezi experiența pe LinkedIn](https://www.linkedin.com/in/sarbull/details/experience/)
 
-Octombrie 2026 — prezent
+1. Octombrie 2026 — prezent
 
-### Adobe
+   ### Adobe
 
-AI-Native Software Engineer
+   AI-Native Software Engineer
 
-Martie 2025 — octombrie 2026
+   Rol actual
 
-### Adobe
+2. Martie 2025 — octombrie 2026
 
-Software Engineer
+   ### Adobe
 
-Octombrie 2020 — martie 2025
+   Software Engineer
 
-### ING Hubs Romania
+3. Octombrie 2020 — martie 2025
 
-Software Engineer
+   ### ING Hubs Romania
 
-Noiembrie 2017 — octombrie 2020
+   Software Engineer
 
-### Thales
+4. Noiembrie 2017 — octombrie 2020
 
-Software Engineer
+   ### Thales
 
-Septembrie 2015 — noiembrie 2017
+   Software Engineer
 
-### Deutsche Bank
+5. Septembrie 2015 — noiembrie 2017
 
-Software Engineer
+   ### Deutsche Bank
 
-Iunie 2014 — septembrie 2015
+   Software Engineer
 
-### OkapiStudio
+6. Iunie 2014 — septembrie 2015
 
-Software Engineer
+   ### OkapiStudio
 
-Iunie 2013 — ianuarie 2014
+   Software Engineer
 
-### CustomSoft
+7. Iunie 2013 — ianuarie 2014
 
-Junior Software Engineer
+   ### CustomSoft
 
-Octombrie 2012 — decembrie 2012
+   Junior Software Engineer
 
-### ROSEdu
+8. Octombrie 2012 — decembrie 2012
 
-Voluntar
+   ### ROSEdu
+
+   Voluntar
 
 Fundația tehnică / 2011–2015
 
@@ -262,19 +272,19 @@ Formare continuă: „Personal effectiveness for IT professionals” — Global 
 
 Competențe declarate pe [LinkedIn](https://www.linkedin.com/in/sarbull/details/skills/) și tehnologii documentate în proiectele publice de pe GitHub.
 
-Interfețe și aplicații web
+**Interfețe și aplicații web**
 
 JavaScript, TypeScript, AngularJS, HTML, CSS, jQuery și AJAX.
 
-Limbaje și backend
+**Limbaje și backend**
 
 Ruby, Ruby on Rails, PHP, Node.js, Java, C++, Python și Django.
 
-Date și schimb de informații
+**Date și schimb de informații**
 
 MySQL, SQL, JSON și XML.
 
-Instrumente și medii de lucru
+**Instrumente și medii de lucru**
 
 Git, Docker, Linux și Bash. Competențe de grafică în Photoshop.
 
@@ -372,11 +382,9 @@ Următorul pas
 
 Pagina: https://www.proiectulpaginiweb.ro/blog/
 
-[Acasă](https://www.proiectulpaginiweb.ro/)
-
 Jurnal / Idei pentru web
 
-# IA pentru afaceri.
+# IA pentru *afaceri.*
 
 Explicații și exemple despre agenți IA, modele specializate pentru afaceri și dezvoltare software cu AI.
 
@@ -428,7 +436,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Un chat AI te ajută să lucrezi prin conversație. Un agent AI poate prelua un obiectiv și poate gestiona pașii necesari pentru a-l îndeplini, folosind instrumentele la care are acces. Cele două se pot întâlni în aceeași aplicație: poți vorbi cu un agent într-o fereastră de chat.
+
+## Pe scurt
+
+- Un chat AI este o interfață de conversație. Un agent AI poate gestiona pașii unei sarcini și folosi instrumente în limitele accesului primit.
+
+- Pentru pași previzibili poate fi suficientă o automatizare cu reguli fixe; alegerea pornește de la activitatea echipei.
+
+- Permisiunile, punctele de aprobare și criteriile de reușită se stabilesc în aplicație și se verifică prin rezultatele operațiilor.
 
 ## Chatul este interfața, agentul este modul de lucru
 
@@ -452,19 +470,19 @@ Un agent configurat pentru acest proces, cu accesul necesar, ar putea citi cerer
 
 Un agent leagă deciziile de rezultatele acțiunilor sale. [Documentația OpenAI despre bucla unui agent](https://developers.openai.com/api/docs/guides/agents/running-agents) explică repetarea ciclului dintre model și instrumente până când sistemul ajunge la un punct de oprire. În exemplul nostru, procesul ar putea arăta astfel:
 
-### 01 / Înțelege obiectivul
+### **01 / Înțelege obiectivul**
 
 Identifică ce cereri trebuie procesate, ce date sunt necesare și ce înseamnă un rezultat complet.
 
-### 02 / Alege următorul pas
+### **02 / Alege următorul pas**
 
 Decide dacă trebuie să citească un mesaj, să caute clientul în evidență sau să pregătească o ciornă.
 
-### 03 / Folosește un instrument
+### **03 / Folosește un instrument**
 
 Solicită operația printr-o conexiune la aplicație. Instrumentul întoarce date sau confirmă dacă operația a reușit.
 
-### 04 / Verifică și continuă
+### **04 / Verifică și continuă**
 
 Folosește rezultatul pentru pasul următor. Încheie sarcina când cerințele sunt îndeplinite sau se oprește pentru informații ori aprobare.
 
@@ -488,13 +506,17 @@ Pentru un proces cu pași complet previzibili, poate fi suficientă o automatiza
 
 În exemplul cu cererile de ofertă, verificarea poate urmări lucruri concrete: datele extrase corespund mesajelor, înregistrările au fost actualizate corect, ciornele există, iar cererile incomplete sunt semnalate. Un agent poate greși atât interpretarea, cât și acțiunea; verificarea trebuie să acopere ambele.
 
-La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](../internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
+La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
 
-Citește și
+**Citește și**
 
-[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+- [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)
 
 ---
 
@@ -506,7 +528,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Modelele LLM pot interpreta cereri în limbaj natural. Conectate la surse și instrumente, ele pot ajuta agenții IA să găsească informații și să îndeplinească sarcini pe web. Pentru ca asta să fie util, site-urile trebuie să ofere date clare, acțiuni bine definite și control pentru oameni.
+
+## Pe scurt
+
+- Internetul agentic descrie un web în care agenții IA pot consulta informații și folosi instrumente pentru a îndeplini sarcini.
+
+- Datele clare și acțiunile bine definite ajută un agent să identifice sursele relevante și să pregătească următorul pas.
+
+- Agenții pot interpreta greșit informații sau acțiuni. Permisiunile, validarea și aprobările umane trebuie proiectate explicit.
 
 ## Ce este internetul agentic?
 
@@ -516,19 +548,19 @@ Ideea unui web cu informații mai ușor de folosit de software este mai veche. [
 
 ## Ce există deja
 
-### 01 / Date clare
+### **01 / Date clare**
 
 Titlurile, textul accesibil, metadatele și formatele structurate ajută un agent să identifice informația relevantă și sursa ei.
 
-### 02 / Modele LLM
+### **02 / Modele LLM**
 
 Un model poate interpreta o cerere și poate sintetiza informații. Răspunsul său trebuie confruntat cu sursele, mai ales când precizia contează.
 
-### 03 / Instrumente
+### **03 / Instrumente**
 
 Prin API-uri sau interfețe, un agent poate folosi funcții precum căutarea, filtrarea sau pregătirea unei solicitări. [Documentația OpenAI explică folosirea instrumentelor](https://developers.openai.com/tracks/building-agents).
 
-### 04 / Control
+### **04 / Control**
 
 Aplicația stabilește ce date și acțiuni sunt disponibile agentului. Pentru pași sensibili, poate opri fluxul până când omul verifică și aprobă acțiunea.
 
@@ -552,11 +584,15 @@ Porniți cu un caz concret: ce întrebare vrea să rezolve utilizatorul sau ce s
 
 Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul la momentul corect și comunică limpede ce a făcut. Tehnologia există deja; calitatea experienței depinde de felul în care este proiectată.
 
-Citește și
+**Citește și**
 
-[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)
 
 ---
 
@@ -568,7 +604,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startu
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Când un agent AI scrie cod cu tine, alegerea limbajului schimbă atât codul pe care îl generează, cât și informațiile de care are nevoie ca să verifice o modificare. Pentru un startup, aș evalua câți tokeni și cât timp îi trebuie echipei ca să pună în mâna unui client o funcționalitate care merge.
+
+## Pe scurt
+
+- Costul dezvoltării cu AI depinde de contextul citit, codul generat, teste și încercările de corectare; diferența dintre fragmente scurte nu stabilește costul unui MVP.
+
+- Scenariul ilustrativ cu aceeași ieșire totalizează 14.000 de tokeni cu context restrâns și 44.000 cu context larg.
+
+- Alegerea între Rails, Spring Boot și React/Next.js depinde de produs, integrări și experiența echipei. Comparația practică folosește aceleași cerințe și criterii de acceptare.
 
 ## Ce consumă tokeni când lucrezi cu un agent AI
 
@@ -620,25 +666,25 @@ Patru tokeni separă Java de Ruby în aceste fragmente. Graficul măsoară textu
 
 React este o bibliotecă pentru interfețe. Ca să comparăm aplicații complete, folosim Java cu Spring Boot și Thymeleaf, Ruby cu Rails și Hotwire, respectiv JavaScript cu React și Next.js. În toate trei, utilizatorul invită un coleg, invitația expiră și poate fi folosită o singură dată, inclusiv dacă sosesc două cereri de acceptare în același timp. [Spring MVC cu Thymeleaf](https://spring.io/guides/gs/serving-web-content) · [Ghidul Rails](https://guides.rubyonrails.org/getting_started.html) · [Cadre de lucru pentru React](https://react.dev/learn/creating-a-react-app)
 
-### Ruby cu Rails
+### **Ruby cu Rails**
 
 Convențiile pentru rute, modele, migrații și formulare îi dau agentului repere previzibile. Dacă portalul urmează structura Rails, un formular și o validare pot fi schimbate cu puțin context propriu proiectului. Testele îi arată agentului reguli care altfel pot rămâne implicite, cum ar fi cine are voie să invite pe cine.
 
-### Java cu Spring Boot
+### **Java cu Spring Boot**
 
 Într-un proiect cu controller, serviciu și repository separate, agentul poate avea mai multe fișiere de parcurs. Tipurile și compilatorul oferă însă feedback imediat despre contractele din cod, iar Spring Data JPA poate genera implementarea unor metode de acces la date. O regulă de acces concentrată într-un singur serviciu poate fi ușor de găsit, modificat și testat. [Ghidul Spring Data JPA](https://spring.io/guides/gs/accessing-data-jpa)
 
-### JavaScript cu React și Next.js
+### **JavaScript cu React și Next.js**
 
 Agentul poate lucra la formular și la logica de pe server în același proiect. Când adaugi stări interactive, trebuie să înțeleagă și ce rulează în browser, unde se validează datele și ce se întâmplă după trimitere. Dacă portalul folosește deja o convenție pentru aceste lucruri, agentul o poate urma la fiecare schimbare. [Componente de server și client în Next.js](https://nextjs.org/docs/app/getting-started/server-and-client-components)
 
 ## Ce aș alege pentru un startup
 
-Aș începe cu Rails pentru un MVP de business când echipa pornește de la zero și produsul înseamnă în principal conturi, formulare, permisiuni și operații uzuale pe date. Convențiile îți permit să testezi primul flux cu clienții înainte de a lua multe decizii de arhitectură.
+**Aș începe cu Rails pentru un MVP de business** când echipa pornește de la zero și produsul înseamnă în principal conturi, formulare, permisiuni și operații uzuale pe date. Convențiile îți permit să testezi primul flux cu clienții înainte de a lua multe decizii de arhitectură.
 
-Aș alege React cu Next.js când interfața e o parte esențială din produs, de exemplu un editor vizual, sau când echipa are deja experiență în ecosistemul JavaScript și poate verifica rapid ce generează agentul. TypeScript merită luat în calcul dacă echipa vrea verificări statice pentru contractele dintre componente și server.
+**Aș alege React cu Next.js** când interfața e o parte esențială din produs, de exemplu un editor vizual, sau când echipa are deja experiență în ecosistemul JavaScript și poate verifica rapid ce generează agentul. TypeScript merită luat în calcul dacă echipa vrea verificări statice pentru contractele dintre componente și server.
 
-Aș alege Spring Boot când echipa lucrează deja bine în Java, are integrări în acel ecosistem sau când regulile de business au nevoie de contracte explicite între module. Dacă verifici și corectezi rapid o propunere a agentului, experiența echipei poate cântări mai mult decât diferența de tokeni dintre două fragmente.
+**Aș alege Spring Boot** când echipa lucrează deja bine în Java, are integrări în acel ecosistem sau când regulile de business au nevoie de contracte explicite între module. Dacă verifici și corectezi rapid o propunere a agentului, experiența echipei poate cântări mai mult decât diferența de tokeni dintre două fragmente.
 
 ## Cum măsori pe proiectul tău
 
@@ -648,11 +694,15 @@ Pentru fiecare stack, împarte totalul tokenilor din toate încercările la num�
 
 La primul MVP contează și cât de repede poate echipa să schimbe ceva după ce vorbește cu un client. Proba cu invitațiile merită rulată tocmai pentru că trece prin interfață, date, permisiuni și teste, așa cum o vor face și multe dintre schimbările din produs.
 
-Citește și
+**Citește și**
 
-[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)
 
 ---
 
@@ -664,9 +714,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
-Actualizat: 2026-11-06
+Actualizat: 2026-11-13
 
 La Proiectul Pagini Web, credem că următorul pas important în IA este antrenarea și adaptarea modelelor pentru aplicații și afaceri specifice. Această direcție se leagă direct de activitatea noastră: construim agenți IA, conectăm procese de afaceri și creăm experiențe digitale pornind de la modul în care oamenii lucrează în practică.
+
+## Pe scurt
+
+- Antrenarea poate adapta comportamentul unui model la o sarcină și la exemplele verificate ale unei afaceri.
+
+- RAG furnizează informații recuperate din surse, iar integrările oferă acces la instrumente; acestea pot fi folosite împreună cu un model adaptat.
+
+- Utilitatea se verifică prin evaluări pe exemple separate de antrenare și prin rezultate măsurabile pentru echipă.
 
 ## Fiecare afacere are propria definiție a unui rezultat bun
 
@@ -688,15 +746,15 @@ Antrenarea are și un rol diferit de furnizarea informațiilor. [Generarea augme
 
 Serviciile noastre aduc IA în interacțiunile cu clienții, în fluxurile de lucru cu documente și în instrumentele interne. În aceste domenii, modelele specializate ar putea susține sarcini precum cele de mai jos.
 
-### 01 / Asistență pentru clienți
+### **01 / Asistență pentru clienți**
 
 Un model ar putea fi adaptat folosind conversații de asistență aprobate, pentru a învăța cum explică o companie problemele frecvente și cum recunoaște cererile care trebuie trimise unui specialist. Aplicația ar consulta în continuare politica în vigoare și comanda clientului.
 
-### 02 / Prelucrarea documentelor
+### **02 / Prelucrarea documentelor**
 
 O aplicație pentru documente ar putea folosi exemple corectate pentru a antrena un model să extragă câmpurile de care are nevoie echipa din tipurile de documente întâlnite frecvent. Valorile neclare ar fi trimise spre verificare, iar echipa ar putea măsura cât de des sunt necesare corecturi.
 
-### 03 / Operațiuni interne
+### **03 / Operațiuni interne**
 
 O firmă de servicii ar putea adapta un model pentru a clasifica cererile primite și a pregăti rezumate ale lucrărilor în formatul folosit de angajați. Sistemul de programări ar furniza disponibilitatea, iar angajații s-ar ocupa de cazurile neobișnuite.
 
@@ -716,8 +774,12 @@ Ajutăm afacerile să transforme ideile în agenți IA, procese conectate și ex
 
 Vedem oportunitatea de a dezvolta aplicații ale căror modele se aliniază mai bine cu munca pe care o susțin. Un rezultat util depinde de întregul sistem: modelul, cunoștințele despre afacere, instrumentele conectate și oamenii care verifică rezultatele. Acesta este contextul în care vedem conturându-se următorul pas în IA.
 
-Citește și
+**Citește și**
 
-[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
 
-[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+- [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)

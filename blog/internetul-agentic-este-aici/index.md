@@ -6,7 +6,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Modelele LLM pot interpreta cereri în limbaj natural. Conectate la surse și instrumente, ele pot ajuta agenții IA să găsească informații și să îndeplinească sarcini pe web. Pentru ca asta să fie util, site-urile trebuie să ofere date clare, acțiuni bine definite și control pentru oameni.
+
+## Pe scurt
+
+- Internetul agentic descrie un web în care agenții IA pot consulta informații și folosi instrumente pentru a îndeplini sarcini.
+
+- Datele clare și acțiunile bine definite ajută un agent să identifice sursele relevante și să pregătească următorul pas.
+
+- Agenții pot interpreta greșit informații sau acțiuni. Permisiunile, validarea și aprobările umane trebuie proiectate explicit.
 
 ## Ce este internetul agentic?
 
@@ -16,19 +26,19 @@ Ideea unui web cu informații mai ușor de folosit de software este mai veche. [
 
 ## Ce există deja
 
-### 01 / Date clare
+### **01 / Date clare**
 
 Titlurile, textul accesibil, metadatele și formatele structurate ajută un agent să identifice informația relevantă și sursa ei.
 
-### 02 / Modele LLM
+### **02 / Modele LLM**
 
 Un model poate interpreta o cerere și poate sintetiza informații. Răspunsul său trebuie confruntat cu sursele, mai ales când precizia contează.
 
-### 03 / Instrumente
+### **03 / Instrumente**
 
 Prin API-uri sau interfețe, un agent poate folosi funcții precum căutarea, filtrarea sau pregătirea unei solicitări. [Documentația OpenAI explică folosirea instrumentelor](https://developers.openai.com/tracks/building-agents).
 
-### 04 / Control
+### **04 / Control**
 
 Aplicația stabilește ce date și acțiuni sunt disponibile agentului. Pentru pași sensibili, poate opri fluxul până când omul verifică și aprobă acțiunea.
 
@@ -52,8 +62,12 @@ Porniți cu un caz concret: ce întrebare vrea să rezolve utilizatorul sau ce s
 
 Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul la momentul corect și comunică limpede ce a făcut. Tehnologia există deja; calitatea experienței depinde de felul în care este proiectată.
 
-Citește și
+**Citește și**
 
-[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)

@@ -6,7 +6,17 @@ Articol: https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
+Actualizat: 2026-11-13
+
 Un chat AI te ajută să lucrezi prin conversație. Un agent AI poate prelua un obiectiv și poate gestiona pașii necesari pentru a-l îndeplini, folosind instrumentele la care are acces. Cele două se pot întâlni în aceeași aplicație: poți vorbi cu un agent într-o fereastră de chat.
+
+## Pe scurt
+
+- Un chat AI este o interfață de conversație. Un agent AI poate gestiona pașii unei sarcini și folosi instrumente în limitele accesului primit.
+
+- Pentru pași previzibili poate fi suficientă o automatizare cu reguli fixe; alegerea pornește de la activitatea echipei.
+
+- Permisiunile, punctele de aprobare și criteriile de reușită se stabilesc în aplicație și se verifică prin rezultatele operațiilor.
 
 ## Chatul este interfața, agentul este modul de lucru
 
@@ -30,19 +40,19 @@ Un agent configurat pentru acest proces, cu accesul necesar, ar putea citi cerer
 
 Un agent leagă deciziile de rezultatele acțiunilor sale. [Documentația OpenAI despre bucla unui agent](https://developers.openai.com/api/docs/guides/agents/running-agents) explică repetarea ciclului dintre model și instrumente până când sistemul ajunge la un punct de oprire. În exemplul nostru, procesul ar putea arăta astfel:
 
-### 01 / Înțelege obiectivul
+### **01 / Înțelege obiectivul**
 
 Identifică ce cereri trebuie procesate, ce date sunt necesare și ce înseamnă un rezultat complet.
 
-### 02 / Alege următorul pas
+### **02 / Alege următorul pas**
 
 Decide dacă trebuie să citească un mesaj, să caute clientul în evidență sau să pregătească o ciornă.
 
-### 03 / Folosește un instrument
+### **03 / Folosește un instrument**
 
 Solicită operația printr-o conexiune la aplicație. Instrumentul întoarce date sau confirmă dacă operația a reușit.
 
-### 04 / Verifică și continuă
+### **04 / Verifică și continuă**
 
 Folosește rezultatul pentru pasul următor. Încheie sarcina când cerințele sunt îndeplinite sau se oprește pentru informații ori aprobare.
 
@@ -66,10 +76,14 @@ Pentru un proces cu pași complet previzibili, poate fi suficientă o automatiza
 
 În exemplul cu cererile de ofertă, verificarea poate urmări lucruri concrete: datele extrase corespund mesajelor, înregistrările au fost actualizate corect, ciornele există, iar cererile incomplete sunt semnalate. Un agent poate greși atât interpretarea, cât și acțiunea; verificarea trebuie să acopere ambele.
 
-La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](../internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
+La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
 
-Citește și
+**Citește și**
 
-[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+- [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
 
-[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+[← Înapoi la blog](https://www.proiectulpaginiweb.ro/blog/)
