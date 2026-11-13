@@ -8,6 +8,14 @@ Explicații și exemple despre agenți IA, modele specializate pentru afaceri ș
 
 ## Articole
 
+13 noiembrie 2026· SEO și GEO
+
+### [Cum îți faci site-ul vizibil în ChatGPT și căutările AI](https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/)
+
+Ghid practic despre accesul crawlerelor, indexare, conținut și citare. Ce contează pentru căutările AI și ce rol au fișierele llms.txt.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/)
+
 9 noiembrie 2026· Dezvoltare cu AI
 
 ### [Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/)

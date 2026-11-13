@@ -12,8 +12,8 @@ Documentul descrie implementarea realizată și pașii de întreținere. Este do
 | Componentă | Rezultat la redactare |
 | --- | --- |
 | Modificări GEO în HTML, Markdown și generatoare | Implementate și verificate local; încă nepublicate în această intervenție |
-| Verificări automate SEO și GEO | Trec pentru cele șapte pagini HTML canonice |
-| Rezumate pentru cititori | Câte trei idei principale în fiecare dintre cele patru articole |
+| Verificări automate SEO și GEO | Acoperă cele opt pagini HTML canonice ale versiunii locale |
+| Rezumate pentru cititori | Câte trei idei principale în fiecare dintre cele cinci articole |
 | Search Console | Proprietatea PPW este verificată; controlul „Search generative AI” moștenește **Include** de la domeniu |
 | Setarea de includere în Google | Era deja activă; nu a fost modificată |
 | Indexare raportată de Google | Șase pagini indexate, pentru versiunea publică existentă |
@@ -42,7 +42,7 @@ Aceste ancore sunt implementate în sursa locală și devin disponibile public d
 
 Fiecare articol are o secțiune **„Pe scurt”**, cu trei concluzii și o legătură directă la `#pe-scurt`. Rezumatele păstrează sensul articolului, inclusiv caracterul ilustrativ al scenariilor numerice.
 
-Datele actualizării au fost schimbate la **13 noiembrie 2026**, deoarece au fost adăugate informații editoriale vizibile. Datele publicării inițiale au rămas neschimbate.
+Pentru cele patru articole existente la audit, datele actualizării au fost schimbate la **13 noiembrie 2026**, deoarece au fost adăugate informații editoriale vizibile. Datele publicării inițiale au rămas neschimbate.
 
 ### Surse și date structurate coerente
 
@@ -60,7 +60,7 @@ Aceste proprietăți exprimă informațiile paginii. Ele nu reprezintă o comand
 
 Am introdus un renderer comun în `scripts/markdown_content.py`. Acesta păstrează secțiunile imbricate, listele, evidențierile, codul, figurile, legendele și tabelele simple.
 
-Am corectat două probleme concrete: secțiunile noi puteau lipsi din export, iar linkurile relative deveneau incorecte în `llms-full.txt`. Acum legăturile sunt rezolvate față de adresa canonică a paginii, iar rezumatele și sursele se păstrează atât în cele șapte copii Markdown, cât și în fișierul agregat.
+Am corectat două probleme concrete: secțiunile noi puteau lipsi din export, iar linkurile relative deveneau incorecte în `llms-full.txt`. Legăturile sunt rezolvate față de adresa canonică a paginii. Auditul inițial a confirmat păstrarea rezumatelor și surselor în cele șapte copii Markdown existente atunci și în fișierul agregat; aceeași generare se aplică și articolelor noi.
 
 Am reorganizat `llms.txt` în categorii: PPW, servicii, echipă, articole și contact. Este un index suplimentar pentru sistemele care aleg să-l folosească. Google precizează că nu utilizează astfel de fișiere pentru vizibilitatea sau clasarea în căutarea sa generativă. [Ghid Google pentru IA generativă](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
@@ -152,3 +152,9 @@ Editează conținutul HTML sursă, apoi regenerează exporturile. Nu modifica ma
 Pentru un articol nou, păstrează sursele, autorul, datele editoriale și navigația coerente. Rendererul și verificările actuale se așteaptă la o secțiune `.post-summary` cu trei concluzii; aceasta este convenția proiectului, nu o regulă impusă de motoarele IA.
 
 La pagini noi, actualizează și lista explicită din regula Cloudflare pentru canonicalele Markdown. Păstrează fișierele administrative din `docs/` în afara pachetului public al site-ului.
+
+## 7. Articolul pentru blog
+
+Am pregătit articolul [Cum îți faci site-ul vizibil în ChatGPT și căutările AI](../blog/indexare-site-chatgpt-ai-geo/index.html), pornind de la acest raport și de la documentația oficială a furnizorilor. Ghidul explică accesul crawlerelor, indexarea, selecția surselor și citarea, fără să promită includerea într-un răspuns IA. Versiunea locală include acum cinci articole și opt pagini HTML canonice; sitemap-ul și exporturile se regenerează din conținutul vizibil prin `npm run build`.
+
+Înaintea publicării, adaugă **`/blog/indexare-site-chatgpt-ai-geo/index.md`** în lista explicită a regulii Cloudflare **PPW SEO - canonical Markdown**. Configurația documentată acoperă în continuare cele șapte căi originale; această intervenție în repository nu a modificat regula CDN. Verifică apoi antetul `Link: <https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/>; rel="canonical"` pe noua copie Markdown publică.

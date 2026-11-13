@@ -4,6 +4,8 @@
 .post-body figure img{display:block;width:100%;height:auto}
 .post-body figcaption{margin-top:10px;color:#44483e;font-size:14px;line-height:1.6}
 .post-body code{overflow-wrap:anywhere}
+.post-guide .post-body>ul,.post-guide .post-body>ol{margin:0 0 28px;padding-left:24px;font-size:18px;line-height:1.8;color:#44483e}
+.post-guide .post-body>ul>li+li,.post-guide .post-body>ol>li+li{margin-top:12px}
 .post-body pre{white-space:pre-wrap;margin:10px 0 22px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff;line-height:1.55}
 
 .post-breadcrumb{flex-wrap:wrap}

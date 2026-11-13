@@ -28,6 +28,8 @@ Proiectul Pagini Web (PPW) dezvoltă agenți IA, automatizări de procese și ap
 - [Blog în Markdown](https://www.proiectulpaginiweb.ro/blog/index.md): lista articolelor publicate.
 - [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/): Află diferența dintre un chat AI și un agent AI: instrumente, autonomie și verificarea rezultatelor, explicate printr-un exemplu pentru afaceri.
 - [Articol în Markdown](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/index.md): Chat AI și agent AI: care este diferența?
+- [Cum îți faci site-ul vizibil în ChatGPT și căutările AI](https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/): Cum pregătești site-ul pentru ChatGPT și căutările AI: acces, crawlere, canonical, sitemap, conținut și verificare. Ghid GEO cu exemple și surse oficiale.
+- [Articol în Markdown](https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/index.md): Cum îți faci site-ul vizibil în ChatGPT și căutările AI
 - [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): Cum folosesc agenții IA datele și instrumentele de pe web pentru a îndeplini sarcini: exemple, permisiuni și verificarea rezultatelor.
 - [Articol în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): Internetul agentic este aici. De la informație la acțiune.
 - [Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/): Compară Java/Spring, Ruby/Rails și JavaScript/React pentru un MVP dezvoltat cu AI: consum de tokeni, context, testare și experiența echipei.
