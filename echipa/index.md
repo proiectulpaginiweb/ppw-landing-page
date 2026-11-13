@@ -44,7 +44,7 @@ Rolurile și perioadele din profilul LinkedIn, de la primele experiențe la ingi
 
 [Vezi experiența pe LinkedIn](https://www.linkedin.com/in/sarbull/details/experience/)
 
-1. Octombrie 2026 — prezent
+1. Martie 2025 — prezent
 
    ### Adobe
 
@@ -52,43 +52,37 @@ Rolurile și perioadele din profilul LinkedIn, de la primele experiențe la ingi
 
    Rol actual
 
-2. Martie 2025 — octombrie 2026
-
-   ### Adobe
-
-   Software Engineer
-
-3. Octombrie 2020 — martie 2025
+2. Octombrie 2020 — martie 2025
 
    ### ING Hubs Romania
 
    Software Engineer
 
-4. Noiembrie 2017 — octombrie 2020
+3. Noiembrie 2017 — octombrie 2020
 
    ### Thales
 
    Software Engineer
 
-5. Septembrie 2015 — noiembrie 2017
+4. Septembrie 2015 — noiembrie 2017
 
    ### Deutsche Bank
 
    Software Engineer
 
-6. Iunie 2014 — septembrie 2015
+5. Iunie 2014 — septembrie 2015
 
    ### OkapiStudio
 
    Software Engineer
 
-7. Iunie 2013 — ianuarie 2014
+6. Iunie 2013 — ianuarie 2014
 
    ### CustomSoft
 
    Junior Software Engineer
 
-8. Octombrie 2012 — decembrie 2012
+7. Octombrie 2012 — decembrie 2012
 
    ### ROSEdu
 
