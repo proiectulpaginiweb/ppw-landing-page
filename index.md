@@ -1,6 +1,6 @@
 # Proiectul Pagini Web
 
-> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
+> Construim agenți IA, automatizăm procese și dezvoltăm aplicații web pentru afaceri. Pornim de la o problemă concretă și testăm soluția cu echipa ta.
 
 Site oficial: https://www.proiectulpaginiweb.ro/
 
@@ -10,7 +10,7 @@ O companie construită în jurul inteligenței artificiale. Cu oamenii în centr
 
 # Următorul pas este agentic.
 
-Tu aduci ambiția. Noi te ajutăm să transformi IA în agenți, procese și experiențe care îți duc afacerea mai departe.
+Tu aduci ambiția. Noi construim agenți IA, conectăm procesele afacerii tale și dezvoltăm experiențe web utile pentru echipă și clienți.
 
 01 / Un alt punct de plecare
 

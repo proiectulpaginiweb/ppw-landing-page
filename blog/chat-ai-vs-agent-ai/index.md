@@ -4,6 +4,8 @@ Publicat: 2026-11-06
 
 Articol: https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/
 
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
 Un chat AI te ajută să lucrezi prin conversație. Un agent AI poate prelua un obiectiv și poate gestiona pașii necesari pentru a-l îndeplini, folosind instrumentele la care are acces. Cele două se pot întâlni în aceeași aplicație: poți vorbi cu un agent într-o fereastră de chat.
 
 ## Chatul este interfața, agentul este modul de lucru
@@ -65,3 +67,9 @@ Pentru un proces cu pași complet previzibili, poate fi suficientă o automatiza
 În exemplul cu cererile de ofertă, verificarea poate urmări lucruri concrete: datele extrase corespund mesajelor, înregistrările au fost actualizate corect, ciornele există, iar cererile incomplete sunt semnalate. Un agent poate greși atât interpretarea, cât și acțiunea; verificarea trebuie să acopere ambele.
 
 La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](../internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
+
+Citește și
+
+[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)

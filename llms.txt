@@ -1,24 +1,26 @@
 # Proiectul Pagini Web
 
-> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
+> Construim agenți IA, automatizăm procese și dezvoltăm aplicații web pentru afaceri. Pornim de la o problemă concretă și testăm soluția cu echipa ta.
 
 Site oficial: https://www.proiectulpaginiweb.ro/
 
 ## Conținut
 
 - [Prezentare completă în Markdown](https://www.proiectulpaginiweb.ro/index.md): serviciile, cele patru etape ale colaborării, principiile și întrebările frecvente.
-- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale, al paginii despre echipă și al tuturor articolelor.
+- [Conținut integral](https://www.proiectulpaginiweb.ro/llms-full.txt): textul paginii principale, al paginii despre echipă, al blogului și al tuturor articolelor.
 - [Pagina principală](https://www.proiectulpaginiweb.ro/): versiunea HTML în română.
 - [Echipa — Sîrbu Nicolae-Cezar | Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/echipa/): Cunoaște echipa PPW: Sîrbu Nicolae-Cezar, inginer software cu peste 15 ani în IT. Parcursul profesional, proiectele open source și experiența tehnică.
 - [Pagina în Markdown](https://www.proiectulpaginiweb.ro/echipa/index.md): Echipa — Sîrbu Nicolae-Cezar | Proiectul Pagini Web
+- [Blog: agenți IA și dezvoltare software | PPW](https://www.proiectulpaginiweb.ro/blog/): Explicații și exemple despre agenți IA, modele specializate pentru afaceri și dezvoltare software cu AI, de la Proiectul Pagini Web.
+- [Pagina în Markdown](https://www.proiectulpaginiweb.ro/blog/index.md): Blog: agenți IA și dezvoltare software | PPW
 - [Blog](https://www.proiectulpaginiweb.ro/blog/): articole despre tehnologie și experiențe digitale.
-- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/): Chatul este interfața de conversație; agentul gestionează pașii unei sarcini. Exemple practice despre instrumente, autonomie și rezultate pentru business.
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/): Află diferența dintre un chat AI și un agent AI: instrumente, autonomie și verificarea rezultatelor, explicate printr-un exemplu pentru afaceri.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/index.md): Chat AI și agent AI: care este diferența?
-- [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): Cum schimbă modelele LLM și agenții IA felul în care folosim webul: date clare, instrumente conectate, permisiuni și verificarea rezultatelor.
+- [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/): Cum folosesc agenții IA datele și instrumentele de pe web pentru a îndeplini sarcini: exemple, permisiuni și verificarea rezultatelor.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/index.md): Internetul agentic este aici. De la informație la acțiune.
-- [Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/): Java/Spring, Ruby/Rails sau JavaScript/React? Două grafice explică ce consumă tokeni când scrii cod cu AI și cum să alegi un stack pentru startup.
+- [Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/): Compară Java/Spring, Ruby/Rails și JavaScript/React pentru un MVP dezvoltat cu AI: consum de tokeni, context, testare și experiența echipei.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/index.md): Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP
-- [Următorul pas în IA este antrenarea modelelor pentru afacerea ta](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/): Proiectul Pagini Web explorează cum modelele antrenate pentru afaceri specifice pot susține agenți IA, fluxuri de lucru conectate și experiențe digitale utile.
+- [Următorul pas în IA este antrenarea modelelor pentru afacerea ta](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/): Când ajută antrenarea modelelor IA pentru o afacere: diferența față de RAG, exemple de utilizare și evaluarea rezultatelor pe sarcini concrete.
 - [Articolul în Markdown](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/index.md): Următorul pas în IA este antrenarea modelelor pentru afacerea ta
 - [Servicii](https://www.proiectulpaginiweb.ro/#posibilitati): agenți IA, automatizarea proceselor și experiențe digitale cu IA.
 - [Parcursul colaborării](https://www.proiectulpaginiweb.ro/#parcurs): descoperire, proiectare, construcție și îmbunătățire.

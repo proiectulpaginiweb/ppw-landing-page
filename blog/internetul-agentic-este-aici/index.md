@@ -4,6 +4,8 @@ Publicat: 2026-10-24
 
 Articol: https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/
 
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
 Modelele LLM pot interpreta cereri în limbaj natural. Conectate la surse și instrumente, ele pot ajuta agenții IA să găsească informații și să îndeplinească sarcini pe web. Pentru ca asta să fie util, site-urile trebuie să ofere date clare, acțiuni bine definite și control pentru oameni.
 
 ## Ce este internetul agentic?
@@ -49,3 +51,9 @@ Un LLM poate produce un răspuns convingător, dar greșit. Un agent poate inter
 Porniți cu un caz concret: ce întrebare vrea să rezolve utilizatorul sau ce sarcină îi consumă timp? Publicați informația esențială în text accesibil, cu titluri clare și date structurate care corespund conținutului vizibil. Oferiți acțiuni mici, bine definite, apoi limitați accesul agentului la ce îi este necesar.
 
 Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul la momentul corect și comunică limpede ce a făcut. Tehnologia există deja; calitatea experienței depinde de felul în care este proiectată.
+
+Citește și
+
+[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)

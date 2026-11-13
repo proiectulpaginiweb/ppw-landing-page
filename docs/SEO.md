@@ -1,0 +1,151 @@
+# PPW — optimizări SEO și indexarea în Google
+
+Data documentului: **13 noiembrie 2026**  
+Site canonic: **[www.proiectulpaginiweb.ro](https://www.proiectulpaginiweb.ro/)**
+
+Acest document descrie modificările realizate, verificările efectuate și pașii rămași pentru publicare și monitorizare. Este documentație a proiectului, nu o pagină destinată rezultatelor Google; nu este inclus în sitemap și nu trebuie adăugat în pachetul public al site-ului.
+
+## 1. Starea implementării
+
+| Componentă | Stare la redactare |
+| --- | --- |
+| Optimizările HTML, CSS, imaginile și generatoarele | Implementate și verificate local; modificările nu au fost publicate în această intervenție |
+| Redirecționarea HTTP → HTTPS în Cloudflare | Activată și verificată public |
+| Antetele canonical pentru copiile Markdown | Regula Cloudflare este activă pentru cele șapte căi configurate |
+| `noindex` pentru fișierele auxiliare | Activ în Cloudflare pentru trei căi exacte |
+| Verificarea SEO automată și build-ul | Trec pentru toate cele șapte pagini HTML |
+| Verificarea mobilă | Cele șapte pagini verificate la 390 px, fără depășire orizontală |
+| Google Search Console și Rich Results Test | Nu au fost folosite pentru validarea noii versiuni în această intervenție |
+| Core Web Vitals din trafic real | Nu au fost măsurate |
+
+La auditul public din 13 noiembrie, înaintea publicării modificărilor locale, `/echipa/` răspundea cu **404**, iar sitemap-ul public nu includea pagina. Existența fișierelor în repository sau funcționarea lor pe localhost nu le face accesibile Google pe domeniul public.
+
+## 2. Ce am modificat în site
+
+### Metadate și URL-uri coerente
+
+Am actualizat titlurile și descrierile pentru a explica mai clar serviciile și subiectele paginilor. Titlurile și descrierile sunt distincte, iar fiecare pagină are o singură adresă canonical, pe HTTPS și cu `www`.
+
+Generatorul `scripts/seo.py`, apelat de `scripts/build_discovery.py`, uniformizează:
+
+- canonicalele, directivele de indexare și metadatele Open Graph/Twitter;
+- legăturile către variantele Markdown și sitemap;
+- încărcarea fonturilor și versiunile CSS/JavaScript bazate pe conținut;
+- datele structurate, pornind de la conținutul paginilor.
+
+Open Graph și Twitter ajută previzualizările la distribuire; nu înlocuiesc semnalele de indexare Google. Titlurile și descrierile propuse pot fi afișate diferit de Google. [Ghid Google pentru titluri](https://developers.google.com/search/docs/appearance/title-link), [ghid pentru descrieri](https://developers.google.com/search/docs/appearance/snippet).
+
+### Date structurate și informații editoriale
+
+| Pagină | Date structurate |
+| --- | --- |
+| Pagina principală | `Organization`, `WebSite`, `WebPage`, `Service` |
+| Lista de articole | `CollectionPage`, `ItemList`, `BreadcrumbList` |
+| Echipa | `ProfilePage`, `Person`, `BreadcrumbList` |
+| Fiecare articol | `WebPage`, `BlogPosting`, `BreadcrumbList` |
+
+Am adăugat autori vizibili, legături către echipă, breadcrumbs și articole conexe. Autorul declarat al articolelor este **Proiectul Pagini Web**, ca organizație; nu am atribuit unei persoane articole fără confirmare.
+
+Datele editoriale existente au fost păstrate. Publicarea este preluată din primul `<time>` al antetului articolului, iar modificarea din atributul `data-date-modified`. Data actualizării este vizibilă când diferă de publicare. Nu am adăugat recenzii, evaluări sau date de contact inventate.
+
+Marcajele trebuie să descrie conținutul real al paginii. JSON-LD valid nu garantează afișarea unui rezultat îmbogățit. [Regulile Google pentru date structurate](https://developers.google.com/search/docs/appearance/structured-data/sd-policies).
+
+### Performanță și afișare
+
+- Am înlocuit `@import` pentru Google Fonts cu legături în HTML și conexiuni anticipate, păstrând fonturile și `display=swap`.
+- Am comprimat fără pierderi sigla PNG: **25.752 → 24.880 bytes**, cu pixeli și metadate păstrate.
+- Imaginile au dimensiuni explicite. Graficele aflate sub primul ecran sunt încărcate cu `loading="lazy"`; portretul principal rămâne prioritar.
+- Am verificat afișarea pe mobil și aspectul paginii principale pe desktop.
+
+Aceste modificări reduc întârzieri și riscuri de deplasare a conținutului. Ele nu reprezintă o măsurare Core Web Vitals. [Recomandări Google despre experiența paginii](https://developers.google.com/search/docs/appearance/page-experience).
+
+### UTF-8 și fișiere de descoperire
+
+Fișierele Markdown au fost verificate pentru UTF-8, diacritice românești și normalizare Unicode NFC. Generatorul citește și scrie explicit UTF-8, iar serverul local declară `charset=utf-8` pentru răspunsurile text.
+
+Build-ul regenerează copiile Markdown, `robots.txt`, `sitemap.xml`, `llms.txt` și `llms-full.txt`. Sitemap-ul conține cele șapte adrese HTML canonice, fără duplicate Markdown sau aliasuri `index.html`.
+
+Nu am introdus date `lastmod` artificiale. Dacă vor fi adăugate, acestea trebuie să reflecte modificări semnificative reale, nu momentul fiecărui build. `priority` și `changefreq` nu au fost adăugate. [Documentația Google pentru sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
+
+## 3. Ce am activat în Cloudflare
+
+### HTTPS obligatoriu
+
+Am activat **Always Use HTTPS**. Cererile HTTP sunt redirecționate permanent către HTTPS, păstrând calea și parametrii. Redirecționarea existentă de la domeniul fără `www` conduce ulterior la varianta canonică.
+
+Exemplul verificat public a ajuns la destinația corectă:
+
+```text
+http://proiectulpaginiweb.ro/blog/?seo-check=2
+→ https://www.proiectulpaginiweb.ro/blog/?seo-check=2
+```
+
+### Canonical pentru Markdown
+
+Regula **PPW SEO - canonical Markdown** adaugă un antet HTTP către pagina HTML corespunzătoare. Exemplu:
+
+```http
+Link: <https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/>; rel="canonical"
+```
+
+Regula acoperă lista explicită a celor șapte copii `index.md`. Când apare o pagină nouă, lista Cloudflare trebuie extinsă; build-ul local nu modifică automat CDN-ul. Serverul local derivă antetul din fișierul HTML corespunzător.
+
+Canonicalul indică versiunea preferată a conținutului duplicat; Google poate selecta o altă variantă. Copiile Markdown rămân accesibile crawlerelor pentru ca antetul să poată fi citit. Nu folosim `robots.txt` sau `noindex` în locul canonicalului pentru aceste copii. [Documentația Google despre canonicalizare](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
+
+### Fișiere auxiliare excluse din rezultate
+
+Regula **PPW SEO - noindex fisiere auxiliare** setează `X-Robots-Tag: noindex` numai pentru:
+
+- `/llms.txt`;
+- `/llms-full.txt`;
+- `/README.md`.
+
+Paginile HTML canonice nu primesc această directivă. Fișierele LLM rămân disponibile agenților; ele sunt resurse suplimentare și nu înlocuiesc mecanismele Google de descoperire și indexare.
+
+## 4. Ce contează pentru indexare
+
+### Accesibilitatea publică este primul pas
+
+Pagina dorită în rezultate trebuie să poată fi accesată de Googlebot, să răspundă cu **HTTP 200** și să ofere conținut indexabil. Nu trebuie să necesite autentificare sau să fie blocată accidental de `robots.txt`, reguli CDN ori `noindex`.
+
+`index, follow` nu obligă Google să indexeze pagina. Un test HTTP cu identificatorul „Googlebot” nu dovedește accesul crawlerului Google real. Verificarea specifică se face prin **URL Inspection** în Search Console. [Cerințele tehnice Google](https://developers.google.com/search/docs/essentials/technical).
+
+### Conținutul trebuie să merite indexat
+
+Paginile trebuie să răspundă clar unor nevoi reale, cu informații originale și verificabile, titluri descriptive, surse și autori corecți. Legăturile interne trebuie să ajute vizitatorul să descopere paginile relevante. Evităm repetarea artificială a cuvintelor-cheie și crearea de pagini doar pentru motoare de căutare. [Recomandările Google pentru conținut util](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [politicile antispam](https://developers.google.com/search/docs/essentials/spam-policies).
+
+### Semnalele trebuie să indice aceeași versiune
+
+Linkurile interne, redirecturile, canonicalele și sitemap-ul trebuie să folosească aceeași adresă preferată. Sitemap-ul ajută la descoperire, însă nu garantează indexarea. Paginile inexistente trebuie să întoarcă un 404 real, fără a fi prezentate drept pagini funcționale.
+
+Descoperirea unei adrese, indexarea conținutului și poziționarea în rezultate sunt etape diferite. Nici implementarea tehnică, nici un scor de performanță bun nu garantează indexarea sau o anumită poziție.
+
+## 5. Publicare și verificare
+
+1. Rulează `npm run build` și rezolvă eventualele erori.
+2. Publică toate paginile HTML, stilurile, scripturile, imaginile și fișierele generate împreună. Include `/echipa/` și sitemap-ul actualizat. Lista fișierelor de publicat este în `README.md`.
+3. Verifică pe domeniul public că fiecare adresă canonică răspunde cu 200, că redirecturile funcționează și că nu există `noindex` pe paginile dorite în Google.
+4. Verifică în Search Console procesarea [sitemap-ului PPW](https://www.proiectulpaginiweb.ro/sitemap.xml). Trimite-l dacă nu este deja înregistrat.
+5. Folosește URL Inspection pentru pagina principală, Echipa și un articol: acces, test live, indexare permisă și canonical ales de Google. Solicită indexarea paginilor noi sau actualizate atunci când este cazul.
+6. Verifică pagini reprezentative în [Rich Results Test](https://search.google.com/test/rich-results) și performanța în [PageSpeed Insights](https://pagespeed.web.dev/). Monitorizează ulterior rapoartele de indexare și Core Web Vitals din Search Console.
+
+Google nu oferă un termen garantat pentru indexare; evită solicitările repetate fără o schimbare sau o problemă concretă de verificat. [Recomandările Google pentru recrawl](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
+
+## 6. Întreținere și limitele verificărilor
+
+```sh
+# Regenerează metadatele și fișierele de descoperire, apoi verifică SEO.
+npm run build
+
+# Verifică starea existentă fără regenerare.
+npm run check:seo
+
+# Pornește previzualizarea locală cu antete UTF-8 și SEO.
+npm run dev
+```
+
+Validatorul `scripts/check_seo.py` verifică metadatele, canonicalele, datele structurate și concordanța lor cu textul vizibil, breadcrumbs, linkuri și ancore locale, dimensiunile imaginilor, fonturile și sitemap-ul. Am verificat și că respinge un canonical greșit într-o copie temporară a proiectului.
+
+Build-ul este idempotent: o repetare fără modificări nu schimbă fișierele generate. Au fost verificate și răspunsurile HTTP locale pentru șapte pagini HTML, șapte copii Markdown și cele trei fișiere auxiliare.
+
+Aceste verificări nu înlocuiesc rapoartele Google, evaluarea calității conținutului sau măsurarea experienței utilizatorilor reali. La fiecare pagină nouă, menține accesul din navigație, metadatele și datele editoriale corecte, regenerează sitemap-ul și actualizează regula Cloudflare pentru noua copie Markdown.

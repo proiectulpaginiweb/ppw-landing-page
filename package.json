@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "python3 scripts/serve.py",
     "start": "python3 scripts/serve.py",
-    "build": "python3 scripts/build_discovery.py"
+    "build": "python3 scripts/build_discovery.py && python3 scripts/check_seo.py",
+    "check:seo": "python3 scripts/check_seo.py"
   }
 }

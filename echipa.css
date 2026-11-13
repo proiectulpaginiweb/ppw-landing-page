@@ -2,6 +2,20 @@
   text-decoration: underline;
   text-underline-offset: 6px;
 }
+.team-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 35px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #666a5d;
+}
+.team-breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .team-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);

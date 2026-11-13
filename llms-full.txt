@@ -1,6 +1,6 @@
 # Proiectul Pagini Web
 
-> Proiectul Pagini Web este o companie construită în jurul inteligenței artificiale. Te ajutăm să transformi ideile în agenți IA, procese conectate și experiențe mai bune pentru clienți.
+> Construim agenți IA, automatizăm procese și dezvoltăm aplicații web pentru afaceri. Pornim de la o problemă concretă și testăm soluția cu echipa ta.
 
 Site oficial: https://www.proiectulpaginiweb.ro/
 
@@ -10,7 +10,7 @@ O companie construită în jurul inteligenței artificiale. Cu oamenii în centr
 
 # Următorul pas este agentic.
 
-Tu aduci ambiția. Noi te ajutăm să transformi IA în agenți, procese și experiențe care îți duc afacerea mai departe.
+Tu aduci ambiția. Noi construim agenți IA, conectăm procesele afacerii tale și dezvoltăm experiențe web utile pentru echipă și clienți.
 
 01 / Un alt punct de plecare
 
@@ -153,6 +153,8 @@ Folosește formularul de pe https://www.proiectulpaginiweb.ro/#contact pentru a 
 ---
 
 Pagina: https://www.proiectulpaginiweb.ro/echipa/
+
+[Acasă](https://www.proiectulpaginiweb.ro/)
 
 Echipa / Proiectul Pagini Web
 
@@ -368,11 +370,63 @@ Următorul pas
 
 ---
 
+Pagina: https://www.proiectulpaginiweb.ro/blog/
+
+[Acasă](https://www.proiectulpaginiweb.ro/)
+
+Jurnal / Idei pentru web
+
+# IA pentru afaceri.
+
+Explicații și exemple despre agenți IA, modele specializate pentru afaceri și dezvoltare software cu AI.
+
+## Articole
+
+9 noiembrie 2026· Dezvoltare cu AI
+
+### [Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/)
+
+Două grafice arată ce consumă tokeni când scrii cod cu AI. Află când are sens fiecare stack pentru o aplicație nouă.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/)
+
+6 noiembrie 2026· AI pentru business
+
+### [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+Chatul este interfața de conversație; agentul gestionează pașii unei sarcini. Un exemplu practic despre instrumente, autonomie și rezultate pentru business.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+4 noiembrie 2026· IA pentru afaceri
+
+### [Următorul pas în IA este antrenarea modelelor pentru afacerea ta](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+Proiectul Pagini Web explorează cum modelele antrenate pentru afaceri specifice pot susține agenți IA, fluxuri de lucru conectate și experiențe digitale utile.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
+24 octombrie 2026· Perspective digitale
+
+### [Internetul agentic este aici. De la informație la acțiune.](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+
+Date clare, modele LLM, instrumente și permisiuni: cum se transformă webul când agenții IA pot ajuta oamenii să treacă de la informație la acțiune?
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+
+Ai un business? Construim împreună.
+
+[Hai să vorbim](https://www.proiectulpaginiweb.ro/#contact)
+
+---
+
 # Chat AI și agent AI: care este diferența?
 
 Publicat: 2026-11-06
 
 Articol: https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/
+
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
 Un chat AI te ajută să lucrezi prin conversație. Un agent AI poate prelua un obiectiv și poate gestiona pașii necesari pentru a-l îndeplini, folosind instrumentele la care are acces. Cele două se pot întâlni în aceeași aplicație: poți vorbi cu un agent într-o fereastră de chat.
 
@@ -436,6 +490,12 @@ Pentru un proces cu pași complet previzibili, poate fi suficientă o automatiza
 
 La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sarcină clară, instrumentele necesare, limitele acțiunilor și criteriile de reușită. În articolul despre [internetul agentic](../internetul-agentic-este-aici/) discutăm și cum pot site-urile să ofere informații și acțiuni mai ușor de folosit de agenți. Pentru o firmă, primul pas poate fi mai mic: alegerea unui singur proces în care rezultatul se poate verifica ușor.
 
+Citește și
+
+[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
 ---
 
 # Internetul agentic este aici. De la informație la acțiune.
@@ -443,6 +503,8 @@ La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sa
 Publicat: 2026-10-24
 
 Articol: https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/
+
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
 Modelele LLM pot interpreta cereri în limbaj natural. Conectate la surse și instrumente, ele pot ajuta agenții IA să găsească informații și să îndeplinească sarcini pe web. Pentru ca asta să fie util, site-urile trebuie să ofere date clare, acțiuni bine definite și control pentru oameni.
 
@@ -490,6 +552,12 @@ Porniți cu un caz concret: ce întrebare vrea să rezolve utilizatorul sau ce s
 
 Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul la momentul corect și comunică limpede ce a făcut. Tehnologia există deja; calitatea experienței depinde de felul în care este proiectată.
 
+Citește și
+
+[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
 ---
 
 # Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP
@@ -497,6 +565,8 @@ Testați cu oameni reali dacă agentul citează sursele potrivite, cere acordul 
 Publicat: 2026-11-09
 
 Articol: https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/
+
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
 Când un agent AI scrie cod cu tine, alegerea limbajului schimbă atât codul pe care îl generează, cât și informațiile de care are nevoie ca să verifice o modificare. Pentru un startup, aș evalua câți tokeni și cât timp îi trebuie echipei ca să pună în mâna unui client o funcționalitate care merge.
 
@@ -578,6 +648,12 @@ Pentru fiecare stack, împarte totalul tokenilor din toate încercările la num�
 
 La primul MVP contează și cât de repede poate echipa să schimbe ceva după ce vorbește cu un client. Proba cu invitațiile merită rulată tocmai pentru că trece prin interfață, date, permisiuni și teste, așa cum o vor face și multe dintre schimbările din produs.
 
+Citește și
+
+[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+
 ---
 
 # Următorul pas în IA este antrenarea modelelor pentru afacerea ta
@@ -585,6 +661,10 @@ La primul MVP contează și cât de repede poate echipa să schimbe ceva după c
 Publicat: 2026-11-04
 
 Articol: https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/
+
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
+Actualizat: 2026-11-06
 
 La Proiectul Pagini Web, credem că următorul pas important în IA este antrenarea și adaptarea modelelor pentru aplicații și afaceri specifice. Această direcție se leagă direct de activitatea noastră: construim agenți IA, conectăm procese de afaceri și creăm experiențe digitale pornind de la modul în care oamenii lucrează în practică.
 
@@ -635,3 +715,9 @@ Astfel, expertiza oamenilor are un rol central în proces. Cei care fac munca po
 Ajutăm afacerile să transforme ideile în agenți IA, procese conectate și experiențe digitale. Abordarea noastră pornește de la înțelegerea unei probleme concrete, continuă cu realizarea unui prototip și integrarea unui proiect-pilot în fluxul de lucru al echipei, apoi cu evaluarea a ceea ce poate fi îmbunătățit. Antrenarea modelelor specializate își are locul în acest proces atunci când sarcina și rezultatele evaluării o justifică.
 
 Vedem oportunitatea de a dezvolta aplicații ale căror modele se aliniază mai bine cu munca pe care o susțin. Un rezultat util depinde de întregul sistem: modelul, cunoștințele despre afacere, instrumentele conectate și oamenii care verifică rezultatele. Acesta este contextul în care vedem conturându-se următorul pas în IA.
+
+Citește și
+
+[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+[Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)

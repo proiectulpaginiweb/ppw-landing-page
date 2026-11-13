@@ -4,6 +4,8 @@ Publicat: 2026-11-09
 
 Articol: https://www.proiectulpaginiweb.ro/blog/spring-rails-react-tokeni-startup/
 
+Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
+
 Când un agent AI scrie cod cu tine, alegerea limbajului schimbă atât codul pe care îl generează, cât și informațiile de care are nevoie ca să verifice o modificare. Pentru un startup, aș evalua câți tokeni și cât timp îi trebuie echipei ca să pună în mâna unui client o funcționalitate care merge.
 
 ## Ce consumă tokeni când lucrezi cu un agent AI
@@ -83,3 +85,9 @@ Ia câte o cerință reprezentativă, cum ar fi un formular nou, o schimbare de 
 Pentru fiecare stack, împarte totalul tokenilor din toate încercările la numărul de soluții care trec testele. Notează și rata de succes, timpul până la o soluție validă și factura estimată pe baza tokenilor de intrare fără cache, a celor de intrare serviți din cache și a celor de ieșire, conform tarifării furnizorului. Dacă nicio încercare nu trece, raportează consumul și rata de succes de 0%.
 
 La primul MVP contează și cât de repede poate echipa să schimbe ceva după ce vorbește cu un client. Proba cu invitațiile merită rulată tocmai pentru că trece prin interfață, date, permisiuni și teste, așa cum o vor face și multe dintre schimbările din produs.
+
+Citește și
+
+[Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+
+[Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
