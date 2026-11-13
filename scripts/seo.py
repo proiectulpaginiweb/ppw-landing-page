@@ -171,6 +171,7 @@ def update_metadata(root, site, name, Document):
         source = entry['source']
         source = re.sub(r'\s*<!-- discovery:start;.*?<!-- discovery:end -->', '', source, flags=re.S)
         source = re.sub(r'\s*<!-- fonts:start -->.*?<!-- fonts:end -->', '', source, flags=re.S)
+        source = re.sub(r'\s*<!-- favicon:start -->.*?<!-- favicon:end -->', '', source, flags=re.S)
         head, body = source.split('</head>', 1)
         head = re.sub(r'\s*<script\b[^>]*\btype=["\']application/ld\+json["\'][^>]*>.*?</script>', '', head, flags=re.S)
 
@@ -181,6 +182,8 @@ def update_metadata(root, site, name, Document):
                     return ''
             elif tag.tag == 'link':
                 rel = tag.attrs.get('rel', '')
+                if 'icon' in rel.split():
+                    return ''
                 if rel in {'canonical', 'describedby', 'sitemap'} or (rel == 'alternate' and tag.attrs.get('type') == 'text/markdown'):
                     return ''
                 asset = urlsplit(tag.attrs.get('href', ''))
@@ -192,6 +195,14 @@ def update_metadata(root, site, name, Document):
 
         head = re.sub(r'<(?:meta|link)\b[^>]*>', strip_managed, head)
         relative_root = '../' * len(path.parent.relative_to(root).parts)
+        def favicon_url(filename):
+            digest = sha256((root/'assets'/filename).read_bytes()).hexdigest()[:12]
+            return relative_root+'assets/'+filename+'?v='+digest
+
+        favicon = '\n'.join(['<!-- favicon:start -->',
+            '<link id="site-favicon" rel="icon" type="image/svg+xml" sizes="any" '
+            f'href="{favicon_url("favicon.svg")}" />',
+            '<!-- favicon:end -->'])
         preloads = []
         for filename in FONT_PRELOADS:
             font_path = root/'assets/fonts'/filename
@@ -202,7 +213,7 @@ def update_metadata(root, site, name, Document):
         page_style = 'home' if kind == 'home' else 'echipa' if kind == 'profile' else 'blog'
         styles = '\n'.join(f'<link rel="stylesheet" href="{relative_root}{name}.min.css" />'
                            for name in ('styles', page_style))
-        head = head.rstrip()+'\n'+fonts+'\n'+styles+'\n'
+        head = head.rstrip()+'\n'+favicon+'\n'+fonts+'\n'+styles+'\n'
 
         def version_asset(match):
             prefix, href = match[1], match[2]
