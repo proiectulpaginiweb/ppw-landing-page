@@ -75,7 +75,7 @@ class AssetBuildTests(unittest.TestCase):
 
     def test_changed_media_updates_html_schema_and_exports(self):
         before = self.build()
-        chart = self.root/'blog/spring-rails-react-tokeni-startup/tokeni-cod.svg'
+        chart = self.root/'blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg'
         chart.write_text(chart.read_text().replace('</svg>', '<!-- new chart version --></svg>'))
         portrait = self.root/'assets/sarbull.jpg'
         data = portrait.read_bytes()
@@ -83,16 +83,16 @@ class AssetBuildTests(unittest.TestCase):
         # A legal JPEG comment changes the bytes while retaining the image data.
         portrait.write_bytes(data[:2]+b'\xff\xfe\x00\x07cache'+data[2:])
         after = self.build()
-        for logical in ('blog/spring-rails-react-tokeni-startup/tokeni-cod.svg', 'assets/sarbull.jpg'):
+        for logical in ('blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg', 'assets/sarbull.jpg'):
             self.assertNotEqual(before[logical], after[logical])
             self.assertTrue((self.root/before[logical]).is_file())
-        self.assertIn(after['blog/spring-rails-react-tokeni-startup/tokeni-cod.svg'],
+        self.assertIn(after['blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg'],
                       (self.root/'llms-full.txt').read_text())
         article = (chart.parent/'index.html').read_text()
-        self.assertIn(after['blog/spring-rails-react-tokeni-startup/tokeni-cod.svg'], article)
+        self.assertIn(after['blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg'], article)
         self.assertIn(after['assets/sarbull.jpg'], (self.root/'echipa/index.html').read_text())
         self.assertNotIn(before['assets/sarbull.jpg'], (self.root/'echipa/index.html').read_text())
-        self.assertIn(after['blog/spring-rails-react-tokeni-startup/tokeni-cod.svg'],
+        self.assertIn(after['blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg'],
                       (chart.parent/'index.md').read_text())
 
     def test_corrupted_existing_fingerprint_is_not_overwritten(self):

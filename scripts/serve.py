@@ -12,6 +12,8 @@ from pathlib import Path
 import re
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
+from page_urls import redirect_target
+
 ROOT = Path(__file__).resolve().parent.parent
 SITE = 'https://' + (ROOT/'CNAME').read_text(encoding='utf-8').strip() + '/'
 
@@ -37,6 +39,13 @@ class UTF8Handler(SimpleHTTPRequestHandler):
     def send_head(self):
         self._cache_control = 'no-cache'
         request = urlsplit(self.path)
+        destination = redirect_target(unquote(request.path))
+        if destination:
+            self.send_response(301)
+            self.send_header('Location', destination + ('?' + request.query if request.query else ''))
+            self.send_header('Content-Length', '0')
+            self.end_headers()
+            return None
         trailing_slash = unquote(request.path).endswith('/')
         target = Path(self.translate_path(self.path))
         directory_index = False

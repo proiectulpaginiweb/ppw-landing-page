@@ -144,10 +144,10 @@ http://proiectulpaginiweb.ro/blog/?seo-check=2
 Regula **PPW SEO - canonical Markdown** adaugă un antet HTTP către pagina HTML corespunzătoare. Exemplu:
 
 ```http
-Link: <https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/>; rel="canonical"
+Link: <https://www.proiectulpaginiweb.ro/blog/diferenta-dintre-chat-ia-si-agent-ia/>; rel="canonical"
 ```
 
-Regula acoperă lista explicită a celor șapte copii `index.md`. Când apare o pagină nouă, lista Cloudflare trebuie extinsă; build-ul local nu modifică automat CDN-ul. Serverul local derivă antetul din fișierul HTML corespunzător.
+Regula acoperă lista explicită a celor șapte copii `index.md` configurate la audit. Exemplul de mai sus folosește adresa canonică românească actuală; înaintea publicării migrării, actualizează în Cloudflare cele patru căi de articol redenumite, conform tabelului din `README.md`. Când apare o pagină nouă, lista Cloudflare trebuie extinsă; build-ul local nu modifică automat CDN-ul. Serverul local derivă antetul din fișierul HTML corespunzător.
 
 Canonicalul indică versiunea preferată a conținutului duplicat; Google poate selecta o altă variantă. Copiile Markdown rămân accesibile crawlerelor pentru ca antetul să poată fi citit. Nu folosim `robots.txt` sau `noindex` în locul canonicalului pentru aceste copii. [Documentația Google despre canonicalizare](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
 

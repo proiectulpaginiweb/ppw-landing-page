@@ -15,9 +15,9 @@
     "assets/proiectul-pagini-web-logo-2013.png": "assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png",
     "assets/proiectul-pagini-web-logo-2013.webp": "assets/static/assets/proiectul-pagini-web-logo-2013.836042bcc0fc.webp",
     "assets/sarbull.jpg": "assets/static/assets/sarbull.56eeaadf8cb3.jpg",
-    "blog.js": "assets/static/blog.bf5220c9271e.js",
-    "blog/spring-rails-react-tokeni-startup/tokeni-cod.svg": "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-cod.e65706cd87f2.svg",
-    "blog/spring-rails-react-tokeni-startup/tokeni-sesiune.svg": "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-sesiune.bf7a89dd838c.svg",
+    "blog.js": "assets/static/blog.0faaffa35b39.js",
+    "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg": "assets/static/blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.e65706cd87f2.svg",
+    "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.svg": "assets/static/blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.bf7a89dd838c.svg",
     "script.js": "assets/static/script.59520f17c979.js"
   },
   "sources": {
@@ -36,9 +36,12 @@
     "assets/static/assets/proiectul-pagini-web-logo-2013.836042bcc0fc.webp": "assets/proiectul-pagini-web-logo-2013.webp",
     "assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png": "assets/proiectul-pagini-web-logo-2013.png",
     "assets/static/assets/sarbull.56eeaadf8cb3.jpg": "assets/sarbull.jpg",
+    "assets/static/blog.0faaffa35b39.js": "blog.js",
     "assets/static/blog.bf5220c9271e.js": "blog.js",
-    "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-cod.e65706cd87f2.svg": "blog/spring-rails-react-tokeni-startup/tokeni-cod.svg",
-    "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-sesiune.bf7a89dd838c.svg": "blog/spring-rails-react-tokeni-startup/tokeni-sesiune.svg",
+    "assets/static/blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.e65706cd87f2.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg",
+    "assets/static/blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.bf7a89dd838c.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.svg",
+    "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-cod.e65706cd87f2.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg",
+    "assets/static/blog/spring-rails-react-tokeni-startup/tokeni-sesiune.bf7a89dd838c.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.svg",
     "assets/static/dm-sans-latin-ext.038bcb9a2aab.woff2": "assets/fonts/dm-sans-latin-ext.woff2",
     "assets/static/dm-sans-latin.3692732c3352.woff2": "assets/fonts/dm-sans-latin.woff2",
     "assets/static/dm-sans-romanian.f7fff0c5bb2b.woff2": "assets/fonts/dm-sans-romanian.woff2",
@@ -54,8 +57,8 @@
     "assets/static/proiectul-pagini-web-logo-2013.ccc6840cdf79.png": "assets/proiectul-pagini-web-logo-2013.png",
     "assets/static/sarbull.56eeaadf8cb3.jpg": "assets/sarbull.jpg",
     "assets/static/script.59520f17c979.js": "script.js",
-    "assets/static/tokeni-cod.e65706cd87f2.svg": "blog/spring-rails-react-tokeni-startup/tokeni-cod.svg",
-    "assets/static/tokeni-sesiune.bf7a89dd838c.svg": "blog/spring-rails-react-tokeni-startup/tokeni-sesiune.svg"
+    "assets/static/tokeni-cod.e65706cd87f2.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-cod.svg",
+    "assets/static/tokeni-sesiune.bf7a89dd838c.svg": "blog/java-ruby-javascript-costuri-tokeni-mvp/tokeni-sesiune.svg"
   },
   "version": 1
 }

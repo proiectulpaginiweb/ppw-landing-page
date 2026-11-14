@@ -16,3 +16,16 @@ document.addEventListener('keydown', event => {
     menuButton.focus();
   }
 });
+
+// Keep shared links to earlier section names working after URL translation.
+function updateLegacyFragment() {
+  const fragment = location.hash.slice(1);
+  const heading = [...document.querySelectorAll('[data-ancora-veche]')]
+    .find(node => node.dataset.ancoraVeche === fragment);
+  if (heading) {
+    history.replaceState(null, '', location.pathname + location.search + '#' + heading.id);
+    heading.scrollIntoView();
+  }
+}
+updateLegacyFragment();
+window.addEventListener('hashchange', updateLegacyFragment);

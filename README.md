@@ -19,7 +19,7 @@ The local server (`scripts/serve.py`) declares `charset=utf-8` for Markdown and 
 
 - Romanian positioning, services, illustrative workflow, interactive journey, principles, FAQs, and contact section.
 - Team page at `/echipa/`, introducing Sîrbu Nicolae-Cezar, his technical background, and public sources for the projects and experience described. It shares the site branding and mobile menu.
-- Blog at `/blog/`, using the same visual language and navigation as the landing page. Its five Romanian articles cover AI chats versus agents, the agentic internet, specialized models for businesses, token costs for an MVP, and website visibility in ChatGPT and AI search. The GEO guide is at `/blog/indexare-site-chatgpt-ai-geo/`, based on `docs/GEO.md` and official provider documentation.
+- Blog at `/blog/`, using the same visual language and navigation as the landing page. Its five Romanian articles cover AI chats versus agents, the agentic internet, specialized models for businesses, token costs for an MVP, and website visibility in ChatGPT and AI search. The GEO guide is at `/blog/indexare-site-chatgpt-ia-geo/`, based on `docs/GEO.md` and official provider documentation.
 - Accessible keyboard-controlled journey tabs, mobile navigation, and native FAQ disclosure controls.
 - Custom `404.html` in the PPW visual style, with home/blog recovery links and root-relative fingerprinted assets that work at missing URLs of any depth. The build regenerates its shared styles and assets; edit `404.html` for copy and `404.css` for its layout. It is excluded from indexing and the sitemap. The local preview returns the same custom page with HTTP 404, and the Pages package includes it automatically.
 - The favicon is a static dark arrow on a green rounded tile, served from `assets/favicon.svg` with a content-hashed URL. The generator maintains the shared fingerprinted favicon link on all pages. The 2013 logo remains the brand image in the page and social metadata.
@@ -28,6 +28,17 @@ The local server (`scripts/serve.py`) declares `charset=utf-8` for Markdown and 
 - Service copy is proposed marketing copy; no customer logos, testimonials, or performance claims are invented.
 
 Edit `index.html` for page content, `styles.css` for shared styles, `home.css` for the landing page design, `fonts.css` for font declarations, `blog.css` for blog styling, `script.js` for landing page interactions, `blog.js` for the shared secondary-page menu, and `analytics.js` for site-wide Google Analytics. The team page is in `echipa/index.html`, with page-specific styles in `echipa.css`. The blog listing is in `blog/index.html`; each article is in its own `blog/<slug>/index.html`. All journey panel copy is in `index.html`; JavaScript only switches visible panels.
+
+Page slugs and linked section anchors use Romanian, without diacritics. Product names and technical acronyms such as ChatGPT, JavaScript, GEO and MVP keep their established spelling. The URL migration is defined in `scripts/page_urls.py`:
+
+| Previous article path | Romanian canonical path |
+| --- | --- |
+| `/blog/chat-ai-vs-agent-ai/` | `/blog/diferenta-dintre-chat-ia-si-agent-ia/` |
+| `/blog/training-ai-models-for-specific-businesses/` | `/blog/antrenarea-modelelor-ia-pentru-afaceri/` |
+| `/blog/spring-rails-react-tokeni-startup/` | `/blog/java-ruby-javascript-costuri-tokeni-mvp/` |
+| `/blog/indexare-site-chatgpt-ai-geo/` | `/blog/indexare-site-chatgpt-ia-geo/` |
+
+The local server returns HTTP 301 for the previous article paths, including `index.html` and `index.md` aliases, preserving query strings. `blog.js` translates old section fragments to their Romanian names. The Pages packager adds `noindex` HTML redirect fallbacks and Markdown move notices at the previous paths, outside the canonical source pages and sitemap. HTML fallbacks preserve query strings and fragments with JavaScript; a meta refresh and a visible Romanian link provide a fallback. GitHub Pages serves these as static files; configure the same path mappings as permanent redirects in Cloudflare for HTTP 301 redirects in production. Deploy the generated `dist/` package to include the compatibility files.
 
 ## Asset filenames and GitHub Pages deployment
 
@@ -83,10 +94,10 @@ Publish `index.html`, `styles.min.css`, `home.min.css`, `blog.min.css`, `echipa.
 
 ### Hosting checks before release
 
-- Keep a permanent redirect from both HTTP hosts to HTTPS, preserving paths and query strings, followed by the existing redirect to the canonical www hostname. Cloudflare's **Always Use HTTPS** was enabled on 13 November 2026; HTTP www now returns 301 to HTTPS with the full path/query preserved. No JavaScript or meta refresh redirects are used.
+- Keep a permanent redirect from both HTTP hosts to HTTPS, preserving paths and query strings, followed by the existing redirect to the canonical www hostname. Cloudflare's **Always Use HTTPS** was enabled on 13 November 2026; HTTP www now returns 301 to HTTPS with the full path/query preserved. Hostname and protocol redirects are handled by the hosting layer.
 - Deploy every updated HTML page and asset, `/echipa/`, and the regenerated sitemap together. The same audit found the public team page returned 404 while the local page existed.
 - Cloudflare's active **PPW SEO - canonical Markdown** response-header rule sets `Link: <HTML-URL>; rel="canonical"` on the seven generated `index.md` paths. Its dynamic value is `concat("<https://www.proiectulpaginiweb.ro", substring(http.request.uri.path, 0, -8), ">; rel=\"canonical\"")`. Extend the rule's explicit path list when adding pages. The local server derives the same headers automatically from matching HTML files. GitHub Pages does not apply arbitrary `_headers` files. Keep Markdown crawlable so Google can see the canonical; do not disallow duplicates in `robots.txt`.
-- Before releasing the GEO article, add `/blog/indexare-site-chatgpt-ai-geo/index.md` to that rule's explicit path list and verify `Link: <https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/>; rel="canonical"`. The documented Cloudflare configuration still covers the original seven paths; the repository build does not update the CDN.
+- Before releasing the Romanian URL migration, update that rule's explicit path list for the four Romanian canonical paths in the table above, each followed by `index.md`. This includes the GEO article at `/blog/indexare-site-chatgpt-ia-geo/index.md`; verify `Link: <https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ia-geo/>; rel="canonical"`. The documented Cloudflare configuration still covers the original seven paths; the repository build does not update the CDN.
 - Cloudflare's active **PPW SEO - noindex fisiere auxiliare** response-header rule sets `X-Robots-Tag: noindex` only on `/llms.txt`, `/llms-full.txt` and `/README.md`. The local server does the same. Canonical HTML pages remain indexable. Both response-header rules were deployed and checked publicly on 13 November 2026.
 - Keep genuinely missing URLs as HTTP 404. After publication, inspect representative URLs, sitemap processing, indexing and Core Web Vitals in Google Search Console. Rich Results Test checks structured-data eligibility; it does not guarantee a rich result or ranking.
 

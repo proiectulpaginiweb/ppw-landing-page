@@ -2,7 +2,7 @@
 
 Publicat: 2026-11-04
 
-Articol: https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/
+Articol: https://www.proiectulpaginiweb.ro/blog/antrenarea-modelelor-ia-pentru-afaceri/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
@@ -68,7 +68,7 @@ Vedem oportunitatea de a dezvolta aplicații ale căror modele se aliniază mai 
 
 **Citește și**
 
-- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/diferenta-dintre-chat-ia-si-agent-ia/)
 
 - [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
 

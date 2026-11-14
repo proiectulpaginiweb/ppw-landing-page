@@ -2,7 +2,7 @@
 
 Publicat: 2026-11-06
 
-Articol: https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/
+Articol: https://www.proiectulpaginiweb.ro/blog/diferenta-dintre-chat-ia-si-agent-ia/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
@@ -82,7 +82,7 @@ La Proiectul Pagini Web, acesta este un punct de plecare pentru un proiect: o sa
 
 - [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
 
-- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/training-ai-models-for-specific-businesses/)
+- [Modele IA specializate pentru afaceri](https://www.proiectulpaginiweb.ro/blog/antrenarea-modelelor-ia-pentru-afaceri/)
 
 [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 

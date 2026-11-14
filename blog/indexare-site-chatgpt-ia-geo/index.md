@@ -2,7 +2,7 @@
 
 Publicat: 2026-11-13
 
-Articol: https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ai-geo/
+Articol: https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ia-geo/
 
 Autor: [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
@@ -166,7 +166,7 @@ Acesta este exemplul nostru de implementare, nu o dovadă de creștere a citări
 
 - [Internetul agentic: de la informație la acțiune](https://www.proiectulpaginiweb.ro/blog/internetul-agentic-este-aici/)
 
-- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/chat-ai-vs-agent-ai/)
+- [Chat AI și agent AI: care este diferența?](https://www.proiectulpaginiweb.ro/blog/diferenta-dintre-chat-ia-si-agent-ia/)
 
 [Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)
 
