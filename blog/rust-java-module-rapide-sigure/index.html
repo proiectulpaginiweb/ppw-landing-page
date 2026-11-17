@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7ef" />
+  <title>Rust lângă Java: module rapide și sigure | PPW</title>
+  <meta name="description" content="Când merită Rust pentru module mici într-o aplicație Java: performanță, siguranța memoriei, integrare și sensul revenirii spre low level." />
+<!-- scripts:start -->
+<script src="../../assets/static/blog.0faaffa35b39.js" defer></script>
+<script src="../../assets/static/analytics.88ccc6495426.js" defer></script>
+<!-- scripts:end -->
+<!-- favicon:start -->
+<link id="site-favicon" rel="icon" type="image/svg+xml" sizes="any" href="../../assets/static/assets/favicon.6beaa5771c03.svg" />
+<!-- favicon:end -->
+<!-- fonts:start -->
+<link rel="preload" href="../../assets/static/assets/fonts/manrope-latin.6a4e46864369.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/manrope-romanian.875b2012cc98.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/dm-sans-latin.3692732c3352.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/dm-sans-romanian.f7fff0c5bb2b.woff2" as="font" type="font/woff2" crossorigin />
+<!-- fonts:end -->
+<!-- styles:start -->
+<style id="site-styles">
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-latin-ext.038bcb9a2aab.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-latin.3692732c3352.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-latin-ext.1201b00b7f0e.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-latin.6a4e46864369.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-romanian.f7fff0c5bb2b.woff2") format('woff2');unicode-range:U+0102-0103,U+015E-015F,U+0162-0163,U+0218-021B}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-romanian.875b2012cc98.woff2") format('woff2');unicode-range:U+0102-0103,U+015E-015F,U+0162-0163,U+0218-021B}:root{--paper:#f7f7ef;--ink:#20221c;--muted:#686c5e;--line:#d9dbd0;--green:#a8cc51;--yellow:#eff14c;--orange:#ff762f;--font:"DM Sans",Arial,sans-serif;--heading:"Manrope",Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;border-top:4px solid transparent;border-image:linear-gradient(to right,#002b7f 0% 33.333333%,#fcd116 33.333333% 66.666667%,#ce1126 66.666667% 100%) 1;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6}button,input,select,textarea{font:inherit}a,button{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}img{max-width:100%;display:block}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--heading);font-weight:650;line-height:1.08;letter-spacing:-.055em}h2{font-size:clamp(36px, 4.2vw, 62px)}h3{font-size:30px}p{color:#62655a}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #3d681b;outline-offset:6px}.section-shell{width:min(1320px,calc(100% - 100px));margin-inline:auto}.section-space{padding-block:110px}.eyebrow{text-transform:uppercase;font-size:11px;font-weight:700;letter-spacing:.13em;color:var(--ink);display:flex;align-items:center;gap:9px}.status-dot{width:8px;height:8px;display:inline-block;background:#709c37;border-radius:50%;box-shadow:0 0 0 4px #709c3714;flex-shrink:0}.muted{color:#85887b}.orange{color:var(--orange)}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:54px;padding:14px 24px;font-size:14px;font-weight:600;border-radius:6px;border:1px solid transparent;transition:transform .2s,background .2s}.button:hover{transform:translateY(-3px)}.button span{font-size:22px;line-height:1}.dark{background:var(--ink);color:#fff}.dark:hover{background:#3e4632}.button.small{min-height:44px;padding:10px 18px}.text-link{display:inline-flex;align-items:center;gap:20px;font-size:13px;font-weight:600}.text-link:hover{color:#527626}.text-link span{font-size:19px}.site-header{height:104px;width:calc(100% - 100px);max-width:1320px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;align-items:center;gap:18px}.brand-tagline{font-size:10px;font-weight:600;line-height:1.5;color:#6c6f61;border-left:1px solid var(--line);padding-left:17px}.site-header nav{display:flex;align-items:center;gap:32px;font-size:12px;font-weight:500}.site-header nav>a:not(.button):hover{text-decoration:underline;text-underline-offset:6px}.menu-toggle{display:none}.site-footer{padding-block:65px 24px}.footer-top{display:flex;align-items:center;gap:65px;padding-bottom:48px}.brand-wordmark,.footer-name{font-family:var(--heading);font-size:28px;line-height:1.05;letter-spacing:-.06em;font-weight:800}.footer-top p{font-size:13px}.back-top{margin-left:auto;font-size:12px;display:flex;gap:22px;align-items:center}.back-top span{border:1px solid var(--line);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;font-size:18px}.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:10px;color:var(--muted)}.skip-link{position:fixed;top:8px;left:8px;background:var(--ink);color:#fff;padding:10px;z-index:20;transform:translateY(-150%)}.skip-link:focus{transform:none}@media (max-width:1100px){.section-shell,.site-header{width:calc(100% - 64px)}.site-header nav{gap:20px}}@media (max-width:800px){.section-shell,.site-header{width:calc(100% - 40px)}.site-header{height:85px;position:relative}.brand-tagline{font-size:9px}.menu-toggle{display:flex;align-items:center;gap:12px;background:0 0;border:1px solid var(--line);border-radius:4px;padding:7px 12px;font-size:12px}.site-header nav{display:none;position:absolute;top:78px;right:0;left:0;padding:20px;background:var(--paper);box-shadow:0 12px 25px #20221c15;border:1px solid var(--line);border-radius:5px;z-index:10;align-items:stretch}.site-header nav.is-open{display:flex;flex-direction:column}.site-header nav>a{padding:8px}.site-header nav>.button{padding:12px}.footer-top{gap:30px}.footer-bottom{flex-wrap:wrap}}@media (max-width:550px){.brand-tagline{display:none}.footer-top{flex-wrap:wrap;gap:24px}.footer-top p{font-size:11px}.brand-wordmark,.footer-name{font-size:25px}.back-top{margin-left:0;width:100%;justify-content:space-between}.footer-bottom{font-size:9px;gap:12px}.footer-bottom>span:nth-child(2){display:none}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,:after,:before{transition:none!important;animation:none!important}}.brand-wordmark{font-size:22px;white-space:nowrap}.brand-dot{position:relative;display:inline-block;width:5px;height:5px;margin-left:3px;border-radius:0;vertical-align:baseline;overflow:hidden;line-height:0;background:var(--orange);font-size:0;animation:brand-dot-blink 4.5s steps(1,end) infinite}.brand-dot::after,.brand-dot::before{content:"";position:absolute;inset:0}.brand-dot::before{background:var(--green);animation:brand-dot-green 4.5s steps(1,end) infinite}.brand-dot::after{background:var(--yellow);animation:brand-dot-yellow 4.5s steps(1,end) infinite}@keyframes brand-dot-blink{0%,100%,33.333%,66.666%{opacity:1}25%,58.333%,91.666%{opacity:0}}@keyframes brand-dot-green{0%,100%,66.666%{opacity:0}33.333%{opacity:1}}@keyframes brand-dot-yellow{0%,100%{opacity:1}33.333%{opacity:0}}@media (max-width:1100px){.brand-tagline{display:none}}
+.blog-hero{display:grid;grid-template-columns:1.5fr .5fr;gap:4rem;align-items:end;padding-block:95px 105px;border-bottom:1px solid var(--line)}.blog-kicker,.blog-meta,.post-breadcrumb{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#666a5d}.blog-kicker{color:#56752d;margin-bottom:25px}.blog-hero h1,.post-header h1{font-size:clamp(52px,7.2vw,105px);line-height:1.02;letter-spacing:-.075em}.blog-hero h1 em,.post-header h1 em{font-style:normal;color:#719531}.blog-intro{max-width:580px;font-size:clamp(18px,2vw,23px);line-height:1.48;margin-top:36px}.blog-symbol{height:250px;display:flex;align-items:center;justify-content:center;gap:3px;position:relative;border-radius:50%;background:#e5efce;aspect-ratio:1;margin-left:auto;transform:rotate(-10deg)}.blog-symbol span{font-family:var(--heading);font-size:104px;font-weight:800;letter-spacing:-.14em;line-height:1;color:#263223}.blog-symbol span:nth-child(2){color:#ff762f}.blog-symbol i{position:absolute;right:-12px;top:6px;font-size:56px;font-style:normal;color:#526d35}.blog-list{padding-block:70px 115px}.blog-list-heading{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:23px}.blog-list-heading h2{font-size:clamp(34px,4vw,52px)}.blog-list-heading span{font-size:12px;color:var(--muted)}.blog-card{display:grid;grid-template-columns:minmax(230px,.65fr) 1fr;gap:7%;padding-block:38px;border-bottom:1px solid var(--line)}.blog-card-mark{min-height:340px;border-radius:8px;background:linear-gradient(135deg,#dcebb4,#a8cc51 70%);position:relative;overflow:hidden;display:grid;place-items:center}.blog-card-mark span{font:800 clamp(110px,18vw,250px)/1 var(--heading);letter-spacing:-.13em;color:#24311e;transform:rotate(-12deg)}.blog-card-mark i{position:absolute;top:18px;right:28px;font-size:85px;color:#ff762f;font-style:normal}.blog-card-content{padding-block:15px;display:flex;flex-direction:column;align-items:flex-start}.blog-meta{display:flex;gap:12px;flex-wrap:wrap;letter-spacing:.04em;text-transform:none}.blog-card h3{font-size:clamp(34px,4.2vw,60px);line-height:1.12;margin:26px 0}.blog-card h3 a:hover,.blog-read:hover,.post-body a:hover{text-decoration:underline;text-underline-offset:5px}.blog-card-content>p:not(.blog-meta){font-size:18px;max-width:550px}.blog-read{margin-top:auto;padding-top:38px;font-weight:700;font-size:14px}.blog-read span{padding-left:16px;font-size:20px}.blog-cta{background:var(--yellow);border-radius:9px;padding:36px 44px;display:flex;align-items:center;justify-content:space-between;gap:25px;margin-bottom:70px}.blog-cta p{font:650 clamp(22px,2.7vw,38px)/1.2 var(--heading);color:var(--ink);letter-spacing:-.045em}.post-breadcrumb{display:flex;gap:12px;align-items:center;padding-top:35px;letter-spacing:0;text-transform:none}.post-breadcrumb a:hover{text-decoration:underline}.post-header{max-width:1050px;padding-block:85px 70px}.post-header h1{font-size:clamp(48px,6vw,86px);margin:20px 0 30px}.post-lead{font-size:clamp(19px,2.1vw,27px);line-height:1.5;max-width:870px;color:#40443b}.post-visual{height:390px;border-radius:10px;overflow:hidden;position:relative;background:radial-gradient(circle at center,#dff1b4,#a8cc51 62%,#6d9b46);display:grid;place-items:center}.post-visual-center{font:800 clamp(100px,16vw,220px)/1 var(--heading);letter-spacing:-.12em;color:#26351c;z-index:1}.post-visual-center span{color:#ff762f}.post-orbit{position:absolute;border:1px solid #26351c50;border-radius:50%;width:510px;height:510px}.orbit-two{width:760px;height:760px}.post-node{position:absolute;background:var(--paper);border:1px solid #26351c40;border-radius:30px;padding:9px 15px;font-size:12px;font-weight:700;z-index:2}.node-one{top:20%;left:19%}.node-two{right:18%;top:23%}.node-three{right:23%;bottom:18%}.post-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:8%;padding-block:80px 115px;justify-content:center}.post-sidebar{display:flex;flex-direction:column;gap:17px;align-self:start;position:sticky;top:28px;font-size:13px}.post-sidebar span{font-weight:700;color:#537830;margin-bottom:8px}.post-sidebar a{color:#666a5d}.post-sidebar a:hover{text-decoration:underline}.post-body h2{font-size:clamp(33px,3vw,45px);margin:56px 0 22px;scroll-margin-top:30px}.post-body h2:first-child{margin-top:0}.post-body p{font-size:18px;line-height:1.8;margin:0 0 24px;color:#44483e}.post-body a{color:#456b28;text-decoration:underline;text-underline-offset:3px}.post-facts{border-top:1px solid var(--line);margin:35px 0}.post-facts>div{display:grid;grid-template-columns:190px 1fr;gap:25px;padding:25px 0;border-bottom:1px solid var(--line)}.post-facts strong{font-size:13px}.post-facts p{font-size:16px;margin:0}.post-body blockquote{border-left:5px solid var(--orange);padding:8px 0 8px 26px;margin:42px 0;font:650 clamp(23px,2.2vw,30px)/1.4 var(--heading);letter-spacing:-.035em}.post-end{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--ink);margin-top:65px;padding-top:20px;font-size:13px;font-weight:700}.post-end a:hover{text-decoration:underline}@media(max-width:800px){.blog-hero{grid-template-columns:1fr;padding-block:55px 65px}.blog-symbol{width:180px;height:180px;margin:0}.blog-symbol span{font-size:75px}.blog-list{padding-block:50px 75px}.blog-card{grid-template-columns:1fr;gap:25px}.blog-card-mark{min-height:270px}.blog-card-content{padding:0}.blog-read{padding-top:25px}.post-header{padding-block:50px}.post-visual{height:300px}.post-layout{grid-template-columns:1fr;padding-block:50px 80px}.post-sidebar{display:none}.blog-cta{padding:28px;flex-wrap:wrap}}@media(max-width:550px){.blog-hero h1,.post-header h1{font-size:46px}.blog-symbol{display:none}.blog-card-mark{min-height:220px}.blog-card-mark span{font-size:140px}.post-visual{height:240px}.post-visual-center{font-size:105px}.post-orbit{width:320px;height:320px}.orbit-two{width:480px;height:480px}.post-node{font-size:10px}.node-one{left:4%}.node-two{right:5%}.node-three{right:6%}.post-facts>div{grid-template-columns:1fr;gap:8px}.post-end{flex-direction:column}.blog-cta{margin-bottom:30px}}.post-body figure{margin:28px 0}.post-body figure img{display:block;width:100%;height:auto}.post-body figcaption{margin-top:10px;color:#44483e;font-size:14px;line-height:1.6}.post-body code{overflow-wrap:anywhere}.post-guide .post-body>ol,.post-guide .post-body>ul{margin:0 0 28px;padding-left:24px;font-size:18px;line-height:1.8;color:#44483e}.post-guide .post-body>ol>li+li,.post-guide .post-body>ul>li+li{margin-top:12px}.post-body pre{white-space:pre-wrap;margin:10px 0 22px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff;line-height:1.55}.post-breadcrumb{flex-wrap:wrap}.post-byline,.post-updated{font-size:14px;line-height:1.6;color:#62655a;margin-top:14px}.post-byline a{text-decoration:underline;text-underline-offset:3px}.post-updated{font-size:12px;margin-top:10px}.post-related{margin-top:45px;padding:25px 0;border-top:1px solid var(--line)}.post-related>p{font-size:15px;margin-bottom:12px}.post-related ul{padding-left:22px;margin:0;font-size:16px;line-height:1.7}.post-related li+li{margin-top:8px}.post-summary{margin-bottom:45px;padding:26px 28px;background:#edf1e3;border-left:3px solid var(--green);border-radius:0 6px 6px 0}.post-body .post-summary h2{font-size:23px;letter-spacing:-.035em;margin:0 0 17px}.post-summary ul{margin:0;padding-left:21px;font-size:16px;line-height:1.75;color:#44483e}.post-summary li+li{margin-top:12px}@media(max-width:550px){.post-summary{padding:22px 20px}.post-summary ul{font-size:15px}}
+</style>
+<!-- styles:end -->
+<!-- discovery:start; generated by scripts/build_discovery.py -->
+<link rel="canonical" href="https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:site_name" content="Proiectul Pagini Web" />
+<meta property="og:title" content="Rust lângă Java: module rapide și sigure | PPW" />
+<meta property="og:description" content="Când merită Rust pentru module mici într-o aplicație Java: performanță, siguranța memoriei, integrare și sensul revenirii spre low level." />
+<meta property="og:url" content="https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/" />
+<meta property="og:image" content="https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png" />
+<meta property="og:image:alt" content="Sigla Proiectul Pagini Web" />
+<meta property="article:published_time" content="2026-11-17" />
+<meta property="article:modified_time" content="2026-11-17" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Rust lângă Java: module rapide și sigure | PPW" />
+<meta name="twitter:description" content="Când merită Rust pentru module mici într-o aplicație Java: performanță, siguranța memoriei, integrare și sensul revenirii spre low level." />
+<meta name="twitter:image" content="https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png" />
+<meta name="twitter:image:alt" content="Sigla Proiectul Pagini Web" />
+<link rel="alternate" type="text/markdown" href="https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/index.md" title="Conținut în format Markdown" />
+<link rel="describedby" href="https://www.proiectulpaginiweb.ro/llms.txt" type="text/plain" />
+<link rel="sitemap" type="application/xml" href="https://www.proiectulpaginiweb.ro/sitemap.xml" />
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#pagina",
+      "url": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/",
+      "name": "Rust lângă Java: module rapide și sigure | PPW",
+      "description": "Când merită Rust pentru module mici într-o aplicație Java: performanță, siguranța memoriei, integrare și sensul revenirii spre low level.",
+      "inLanguage": "ro",
+      "isPartOf": {
+        "@id": "https://www.proiectulpaginiweb.ro/#site"
+      },
+      "mainEntity": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#articol"
+      },
+      "breadcrumb": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#fir-navigare"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#articol",
+      "url": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/",
+      "headline": "Rust lângă Java: module mici, rapide și sigure în aplicații mari",
+      "description": "Când merită Rust pentru module mici într-o aplicație Java: performanță, siguranța memoriei, integrare și sensul revenirii spre low level.",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "inLanguage": "ro",
+      "mainEntityOfPage": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#pagina"
+      },
+      "author": {
+        "@type": "Organization",
+        "@id": "https://www.proiectulpaginiweb.ro/#organizatie",
+        "name": "Proiectul Pagini Web",
+        "url": "https://www.proiectulpaginiweb.ro/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.proiectulpaginiweb.ro/#organizatie",
+        "name": "Proiectul Pagini Web",
+        "url": "https://www.proiectulpaginiweb.ro/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png"
+        }
+      },
+      "abstract": "Rust merită evaluat pentru module cu un cost măsurabil de procesare, memorie sau latență. Un modul mic în cod poate domina timpul de execuție al unei aplicații Java. Rust oferă control asupra memoriei fără un garbage collector obligatoriu. Java oferă și el siguranța memoriei; integrarea nativă introduce contracte care trebuie verificate separat. Apropierea de hardware face vizibile costurile abstracțiilor. Limbajele de nivel înalt rămân utile, iar alegerea poate fi făcută pentru fiecare componentă a sistemului.",
+      "citation": [
+        "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "https://doc.rust-lang.org/book/ch16-00-concurrency.html",
+        "https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html",
+        "https://security.googleblog.com/2021/04/rust-in-android-platform.html",
+        "https://docs.oracle.com/en/java/javase/25/vm/java-hotspot-virtual-machine-performance-enhancements.html",
+        "https://docs.oracle.com/en/java/javase/25/gctuning/available-collectors.html",
+        "https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html",
+        "https://docs.oracle.com/en/graalvm/jdk/25/docs/reference-manual/native-image/native-code-interoperability/ffm-api/",
+        "https://docs.oracle.com/en/java/javase/25/docs/specs/jni/design.html",
+        "https://docs.oracle.com/en/java/javase/25/core/restricted-methods.html",
+        "https://doc.rust-lang.org/book/ch13-04-performance.html"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/#fir-navigare",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Acasă",
+          "item": "https://www.proiectulpaginiweb.ro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.proiectulpaginiweb.ro/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rust lângă Java",
+          "item": "https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/"
+        }
+      ]
+    }
+  ]
+}</script>
+<!-- discovery:end -->
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Proiectul Pagini Web Gândire independentă. Posibilități inteligente. — Acasă"><span class="brand-wordmark">Proiectul<br />Pagini Web<span class="brand-dot" aria-hidden="true"></span></span><span class="brand-tagline">Gândire independentă.<br />Posibilități inteligente.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigare">Meniu <span aria-hidden="true">＋</span></button>
+    <nav id="navigare" aria-label="Navigare principală"><a href="../../#abordare">Abordarea noastră</a><a href="../../#posibilitati">Ce construim</a><a href="../../echipa/">Echipa</a><a href="../">Blog</a><a class="button small dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="continut">
+    <article class="post post-guide section-shell" data-date-modified="2026-11-17">
+      <nav class="post-breadcrumb" aria-label="Fir de navigare"><a href="../../">Acasă</a><span aria-hidden="true">/</span><a href="../">Blog</a><span aria-hidden="true">/</span><span aria-current="page">Rust lângă Java</span></nav>
+      <header class="post-header">
+        <p class="blog-meta"><time datetime="2026-11-17">17 noiembrie 2026</time><span>·</span> Arhitectură software <span>·</span> 10 minute de citit</p>
+        <p class="post-byline">De <a href="../../" rel="author">Proiectul Pagini Web</a> · <a href="../../echipa/">Cunoaște echipa</a></p>
+        <h1>Rust lângă Java:<br /><em>module mici, rapide și sigure în aplicații mari</em></h1>
+        <p class="post-lead">O aplicație mare poate avea nevoie de control foarte precis într-o parte mică din cod. Acolo merită evaluat Rust: într-un parser, un motor de calcul sau un procesor de date. Restul produsului poate continua în Java. Această alegere spune ceva și despre viitorul limbajelor: contează tot mai mult ce costuri și garanții au abstracțiile pe care le folosim.</p>
+      </header>
+      <div class="post-layout">
+        <aside class="post-sidebar"><span>În acest articol</span><a href="#pe-scurt">Pe scurt</a><a href="#modul-mic-impact-mare">Un modul mic, un cost mare</a><a href="#ce-aduce-rust">Ce aduce Rust</a><a href="#java-ramane-relevant">Unde rămâne puternic Java</a><a href="#integrare">Cum le integrezi</a><a href="#masurare">Ce trebuie măsurat</a><a href="#low-level">De ce ne apropiem de hardware</a><a href="#limbaje-depasite">Devin limbajele depășite?</a><a href="#alegere">Cum aș lua decizia</a></aside>
+        <div class="post-body">
+          <section class="post-summary" aria-labelledby="pe-scurt">
+            <h2 id="pe-scurt">Pe scurt</h2>
+            <ul>
+              <li>Rust merită evaluat pentru module cu un cost măsurabil de procesare, memorie sau latență. Un modul mic în cod poate domina timpul de execuție al unei aplicații Java.</li>
+              <li>Rust oferă control asupra memoriei fără un garbage collector obligatoriu. Java oferă și el siguranța memoriei; integrarea nativă introduce contracte care trebuie verificate separat.</li>
+              <li>Apropierea de hardware face vizibile costurile abstracțiilor. Limbajele de nivel înalt rămân utile, iar alegerea poate fi făcută pentru fiecare componentă a sistemului.</li>
+            </ul>
+          </section>
+
+          <h2 id="modul-mic-impact-mare">Un modul poate fi mic în cod și mare în factura de infrastructură</h2>
+          <p>Imaginează-ți o platformă Java care gestionează utilizatori, permisiuni, plăți și rapoarte. În fiecare cerere, un modul transformă un flux de date într-un format intern. Are puține responsabilități și o interfață simplă, dar este apelat foarte des. La un volum suficient de mare, timpul petrecut aici poate conta mai mult decât zeci de funcționalități care rulează rar.</p>
+          <p>Într-un asemenea scenariu, aș investiga parserul separat. Dacă profilarea arată că el consumă procesor și produce multe alocări temporare, un prototip în Rust poate testa dacă există un câștig real. Dacă cererea așteaptă în principal baza de date, prima intervenție utilă este probabil la interogări, indecși sau modul de acces la date.</p>
+          <p><strong>Dimensiunea modulului trebuie judecată prin munca pe care o execută.</strong> Un motor de compresie, un procesor de imagini sau o buclă de calcul poate avea o suprafață funcțională redusă și un cost operațional important. Tocmai limita clară a componentei face posibil un experiment fără rescrierea întregii aplicații.</p>
+
+          <h2 id="ce-aduce-rust">Ce aduce Rust într-un astfel de modul</h2>
+          <p>Rust gestionează memoria prin reguli de <em>ownership</em> și <em>borrowing</em>, verificate de compilator. Ele stabilesc cine deține o valoare și cum poate fi împrumutată. Memoria poate fi eliberată când proprietarul își încheie durata de viață, fără un garbage collector obligatoriu. Pentru un modul intens folosit, asta oferă mai mult control asupra alocărilor și a duratei de viață a datelor. <a href="https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html">Cum funcționează ownership în Rust</a>.</p>
+          <p>Sistemul de tipuri ajută și la concurență: poate respinge la compilare accesul partajat incorect la memorie, inclusiv situații de tip <em>data race</em>. Asta reduce o categorie dificilă de erori când mai multe fire de execuție procesează date. Rămân însă posibile blocaje reciproce, erori de logică și rezultate greșite dacă algoritmul este greșit. <a href="https://doc.rust-lang.org/book/ch16-00-concurrency.html">Concurența în Rust</a>.</p>
+          <p>Garanțiile depind și de codul din jur. Operațiile <code>unsafe</code> și bibliotecile native pot avea obligații pe care compilatorul nu le poate demonstra. Un înveliș aparent sigur peste o implementare <code>unsafe</code> greșită poate introduce probleme de memorie. Siguranța memoriei nu verifică automat permisiunile unui utilizator sau regulile unei tranzacții. <a href="https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html">Limitele și responsabilitățile codului unsafe</a>.</p>
+          <p>Pentru componenta propusă, întrebarea practică este dacă aceste mecanisme permit o implementare mai eficientă și mai ușor de verificat. Faptul că un program este scris în Rust nu stabilește singur nici viteza, nici corectitudinea lui.</p>
+
+          <h2 id="java-ramane-relevant">Java rămâne o alegere puternică pentru aplicația mare</h2>
+          <p>Java oferă și el siguranța memoriei în utilizarea obișnuită, fără acces nativ nesigur. Google explică această distincție chiar în prezentarea adoptării Rust pentru Android: Java și Kotlin sunt potrivite pentru multe componente, iar straturile native au alte cerințe de control și resurse. Exemplul Android susține alegerea pe componente; nu demonstrează că înlocuirea Java cu Rust accelerează orice aplicație. <a href="https://security.googleblog.com/2021/04/rust-in-android-platform.html">De ce a introdus Android Rust alături de alte limbaje</a>.</p>
+          <p>Nici performanța Java nu se reduce la imaginea unui limbaj interpretat. HotSpot compilează cod în instrucțiuni native și folosește informații din execuție pentru optimizări. În anumite condiții poate elimina chiar alocări de obiecte prin <em>escape analysis</em>. Un benchmark care compară Rust optimizat cu Java înainte de încălzirea JVM poate măsura lucruri diferite de cele care contează într-un serviciu pornit de săptămâni. <a href="https://docs.oracle.com/en/java/javase/25/vm/java-hotspot-virtual-machine-performance-enhancements.html">Optimizările Java HotSpot</a>.</p>
+          <p>Și garbage collection a evoluat. ZGC urmărește pauze foarte scurte, cu un compromis de debit față de alți colectori. Alegerea și configurarea colectorului trebuie evaluate pe sarcina concretă; prezența unui GC nu înseamnă automat latență inacceptabilă. <a href="https://docs.oracle.com/en/java/javase/25/gctuning/available-collectors.html">Colectorii disponibili în HotSpot</a>.</p>
+          <p>Într-un proiect matur, Java mai înseamnă biblioteci deja integrate, instrumente de diagnostic și o echipă care cunoaște produsul. Valoarea lor intră în decizie. Aș păstra în Java fluxurile care se schimbă des și aș cere dovezi concrete înainte să mut o componentă într-un alt ecosistem.</p>
+
+          <h2 id="integrare">Cum pui un modul Rust lângă o aplicație Java</h2>
+          <p>Există două variante principale, iar alegerea depinde de frecvența apelurilor, dimensiunea datelor și izolarea necesară.</p>
+          <div class="post-facts">
+            <div><strong>Bibliotecă în același proces</strong><p>Rust poate expune o interfață compatibilă cu ABI-ul C, adică regulile binare prin care funcțiile primesc argumente și întorc rezultate. Java o poate apela prin Foreign Function &amp; Memory API. Integrarea prin JNI cere funcții sau un adaptor care respectă convențiile JNI. Biblioteca nativă rulează în procesul JVM, iar o eroare nativă gravă poate opri întregul proces.</p></div>
+            <div><strong>Proces sau serviciu separat</strong><p>Java trimite o operație către componenta Rust printr-un protocol definit. Separarea proceselor permite repornirea și limitarea independentă a resurselor. Plătești însă pentru comunicare, serializare, cozi și operarea unei componente suplimentare. Pentru o funcție foarte scurtă, aceste costuri pot domina calculul.</p></div>
+          </div>
+          <p>FFM API oferă acces la funcții native și memorie din afara JVM, iar API-ul a fost finalizat în JDK 22. Nu traduce automat obiecte Java în structuri Rust și nu verifică implementarea bibliotecii apelate. Contractul rămâne esențial: cine alocă memoria, cine o eliberează, cât timp este valid un buffer și cum sunt raportate erorile. <a href="https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html">Ghidul oficial FFM API</a> · <a href="https://docs.oracle.com/en/graalvm/jdk/25/docs/reference-manual/native-image/native-code-interoperability/ffm-api/">Stabilizarea FFM în JDK 22</a>.</p>
+          <p>Documentația detaliază separat <a href="https://docs.oracle.com/en/java/javase/25/docs/specs/jni/design.html">convențiile JNI</a> și <a href="https://docs.oracle.com/en/java/javase/25/core/restricted-methods.html">operațiile FFM restricționate</a>, unde o utilizare incorectă poate corupe memoria sau opri JVM.</p>
+          <p>Aș prefera operații suficient de mari pentru a justifica trecerea graniței: de exemplu, procesarea unui lot de înregistrări într-un singur apel. Copierea și conversia datelor trebuie incluse în măsurătoare. O implementare Rust mai rapidă în izolare poate produce un rezultat mai lent după integrare.</p>
+
+          <h2 id="masurare">Cât câștigi în aplicația întreagă?</h2>
+          <p>Să luăm un <strong>exemplu ipotetic</strong>, fără a-l prezenta drept benchmark. O operație durează 100 ms: 40 ms în modulul candidat și 60 ms în restul aplicației. Dacă modulul ar deveni de cinci ori mai rapid, partea lui ar dura 8 ms. Totalul ar coborî la 68 ms, înainte de orice cost suplimentar de integrare.</p>
+          <p>Aplicația ar fi astfel de aproximativ 1,47 ori mai rapidă. Diferența dintre accelerarea componentei și cea a întregului sistem este motivul pentru care merită profilat traseul complet al unei cereri. Cu cât timpul consumat de modul este mai mic, cu atât plafonul câștigului total scade.</p>
+          <p>Pentru un experiment util, aș urmări:</p>
+          <ul>
+            <li><strong>Latența p50, p95 și p99:</strong> timpul median și pragurile sub care intră 95%, respectiv 99% dintre cereri, la aceeași încărcare.</li>
+            <li><strong>Debitul, CPU și memoria totală:</strong> inclusiv memoria nativă și procesele suplimentare, nu doar heap-ul Java.</li>
+            <li><strong>Traseul complet:</strong> conversii, copieri, transport, așteptare și comportament când componenta este suprasolicitată.</li>
+            <li><strong>Corectitudinea și întreținerea:</strong> aceleași rezultate, cazuri de eroare, timp de diagnostic și costul construirii pentru platformele folosite.</li>
+          </ul>
+          <p>Comparația trebuie să folosească aceeași muncă utilă, același hardware și date reprezentative. Pentru un serviciu de lungă durată măsori după încălzirea JVM; dacă pornirea este cerința importantă, măsori pornirea separat. Altfel riști să optimizezi un scenariu pe care produsul nu îl întâlnește.</p>
+
+          <h2 id="low-level">De ce revine interesul pentru low level</h2>
+          <p>Prin <em>low level</em> înțeleg aici controlul asupra reprezentării datelor, memoriei și execuției, mai aproape de felul în care lucrează hardware-ul. La scară mare, o alocare repetată, o copie inutilă sau un acces ineficient la memorie poate apărea în consumul de CPU, în latență și în numărul de mașini necesare.</p>
+          <p>Interpretarea mea este că presiunea pentru eficiență face aceste detalii mai relevante în componentele costisitoare. Rust oferă o modalitate de a le controla, păstrând abstracții precum tipuri generice, iteratori și verificări statice. Când o abstracție poate fi eliminată prin compilare, programatorul poate exprima intenția fără să plătească un mecanism suplimentar la fiecare execuție. <a href="https://doc.rust-lang.org/book/ch13-04-performance.html">Cum se compilează iteratorii în Rust</a>.</p>
+          <p>Totuși, a elimina GC-ul dintr-o componentă nu face sistemul determinist în timp real. Alocatorul, sistemul de operare, sincronizarea, discul și rețeaua pot introduce întârzieri. Un modul Rust în același proces cu Java continuă să facă parte dintr-un sistem cu resurse și constrângeri comune.</p>
+          <p>Apropierea de hardware este utilă acolo unde rezolvă o limită observată. Pentru un flux de aprobare folosit rar, timpul echipei poate conta mai mult decât câteva alocări. Pentru un parser apelat continuu, raportul se poate schimba.</p>
+
+          <h2 id="limbaje-depasite">Devin limbajele software „obsolete”?</h2>
+          <p>Aș formula ideea astfel: <strong>se învechește pretenția că un singur limbaj trebuie să fie alegerea optimă pentru toate straturile unui produs.</strong> O aplicație poate combina Java pentru reguli și integrări, Rust pentru o componentă de procesare și SQL pentru lucrul cu datele. Fiecare alegere trebuie însă să justifice și costul legăturii cu celelalte.</p>
+          <p>Direcția are două mișcări simultane. La nivelul produsului căutăm expresivitate și schimbări rapide. În componentele care consumă multe resurse căutăm control și predictibilitate. Rust le poate lega prin abstracții verificate de compilator. Java își continuă propriile optimizări și oferă mecanisme de interoperabilitate cu biblioteci native.</p>
+          <p>În opinia mea, și dezvoltarea asistată de IA poate muta o parte din atenție de la sintaxă la contracte, teste și comportamentul sistemului. Generarea codului nu elimină diferențele dintre limbaje: codul rezultat tot trebuie compilat, rulat, integrat și întreținut. Un agent care produce repede o funcție nu decide automat dacă merită introdusă o graniță nativă.</p>
+          <p>Limbajele continuă să stabilească ce poți exprima, ce greșeli sunt respinse și ce rămâne de verificat în execuție. Aceste proprietăți devin chiar mai relevante când cantitatea de cod generat crește. Sintaxa poate ocupa mai puțin din munca zilnică, iar consecințele alegerii limbajului rămân în produs.</p>
+
+          <h2 id="alegere">Cum aș lua decizia într-un proiect existent</h2>
+          <p>Aș începe cu un singur modul, cu intrări și ieșiri clare și un cost demonstrat prin profilare. Aș optimiza mai întâi implementarea Java suficient cât să am o comparație serioasă. Apoi aș construi un prototip Rust și l-aș măsura după integrare, cu aceleași date și criterii de corectitudine.</p>
+          <p>Pentru parserul din exemplu, aș verifica și date invalide, dimensiuni extreme și erori de procesare. Aș folosi teste comparative cu implementarea existentă și fuzzing, adică generarea automată a multor intrări neobișnuite. Contractul de memorie și comportamentul la eșec trebuie să fie explicite înainte de folosirea în producție.</p>
+          <p>Aș păstra componenta Rust dacă îmbunătățirea justifică întreținerea în două ecosisteme și dacă echipa o poate diagnostica în producție. Așa poate evolua o aplicație mare: păstrezi investiția existentă și alegi un alt instrument pentru locul unde cerințele îl fac potrivit.</p>
+
+          <nav class="post-related" aria-label="Articole conexe"><p><strong>Citește și</strong></p><ul><li><a href="../java-ruby-javascript-costuri-tokeni-mvp/">Java, Ruby sau JavaScript? Cât costă în tokeni să construiești un MVP</a></li><li><a href="../diferenta-dintre-chat-ia-si-agent-ia/">Chat AI și agent AI: care este diferența?</a></li></ul></nav>
+          <div class="post-end"><a href="../../">Proiectul Pagini Web</a><a href="../">← Înapoi la blog</a></div>
+        </div>
+      </div>
+    </article>
+    <section class="blog-cta section-shell"><p>Ai o aplicație care trebuie să crească?</p><a class="button dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer section-shell"><div class="footer-top"><a class="footer-name" href="../../">Proiectul<br />Pagini Web<span class="orange">.</span></a><p>Ambiție umană.<br />Posibilități cu agenți IA.</p><a class="back-top" href="#">Înapoi sus <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© 2026 Proiectul Pagini Web</span><span>Construit cu IA. Centrat pe oameni.</span><a href="../../#contact">Scrie-ne ↗</a></div></footer>
+</body>
+</html>

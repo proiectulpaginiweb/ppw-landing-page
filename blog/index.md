@@ -4,9 +4,17 @@ Jurnal / Idei pentru web
 
 # IA pentru *afaceri.*
 
-Explicații și exemple despre agenți IA, modele specializate pentru afaceri și dezvoltare software cu AI.
+Explicații și exemple despre agenți IA, modele pentru afaceri, dezvoltare cu AI și arhitectură software.
 
 ## Articole
+
+17 noiembrie 2026· Arhitectură software
+
+### [Rust lângă Java: module mici, rapide și sigure în aplicații mari](https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/)
+
+Când merită să muți un modul critic din Java în Rust, cum îl integrezi și de ce apropierea de hardware nu face limbajele de nivel înalt depășite.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/)
 
 13 noiembrie 2026· SEO și GEO
 
