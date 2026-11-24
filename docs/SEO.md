@@ -1,6 +1,7 @@
 # PPW — optimizări SEO și indexarea în Google
 
 Data documentului: **13 noiembrie 2026**  
+Ultima actualizare: **25 noiembrie 2026** (vezi [secțiunea 8](#8-actualizare-25-noiembrie-2026))  
 Site canonic: **[www.proiectulpaginiweb.ro](https://www.proiectulpaginiweb.ro/)**
 
 Acest document descrie modificările realizate, verificările efectuate și pașii rămași pentru publicare și monitorizare. Este documentație a proiectului, nu o pagină destinată rezultatelor Google; nu este inclus în sitemap și nu trebuie adăugat în pachetul public al site-ului.
@@ -17,6 +18,8 @@ Acest document descrie modificările realizate, verificările efectuate și paș
 | Verificarea mobilă | Cele șapte pagini verificate la 390 px, fără depășire orizontală |
 | Google Search Console și Rich Results Test | Nu au fost folosite pentru validarea noii versiuni în această intervenție |
 | Core Web Vitals din trafic real | Nu au fost măsurate |
+
+Tabelul descrie starea de la auditul din 13 noiembrie. Starea locală și publică din 25 noiembrie este în [secțiunea 8](#8-actualizare-25-noiembrie-2026).
 
 La auditul public din 13 noiembrie, înaintea publicării modificărilor locale, `/echipa/` răspundea cu **404**, iar sitemap-ul public nu includea pagina. Existența fișierelor în repository sau funcționarea lor pe localhost nu le face accesibile Google pe domeniul public.
 
@@ -240,3 +243,59 @@ Nu am schimbat preferințele de antrenare sau protecțiile CDN. Accesul pentru c
 Google cere o bază SEO corectă și pagini eligibile pentru indexare și fragmente de rezultat. Ghidul actual indică și verificarea includerii în funcțiile generative din Search Console. Nu există un format GEO special obligatoriu; Google nu folosește `llms.txt` pentru vizibilitate sau ranking. Rezumatele sunt pentru cititori, nu o cerință tehnică Google. [Ghidul Google pentru IA generativă](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
 După publicare, urmărește rapoartele disponibile în Search Console și, pentru Bing, [AI Performance](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/). Compară în timp paginile citate, întrebările relevante și vizitele utile. Nu există o citare sau o poziție garantată în ChatGPT, Google, Claude ori Perplexity.
+
+## 8. Actualizare: 25 noiembrie 2026
+
+După audit au fost adăugate trei articole: [Rust lângă Java](../blog/rust-java-module-rapide-sigure/index.html) (17 noiembrie), [testarea unui agent IA](../blog/cum-testezi-un-agent-ia/index.html) (23 noiembrie) și [Ce este MCP](../blog/ce-este-mcp-model-context-protocol/index.html) (25 noiembrie). Cifrele din secțiunile anterioare rămân valabile pentru momentul auditului.
+
+### Starea locală
+
+| Verificare | Rezultat pe 25 noiembrie |
+| --- | --- |
+| Pagini HTML canonice | 11: pagina principală, Echipa, Blog și opt articole |
+| `npm run build`, `check:seo`, `check:geo` | Trec pentru toate cele 11 pagini |
+| Build repetat | Nu modifică niciun fișier generat |
+| Teste (`npm test`) | 29 de teste trec |
+| Sitemap local | 11 adrese HTML canonice; câte o copie `index.md` pentru fiecare articol |
+| Verificare mobilă la 390 px | Fără depășire orizontală pentru Blog și articolele despre testare și MCP; celelalte pagini nu au fost reverificate |
+
+Pe cardul articolului MCP din listă, marca de trei litere ieșea din chenar. Clasa `blog-card-mark-wide` din `blog.css` folosește un font mai mic pentru asemenea mărci.
+
+### Starea publică
+
+Verificare făcută cu cereri HTTP către `www.proiectulpaginiweb.ro`:
+
+| Adresă | HTML | `index.md` | Antet `Link` canonical pe Markdown |
+| --- | --- | --- | --- |
+| `/` | 200 | 200 | Da |
+| `/echipa/` | 200 | 200 | Da |
+| `/blog/` | 200 | 200 | Da |
+| `/blog/internetul-agentic-este-aici/` | 200 | 200 | Da |
+| `/blog/diferenta-dintre-chat-ia-si-agent-ia/` | 200 | 200 | Nu |
+| `/blog/antrenarea-modelelor-ia-pentru-afaceri/` | 200 | 200 | Nu |
+| `/blog/java-ruby-javascript-costuri-tokeni-mvp/` | 200 | 200 | Nu |
+| `/blog/indexare-site-chatgpt-ia-geo/` | 200 | 200 | Nu |
+| `/blog/rust-java-module-rapide-sigure/` | 200 | 200 | Nu |
+| `/blog/cum-testezi-un-agent-ia/` | 404 | 404 | Nepublicat |
+| `/blog/ce-este-mcp-model-context-protocol/` | 404 | 404 | Nepublicat |
+
+- Sitemap-ul public conține 9 adrese; cel local conține 11.
+- Vechile adrese ale celor patru articole redenumite răspund cu 200 și cu pagina de rezervă `noindex`, care redirecționează prin meta refresh. Redirecționările 301 din Cloudflare nu sunt încă configurate.
+- `llms.txt` și `llms-full.txt` răspund cu 200 și `X-Robots-Tag: noindex`. Varianta publică a `llms.txt` nu include încă cele două articole nepublicate.
+
+Search Console și Rich Results Test nu au fost folosite în această actualizare.
+
+### Pașii rămași
+
+1. Publică versiunea curentă prin `npm run build:pages` sau prin workflow-ul GitHub Pages.
+2. Extinde lista regulii Cloudflare **PPW SEO - canonical Markdown** cu cele șapte căi de articol fără antet:
+   - `/blog/diferenta-dintre-chat-ia-si-agent-ia/index.md`
+   - `/blog/antrenarea-modelelor-ia-pentru-afaceri/index.md`
+   - `/blog/java-ruby-javascript-costuri-tokeni-mvp/index.md`
+   - `/blog/indexare-site-chatgpt-ia-geo/index.md`
+   - `/blog/rust-java-module-rapide-sigure/index.md`
+   - `/blog/cum-testezi-un-agent-ia/index.md`
+   - `/blog/ce-este-mcp-model-context-protocol/index.md`
+3. Configurează în Cloudflare redirecționări 301 pentru cele patru adrese vechi din tabelul de migrare din `README.md`.
+4. După publicare, verifică pe domeniul public răspunsurile 200, antetele `Link` și sitemap-ul cu 11 adrese.
+5. În Search Console, retrimite sitemap-ul și cere indexarea celor două articole noi prin URL Inspection.

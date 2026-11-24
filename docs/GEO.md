@@ -1,6 +1,7 @@
 # PPW — optimizări GEO, indexare și citare în răspunsurile IA
 
 Data documentului: **13 noiembrie 2026**  
+Ultima actualizare: **25 noiembrie 2026** (vezi [secțiunea 8](#8-actualizare-25-noiembrie-2026))  
 Site: **[Proiectul Pagini Web](https://www.proiectulpaginiweb.ro/)**
 
 GEO înseamnă **Generative Engine Optimization**. Pentru PPW, obiectivul este ca informațiile despre companie, servicii, echipă și articole să fie accesibile, clare și verificabile atunci când un motor de căutare sau un asistent IA caută surse.
@@ -18,6 +19,8 @@ Documentul descrie implementarea realizată și pașii de întreținere. Este do
 | Setarea de includere în Google | Era deja activă; nu a fost modificată |
 | Indexare raportată de Google | Șase pagini indexate, pentru versiunea publică existentă |
 | Date Core Web Vitals și rezultate ale citărilor IA | Nu au fost măsurate rezultate noi de citare; panoul nu avea date Core Web Vitals |
+
+Tabelul descrie starea de la auditul din 13 noiembrie. Starea din 25 noiembrie este în [secțiunea 8](#8-actualizare-25-noiembrie-2026).
 
 Redirecționarea HTTPS, canonicalele HTTP pentru copiile Markdown și `noindex` pentru fișierele auxiliare erau deja active din intervenția SEO anterioară. Nu au fost create reguli noi de acces la crawlere sau de antrenare a modelelor pentru această optimizare GEO.
 
@@ -158,3 +161,34 @@ La pagini noi, actualizează și lista explicită din regula Cloudflare pentru c
 Am pregătit articolul [Cum îți faci site-ul vizibil în ChatGPT și căutările AI](../blog/indexare-site-chatgpt-ia-geo/index.html), pornind de la acest raport și de la documentația oficială a furnizorilor. Ghidul explică accesul crawlerelor, indexarea, selecția surselor și citarea, fără să promită includerea într-un răspuns IA. Versiunea locală include acum cinci articole și opt pagini HTML canonice; sitemap-ul și exporturile se regenerează din conținutul vizibil prin `npm run build`.
 
 Înaintea publicării, actualizează lista explicită a regulii Cloudflare **PPW SEO - canonical Markdown** pentru cele patru adrese românești din tabelul de migrare din `README.md`, inclusiv **`/blog/indexare-site-chatgpt-ia-geo/index.md`**. Configurația documentată acoperă în continuare cele șapte căi originale; această intervenție în repository nu a modificat regula CDN. Verifică apoi antetul `Link: <https://www.proiectulpaginiweb.ro/blog/indexare-site-chatgpt-ia-geo/>; rel="canonical"` pe noua copie Markdown publică.
+
+## 8. Actualizare: 25 noiembrie 2026
+
+Versiunea locală are acum opt articole și 11 pagini HTML canonice. `npm run check:geo` trece pentru toate cele 11 pagini, iar un build repetat nu modifică fișierele generate.
+
+| Articol | Publicat | Actualizat | Surse externe în `citation` |
+| --- | --- | --- | --- |
+| [Internetul agentic este aici](../blog/internetul-agentic-este-aici/index.html) | 24 octombrie | 13 noiembrie | 4 |
+| [Antrenarea modelelor IA pentru afaceri](../blog/antrenarea-modelelor-ia-pentru-afaceri/index.html) | 4 noiembrie | 13 noiembrie | 2 |
+| [Chat IA și agent IA](../blog/diferenta-dintre-chat-ia-si-agent-ia/index.html) | 6 noiembrie | 13 noiembrie | 2 |
+| [Costuri în tokeni pentru un MVP](../blog/java-ruby-javascript-costuri-tokeni-mvp/index.html) | 9 noiembrie | 13 noiembrie | 8 |
+| [Vizibilitatea în ChatGPT și căutările IA](../blog/indexare-site-chatgpt-ia-geo/index.html) | 13 noiembrie | 13 noiembrie | 10 |
+| [Rust lângă Java](../blog/rust-java-module-rapide-sigure/index.html) | 17 noiembrie | 17 noiembrie | 11 |
+| [Testarea unui agent IA](../blog/cum-testezi-un-agent-ia/index.html) | 23 noiembrie | 23 noiembrie | 2 |
+| [Ce este MCP](../blog/ce-este-mcp-model-context-protocol/index.html) | 25 noiembrie | 25 noiembrie | 5 |
+
+Toate datele sunt din 2026. Fiecare articol are secțiunea „Pe scurt” cu trei concluzii, preluată în `abstract`, în copia Markdown și în `llms-full.txt`. Sursele din `citation` sunt exact linkurile externe vizibile în articol.
+
+Articolul despre MCP folosește doar surse primare: anunțul Anthropic din 2024, specificația MCP 2026-07-28, ghidul oficial de securitate MCP, anunțul despre Agentic AI Foundation și articolul de lansare a specificației. Cifrele de adoptare sunt atribuite în text organizațiilor care le-au publicat. Exemplul de instrument MCP și calculul cu numărul de integrări sunt marcate ca ilustrative.
+
+### Starea publică
+
+Pe 25 noiembrie, cele două articole noi (testare și MCP) răspundeau cu 404 pe domeniul public. Varianta publică a `llms.txt` listează șase articole, față de opt local. Copiile Markdown a cinci dintre cele șase articole publicate nu primesc încă antetul `Link` canonical. Detaliile și lista căilor pentru Cloudflare sunt în [SEO.md, secțiunea 8](SEO.md#8-actualizare-25-noiembrie-2026).
+
+Nu au fost măsurate citări IA noi și nu au fost schimbate setările pentru crawlere sau pentru antrenarea modelelor.
+
+### După publicare
+
+1. Verifică dacă `llms.txt` și `llms-full.txt` publice listează toate cele opt articole.
+2. Verifică antetul `Link` canonical pe fiecare `index.md` de articol.
+3. Pentru articolul despre MCP, notează în jurnalul de citări întrebări precum „ce este MCP” sau „Model Context Protocol pentru firme”, cu data, produsul folosit și URL-ul citat.
