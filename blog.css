@@ -22,3 +22,8 @@
 .post-summary ul{margin:0;padding-left:21px;font-size:16px;line-height:1.75;color:#44483e}
 .post-summary li+li{margin-top:12px}
 @media(max-width:550px){.post-summary{padding:22px 20px}.post-summary ul{font-size:15px}}
+
+/* Wider three-letter marks such as MCP stay inside the card. */
+.blog-card-mark-wide span {
+  font-size: clamp(90px, 14vw, 200px);
+}

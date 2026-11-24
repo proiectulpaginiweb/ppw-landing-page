@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7ef" />
+  <title>Ce este MCP (Model Context Protocol)? Ghid pentru firme | PPW</title>
+  <meta name="description" content="Ce este MCP (Model Context Protocol), cum conectează agenții IA la CRM, documente și baze de date, ce riscuri are și când merită pentru firma ta." />
+<!-- scripts:start -->
+<script src="../../assets/static/blog.0faaffa35b39.js" defer></script>
+<script src="../../assets/static/analytics.88ccc6495426.js" defer></script>
+<!-- scripts:end -->
+<!-- favicon:start -->
+<link id="site-favicon" rel="icon" type="image/svg+xml" sizes="any" href="../../assets/static/assets/favicon.6beaa5771c03.svg" />
+<!-- favicon:end -->
+<!-- fonts:start -->
+<link rel="preload" href="../../assets/static/assets/fonts/manrope-latin.6a4e46864369.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/manrope-romanian.875b2012cc98.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/dm-sans-latin.3692732c3352.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../assets/static/assets/fonts/dm-sans-romanian.f7fff0c5bb2b.woff2" as="font" type="font/woff2" crossorigin />
+<!-- fonts:end -->
+<!-- styles:start -->
+<style id="site-styles">
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-latin-ext.038bcb9a2aab.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-latin.3692732c3352.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-latin-ext.1201b00b7f0e.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-latin.6a4e46864369.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url("../../assets/static/assets/fonts/dm-sans-romanian.f7fff0c5bb2b.woff2") format('woff2');unicode-range:U+0102-0103,U+015E-015F,U+0162-0163,U+0218-021B}@font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url("../../assets/static/assets/fonts/manrope-romanian.875b2012cc98.woff2") format('woff2');unicode-range:U+0102-0103,U+015E-015F,U+0162-0163,U+0218-021B}:root{--paper:#f7f7ef;--ink:#20221c;--muted:#686c5e;--line:#d9dbd0;--green:#a8cc51;--yellow:#eff14c;--orange:#ff762f;--font:"DM Sans",Arial,sans-serif;--heading:"Manrope",Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;border-top:4px solid transparent;border-image:linear-gradient(to right,#002b7f 0% 33.333333%,#fcd116 33.333333% 66.666667%,#ce1126 66.666667% 100%) 1;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6}button,input,select,textarea{font:inherit}a,button{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}img{max-width:100%;display:block}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--heading);font-weight:650;line-height:1.08;letter-spacing:-.055em}h2{font-size:clamp(36px, 4.2vw, 62px)}h3{font-size:30px}p{color:#62655a}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #3d681b;outline-offset:6px}.section-shell{width:min(1320px,calc(100% - 100px));margin-inline:auto}.section-space{padding-block:110px}.eyebrow{text-transform:uppercase;font-size:11px;font-weight:700;letter-spacing:.13em;color:var(--ink);display:flex;align-items:center;gap:9px}.status-dot{width:8px;height:8px;display:inline-block;background:#709c37;border-radius:50%;box-shadow:0 0 0 4px #709c3714;flex-shrink:0}.muted{color:#85887b}.orange{color:var(--orange)}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:54px;padding:14px 24px;font-size:14px;font-weight:600;border-radius:6px;border:1px solid transparent;transition:transform .2s,background .2s}.button:hover{transform:translateY(-3px)}.button span{font-size:22px;line-height:1}.dark{background:var(--ink);color:#fff}.dark:hover{background:#3e4632}.button.small{min-height:44px;padding:10px 18px}.text-link{display:inline-flex;align-items:center;gap:20px;font-size:13px;font-weight:600}.text-link:hover{color:#527626}.text-link span{font-size:19px}.site-header{height:104px;width:calc(100% - 100px);max-width:1320px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;align-items:center;gap:18px}.brand-tagline{font-size:10px;font-weight:600;line-height:1.5;color:#6c6f61;border-left:1px solid var(--line);padding-left:17px}.site-header nav{display:flex;align-items:center;gap:32px;font-size:12px;font-weight:500}.site-header nav>a:not(.button):hover{text-decoration:underline;text-underline-offset:6px}.menu-toggle{display:none}.site-footer{padding-block:65px 24px}.footer-top{display:flex;align-items:center;gap:65px;padding-bottom:48px}.brand-wordmark,.footer-name{font-family:var(--heading);font-size:28px;line-height:1.05;letter-spacing:-.06em;font-weight:800}.footer-top p{font-size:13px}.back-top{margin-left:auto;font-size:12px;display:flex;gap:22px;align-items:center}.back-top span{border:1px solid var(--line);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;font-size:18px}.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:10px;color:var(--muted)}.skip-link{position:fixed;top:8px;left:8px;background:var(--ink);color:#fff;padding:10px;z-index:20;transform:translateY(-150%)}.skip-link:focus{transform:none}@media (max-width:1100px){.section-shell,.site-header{width:calc(100% - 64px)}.site-header nav{gap:20px}}@media (max-width:800px){.section-shell,.site-header{width:calc(100% - 40px)}.site-header{height:85px;position:relative}.brand-tagline{font-size:9px}.menu-toggle{display:flex;align-items:center;gap:12px;background:0 0;border:1px solid var(--line);border-radius:4px;padding:7px 12px;font-size:12px}.site-header nav{display:none;position:absolute;top:78px;right:0;left:0;padding:20px;background:var(--paper);box-shadow:0 12px 25px #20221c15;border:1px solid var(--line);border-radius:5px;z-index:10;align-items:stretch}.site-header nav.is-open{display:flex;flex-direction:column}.site-header nav>a{padding:8px}.site-header nav>.button{padding:12px}.footer-top{gap:30px}.footer-bottom{flex-wrap:wrap}}@media (max-width:550px){.brand-tagline{display:none}.footer-top{flex-wrap:wrap;gap:24px}.footer-top p{font-size:11px}.brand-wordmark,.footer-name{font-size:25px}.back-top{margin-left:0;width:100%;justify-content:space-between}.footer-bottom{font-size:9px;gap:12px}.footer-bottom>span:nth-child(2){display:none}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,:after,:before{transition:none!important;animation:none!important}}.brand-wordmark{font-size:22px;white-space:nowrap}.brand-dot{position:relative;display:inline-block;width:5px;height:5px;margin-left:3px;border-radius:0;vertical-align:baseline;overflow:hidden;line-height:0;background:var(--orange);font-size:0;animation:brand-dot-blink 4.5s steps(1,end) infinite}.brand-dot::after,.brand-dot::before{content:"";position:absolute;inset:0}.brand-dot::before{background:var(--green);animation:brand-dot-green 4.5s steps(1,end) infinite}.brand-dot::after{background:var(--yellow);animation:brand-dot-yellow 4.5s steps(1,end) infinite}@keyframes brand-dot-blink{0%,100%,33.333%,66.666%{opacity:1}25%,58.333%,91.666%{opacity:0}}@keyframes brand-dot-green{0%,100%,66.666%{opacity:0}33.333%{opacity:1}}@keyframes brand-dot-yellow{0%,100%{opacity:1}33.333%{opacity:0}}@media (max-width:1100px){.brand-tagline{display:none}}
+.blog-hero{display:grid;grid-template-columns:1.5fr .5fr;gap:4rem;align-items:end;padding-block:95px 105px;border-bottom:1px solid var(--line)}.blog-kicker,.blog-meta,.post-breadcrumb{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#666a5d}.blog-kicker{color:#56752d;margin-bottom:25px}.blog-hero h1,.post-header h1{font-size:clamp(52px,7.2vw,105px);line-height:1.02;letter-spacing:-.075em}.blog-hero h1 em,.post-header h1 em{font-style:normal;color:#719531}.blog-intro{max-width:580px;font-size:clamp(18px,2vw,23px);line-height:1.48;margin-top:36px}.blog-symbol{height:250px;display:flex;align-items:center;justify-content:center;gap:3px;position:relative;border-radius:50%;background:#e5efce;aspect-ratio:1;margin-left:auto;transform:rotate(-10deg)}.blog-symbol span{font-family:var(--heading);font-size:104px;font-weight:800;letter-spacing:-.14em;line-height:1;color:#263223}.blog-symbol span:nth-child(2){color:#ff762f}.blog-symbol i{position:absolute;right:-12px;top:6px;font-size:56px;font-style:normal;color:#526d35}.blog-list{padding-block:70px 115px}.blog-list-heading{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:23px}.blog-list-heading h2{font-size:clamp(34px,4vw,52px)}.blog-list-heading span{font-size:12px;color:var(--muted)}.blog-card{display:grid;grid-template-columns:minmax(230px,.65fr) 1fr;gap:7%;padding-block:38px;border-bottom:1px solid var(--line)}.blog-card-mark{min-height:340px;border-radius:8px;background:linear-gradient(135deg,#dcebb4,#a8cc51 70%);position:relative;overflow:hidden;display:grid;place-items:center}.blog-card-mark span{font:800 clamp(110px,18vw,250px)/1 var(--heading);letter-spacing:-.13em;color:#24311e;transform:rotate(-12deg)}.blog-card-mark i{position:absolute;top:18px;right:28px;font-size:85px;color:#ff762f;font-style:normal}.blog-card-content{padding-block:15px;display:flex;flex-direction:column;align-items:flex-start}.blog-meta{display:flex;gap:12px;flex-wrap:wrap;letter-spacing:.04em;text-transform:none}.blog-card h3{font-size:clamp(34px,4.2vw,60px);line-height:1.12;margin:26px 0}.blog-card h3 a:hover,.blog-read:hover,.post-body a:hover{text-decoration:underline;text-underline-offset:5px}.blog-card-content>p:not(.blog-meta){font-size:18px;max-width:550px}.blog-read{margin-top:auto;padding-top:38px;font-weight:700;font-size:14px}.blog-read span{padding-left:16px;font-size:20px}.blog-cta{background:var(--yellow);border-radius:9px;padding:36px 44px;display:flex;align-items:center;justify-content:space-between;gap:25px;margin-bottom:70px}.blog-cta p{font:650 clamp(22px,2.7vw,38px)/1.2 var(--heading);color:var(--ink);letter-spacing:-.045em}.post-breadcrumb{display:flex;gap:12px;align-items:center;padding-top:35px;letter-spacing:0;text-transform:none}.post-breadcrumb a:hover{text-decoration:underline}.post-header{max-width:1050px;padding-block:85px 70px}.post-header h1{font-size:clamp(48px,6vw,86px);margin:20px 0 30px}.post-lead{font-size:clamp(19px,2.1vw,27px);line-height:1.5;max-width:870px;color:#40443b}.post-visual{height:390px;border-radius:10px;overflow:hidden;position:relative;background:radial-gradient(circle at center,#dff1b4,#a8cc51 62%,#6d9b46);display:grid;place-items:center}.post-visual-center{font:800 clamp(100px,16vw,220px)/1 var(--heading);letter-spacing:-.12em;color:#26351c;z-index:1}.post-visual-center span{color:#ff762f}.post-orbit{position:absolute;border:1px solid #26351c50;border-radius:50%;width:510px;height:510px}.orbit-two{width:760px;height:760px}.post-node{position:absolute;background:var(--paper);border:1px solid #26351c40;border-radius:30px;padding:9px 15px;font-size:12px;font-weight:700;z-index:2}.node-one{top:20%;left:19%}.node-two{right:18%;top:23%}.node-three{right:23%;bottom:18%}.post-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:8%;padding-block:80px 115px;justify-content:center}.post-sidebar{display:flex;flex-direction:column;gap:17px;align-self:start;position:sticky;top:28px;font-size:13px}.post-sidebar span{font-weight:700;color:#537830;margin-bottom:8px}.post-sidebar a{color:#666a5d}.post-sidebar a:hover{text-decoration:underline}.post-body h2{font-size:clamp(33px,3vw,45px);margin:56px 0 22px;scroll-margin-top:30px}.post-body h2:first-child{margin-top:0}.post-body p{font-size:18px;line-height:1.8;margin:0 0 24px;color:#44483e}.post-body a{color:#456b28;text-decoration:underline;text-underline-offset:3px}.post-facts{border-top:1px solid var(--line);margin:35px 0}.post-facts>div{display:grid;grid-template-columns:190px 1fr;gap:25px;padding:25px 0;border-bottom:1px solid var(--line)}.post-facts strong{font-size:13px}.post-facts p{font-size:16px;margin:0}.post-body blockquote{border-left:5px solid var(--orange);padding:8px 0 8px 26px;margin:42px 0;font:650 clamp(23px,2.2vw,30px)/1.4 var(--heading);letter-spacing:-.035em}.post-end{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--ink);margin-top:65px;padding-top:20px;font-size:13px;font-weight:700}.post-end a:hover{text-decoration:underline}@media(max-width:800px){.blog-hero{grid-template-columns:1fr;padding-block:55px 65px}.blog-symbol{width:180px;height:180px;margin:0}.blog-symbol span{font-size:75px}.blog-list{padding-block:50px 75px}.blog-card{grid-template-columns:1fr;gap:25px}.blog-card-mark{min-height:270px}.blog-card-content{padding:0}.blog-read{padding-top:25px}.post-header{padding-block:50px}.post-visual{height:300px}.post-layout{grid-template-columns:1fr;padding-block:50px 80px}.post-sidebar{display:none}.blog-cta{padding:28px;flex-wrap:wrap}}@media(max-width:550px){.blog-hero h1,.post-header h1{font-size:46px}.blog-symbol{display:none}.blog-card-mark{min-height:220px}.blog-card-mark span{font-size:140px}.post-visual{height:240px}.post-visual-center{font-size:105px}.post-orbit{width:320px;height:320px}.orbit-two{width:480px;height:480px}.post-node{font-size:10px}.node-one{left:4%}.node-two{right:5%}.node-three{right:6%}.post-facts>div{grid-template-columns:1fr;gap:8px}.post-end{flex-direction:column}.blog-cta{margin-bottom:30px}}.post-body figure{margin:28px 0}.post-body figure img{display:block;width:100%;height:auto}.post-body figcaption{margin-top:10px;color:#44483e;font-size:14px;line-height:1.6}.post-body code{overflow-wrap:anywhere}.post-guide .post-body>ol,.post-guide .post-body>ul{margin:0 0 28px;padding-left:24px;font-size:18px;line-height:1.8;color:#44483e}.post-guide .post-body>ol>li+li,.post-guide .post-body>ul>li+li{margin-top:12px}.post-body pre{white-space:pre-wrap;margin:10px 0 22px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff;line-height:1.55}.post-breadcrumb{flex-wrap:wrap}.post-byline,.post-updated{font-size:14px;line-height:1.6;color:#62655a;margin-top:14px}.post-byline a{text-decoration:underline;text-underline-offset:3px}.post-updated{font-size:12px;margin-top:10px}.post-related{margin-top:45px;padding:25px 0;border-top:1px solid var(--line)}.post-related>p{font-size:15px;margin-bottom:12px}.post-related ul{padding-left:22px;margin:0;font-size:16px;line-height:1.7}.post-related li+li{margin-top:8px}.post-summary{margin-bottom:45px;padding:26px 28px;background:#edf1e3;border-left:3px solid var(--green);border-radius:0 6px 6px 0}.post-body .post-summary h2{font-size:23px;letter-spacing:-.035em;margin:0 0 17px}.post-summary ul{margin:0;padding-left:21px;font-size:16px;line-height:1.75;color:#44483e}.post-summary li+li{margin-top:12px}@media(max-width:550px){.post-summary{padding:22px 20px}.post-summary ul{font-size:15px}}.blog-card-mark-wide span{font-size:clamp(90px, 14vw, 200px)}
+</style>
+<!-- styles:end -->
+<!-- discovery:start; generated by scripts/build_discovery.py -->
+<link rel="canonical" href="https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="ro_RO" />
+<meta property="og:site_name" content="Proiectul Pagini Web" />
+<meta property="og:title" content="Ce este MCP (Model Context Protocol)? Ghid pentru firme | PPW" />
+<meta property="og:description" content="Ce este MCP (Model Context Protocol), cum conectează agenții IA la CRM, documente și baze de date, ce riscuri are și când merită pentru firma ta." />
+<meta property="og:url" content="https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/" />
+<meta property="og:image" content="https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png" />
+<meta property="og:image:alt" content="Sigla Proiectul Pagini Web" />
+<meta property="article:published_time" content="2026-11-25" />
+<meta property="article:modified_time" content="2026-11-25" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Ce este MCP (Model Context Protocol)? Ghid pentru firme | PPW" />
+<meta name="twitter:description" content="Ce este MCP (Model Context Protocol), cum conectează agenții IA la CRM, documente și baze de date, ce riscuri are și când merită pentru firma ta." />
+<meta name="twitter:image" content="https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png" />
+<meta name="twitter:image:alt" content="Sigla Proiectul Pagini Web" />
+<link rel="alternate" type="text/markdown" href="https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/index.md" title="Conținut în format Markdown" />
+<link rel="describedby" href="https://www.proiectulpaginiweb.ro/llms.txt" type="text/plain" />
+<link rel="sitemap" type="application/xml" href="https://www.proiectulpaginiweb.ro/sitemap.xml" />
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#pagina",
+      "url": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/",
+      "name": "Ce este MCP (Model Context Protocol)? Ghid pentru firme | PPW",
+      "description": "Ce este MCP (Model Context Protocol), cum conectează agenții IA la CRM, documente și baze de date, ce riscuri are și când merită pentru firma ta.",
+      "inLanguage": "ro",
+      "isPartOf": {
+        "@id": "https://www.proiectulpaginiweb.ro/#site"
+      },
+      "mainEntity": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#articol"
+      },
+      "breadcrumb": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#fir-navigare"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#articol",
+      "url": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/",
+      "headline": "Ce este MCP? Cum conectezi agenții IA la datele firmei",
+      "description": "Ce este MCP (Model Context Protocol), cum conectează agenții IA la CRM, documente și baze de date, ce riscuri are și când merită pentru firma ta.",
+      "datePublished": "2026-11-25",
+      "dateModified": "2026-11-25",
+      "inLanguage": "ro",
+      "mainEntityOfPage": {
+        "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#pagina"
+      },
+      "author": {
+        "@type": "Organization",
+        "@id": "https://www.proiectulpaginiweb.ro/#organizatie",
+        "name": "Proiectul Pagini Web",
+        "url": "https://www.proiectulpaginiweb.ro/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.proiectulpaginiweb.ro/#organizatie",
+        "name": "Proiectul Pagini Web",
+        "url": "https://www.proiectulpaginiweb.ro/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.proiectulpaginiweb.ro/assets/static/assets/proiectul-pagini-web-logo-2013.ccc6840cdf79.png"
+        }
+      },
+      "abstract": "MCP (Model Context Protocol) este un standard deschis prin care o aplicație IA se conectează la instrumente și date externe. Un conector construit o singură dată poate fi folosit de mai multe aplicații compatibile. Un server MCP oferă agentului instrumente, resurse și șabloane de instrucțiuni. Agentul citește date sau execută acțiuni doar prin ce expune serverul, cu drepturile pe care i le acorzi. Tratează fiecare server MCP ca pe un acces la sistemele firmei: drepturi minime, surse de încredere, aprobare umană pentru acțiunile importante și un jurnal al operațiilor. Începe cu un server care doar citește date.",
+      "citation": [
+        "https://www.anthropic.com/news/model-context-protocol",
+        "https://modelcontextprotocol.io/specification/2026-07-28",
+        "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation",
+        "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+        "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/#fir-navigare",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Acasă",
+          "item": "https://www.proiectulpaginiweb.ro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.proiectulpaginiweb.ro/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ce este MCP",
+          "item": "https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/"
+        }
+      ]
+    }
+  ]
+}</script>
+<!-- discovery:end -->
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Proiectul Pagini Web Gândire independentă. Posibilități inteligente. — Acasă"><span class="brand-wordmark">Proiectul<br />Pagini Web<span class="brand-dot" aria-hidden="true"></span></span><span class="brand-tagline">Gândire independentă.<br />Posibilități inteligente.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigare">Meniu <span aria-hidden="true">＋</span></button>
+    <nav id="navigare" aria-label="Navigare principală"><a href="../../#abordare">Abordarea noastră</a><a href="../../#posibilitati">Ce construim</a><a href="../../echipa/">Echipa</a><a href="../">Blog</a><a class="button small dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="continut">
+    <article class="post post-guide section-shell" data-date-modified="2026-11-25">
+      <nav class="post-breadcrumb" aria-label="Fir de navigare"><a href="../../">Acasă</a><span aria-hidden="true">/</span><a href="../">Blog</a><span aria-hidden="true">/</span><span aria-current="page">Ce este MCP</span></nav>
+      <header class="post-header">
+        <p class="blog-meta"><time datetime="2026-11-25">25 noiembrie 2026</time><span>·</span> Agenți IA <span>·</span> 8 minute de citit</p>
+        <p class="post-byline">De <a href="../../" rel="author">Proiectul Pagini Web</a> · <a href="../../echipa/">Cunoaște echipa</a></p>
+        <h1>Ce este MCP?<br /><em>Cum conectezi agenții IA la datele firmei</em></h1>
+        <p class="post-lead">Pe 25 noiembrie 2024, Anthropic a publicat un standard deschis cu un nume foarte tehnic: Model Context Protocol. Doi ani mai târziu, MCP este folosit de ChatGPT, Gemini, Microsoft Copilot și Claude ca să conecteze asistenții IA la documente, baze de date și aplicații. Ce înseamnă asta pentru o firmă care vrea ca un agent să lucreze cu CRM-ul sau catalogul ei de produse?</p>
+      </header>
+      <div class="post-layout">
+        <aside class="post-sidebar"><span>În acest articol</span><a href="#pe-scurt">Pe scurt</a><a href="#ce-este-mcp">Ce este MCP</a><a href="#cum-functioneaza">Cum funcționează</a><a href="#adoptare">De ce contează acum</a><a href="#securitate">Securitate și permisiuni</a><a href="#cand-merita">Când merită</a><a href="#primii-pasi">Primul proiect</a></aside>
+        <div class="post-body">
+          <section class="post-summary" aria-labelledby="pe-scurt">
+            <h2 id="pe-scurt">Pe scurt</h2>
+            <ul>
+              <li>MCP (Model Context Protocol) este un standard deschis prin care o aplicație IA se conectează la instrumente și date externe. Un conector construit o singură dată poate fi folosit de mai multe aplicații compatibile.</li>
+              <li>Un server MCP oferă agentului instrumente, resurse și șabloane de instrucțiuni. Agentul citește date sau execută acțiuni doar prin ce expune serverul, cu drepturile pe care i le acorzi.</li>
+              <li>Tratează fiecare server MCP ca pe un acces la sistemele firmei: drepturi minime, surse de încredere, aprobare umană pentru acțiunile importante și un jurnal al operațiilor. Începe cu un server care doar citește date.</li>
+            </ul>
+          </section>
+
+          <h2 id="ce-este-mcp">MCP: un standard comun între IA și aplicațiile tale</h2>
+          <p>Un model de limbaj știe ce a învățat la antrenare și ce primește în conversație. Ca să afle stocul unui produs sau să salveze o ofertă, are nevoie de acces la sistemele în care se află aceste informații. Până de curând, fiecare combinație dintre o aplicație IA și un sistem al firmei cerea o integrare separată.</p>
+          <p><a href="https://www.anthropic.com/news/model-context-protocol">Anunțul inițial al Anthropic</a> descrie MCP ca pe un standard deschis pentru conexiuni securizate, în ambele sensuri, între sursele de date și instrumentele bazate pe IA. Ideea seamănă cu o priză standard: cine administrează sistemul construiește un singur conector, iar orice aplicație compatibilă îl poate folosi.</p>
+          <p>Un calcul simplificat arată diferența. Cinci aplicații IA și patru sisteme interne înseamnă, în cel mai rău caz, douăzeci de integrări diferite. Cu un standard comun, ai patru servere MCP, iar fiecare aplicație trebuie doar să știe să vorbească protocolul.</p>
+
+          <h2 id="cum-functioneaza">Gazdă, client și server: cine face ce</h2>
+          <p><a href="https://modelcontextprotocol.io/specification/2026-07-28">Specificația MCP</a> descrie trei roluri. Merită să le cunoști, pentru că în ele se decide cine dă acordul și cine răspunde pentru date.</p>
+          <div class="post-facts">
+            <div><strong>Gazda (host)</strong><p>Aplicația IA folosită de om, de exemplu un asistent conversațional sau un editor de cod. Ea pornește conexiunile și cere acordul utilizatorului.</p></div>
+            <div><strong>Clientul</strong><p>Componenta din interiorul gazdei care menține legătura cu un anumit server.</p></div>
+            <div><strong>Serverul</strong><p>Programul care expune datele și operațiile unui sistem, de exemplu catalogul de produse, CRM-ul sau un depozit de documente.</p></div>
+          </div>
+          <p>Un server poate oferi trei tipuri de capabilități. <strong>Instrumentele</strong> (tools) sunt operații pe care modelul le poate cere, cum ar fi „caută produsul” sau „creează un draft de ofertă”. <strong>Resursele</strong> sunt date de context, de exemplu o fișă tehnică. <strong>Șabloanele de instrucțiuni</strong> (prompts) sunt fluxuri pregătite dinainte, pe care utilizatorul le poate alege.</p>
+          <p>Iată cum ar putea arăta, ilustrativ, descrierea unui instrument pentru catalogul unei firme:</p>
+          <pre><code>{
+  "name": "cauta_produs",
+  "description": "Caută un produs în catalog după cod sau denumire și întoarce prețul curent și stocul.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "cod_sau_denumire": { "type": "string" }
+    },
+    "required": ["cod_sau_denumire"]
+  }
+}</code></pre>
+          <p>Modelul citește descrierea și decide când are nevoie de instrument. Execuția are loc în serverul tău, după regulile stabilite acolo. Agentul nu primește acces direct la baza de date, ci doar la operațiile pe care ai ales să le expui.</p>
+
+          <h2 id="adoptare">De ce contează acum: MCP a devenit un standard comun</h2>
+          <p>În decembrie 2025, Anthropic a <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation">donat MCP către Agentic AI Foundation</a>, un fond al Linux Foundation cofondat împreună cu Block și OpenAI. Anunțul menționa atunci peste 10.000 de servere MCP publice active și adoptarea protocolului în ChatGPT, Cursor, Gemini, Microsoft Copilot și Visual Studio Code.</p>
+          <p><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Versiunea din 28 iulie 2026 a specificației</a> face protocolul fără stare (stateless): fiecare cerere conține singură informațiile necesare, fără o sesiune păstrată pe server. Pentru o firmă, consecința practică este că un server MCP ar trebui să fie mai ușor de rulat pe infrastructura web obișnuită, în mai multe instanțe. Aceeași versiune introduce o politică de depreciere cu o fereastră minimă de douăsprezece luni, utilă când planifici întreținerea.</p>
+          <p>Cifrele de adoptare provin din anunțurile organizațiilor implicate. Ele descriu mărimea ecosistemului, nu calitatea sau siguranța fiecărui server publicat.</p>
+
+          <h2 id="securitate">Un server MCP este o ușă către sistemele firmei</h2>
+          <p>Specificația spune explicit că instrumentele reprezintă execuție arbitrară de cod și trebuie tratate cu prudență. Tot acolo, descrierile instrumentelor sunt considerate nesigure dacă nu provin de la un server de încredere. Protocolul nu poate impune singur aceste principii; responsabilitatea revine aplicațiilor și celor care le configurează.</p>
+          <p><a href="https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices">Ghidul oficial de bune practici de securitate MCP</a> descrie riscuri concrete. Trei dintre ele privesc orice firmă, indiferent de mărime:</p>
+          <ul>
+            <li><strong>Drepturi prea largi.</strong> Ghidul recomandă un set minim de permisiuni la început și extinderea lor treptată, doar când o operație o cere.</li>
+            <li><strong>Token-uri folosite în alt scop.</strong> Un server MCP nu trebuie să accepte token-uri de acces emise pentru alte servicii.</li>
+            <li><strong>Servere locale instalate fără verificare.</strong> Aplicația trebuie să arate comanda exactă înainte de instalare și să ceară aprobare explicită.</li>
+          </ul>
+          <p>Mai există un risc specific agenților. Un document sau un e-mail citit de agent poate conține instrucțiuni ascunse. Dacă același agent are acces și la date sensibile, și la un instrument care trimite mesaje în afara firmei, o asemenea instrucțiune poate duce la scurgerea datelor. Separă instrumentele care citesc de cele care trimit, modifică sau șterg ceva și cere aprobarea unui om pentru cele din urmă.</p>
+          <blockquote>Agentul poate face doar ce îi permite serverul. De aceea, serverul este locul în care pui regulile.</blockquote>
+
+          <h2 id="cand-merita">Când merită un server MCP pentru firma ta</h2>
+          <p>MCP este util când aceleași date trebuie folosite din mai multe aplicații IA sau când vrei să poți schimba furnizorul de model fără să rescrii integrările. Merită luat în calcul și dacă vinzi un produs software, iar clienții tăi vor să-l folosească din asistentul IA preferat.</p>
+          <p>Nu orice automatizare are nevoie de MCP. Un flux fix, cu pași cunoscuți, cum ar fi exportul zilnic al comenzilor, rămâne mai simplu și mai previzibil ca script obișnuit sau ca integrare directă prin API. MCP adaugă valoare atunci când modelul trebuie să aleagă singur instrumentul potrivit, în funcție de cerere.</p>
+          <p>Pentru aplicațiile răspândite, verifică întâi dacă furnizorul publică deja un server MCP oficial și ce drepturi cere. Un server construit intern are sens pentru sistemele proprii: un ERP adaptat, o bază de date cu reguli comerciale specifice sau un catalog intern.</p>
+
+          <h2 id="primii-pasi">Un prim proiect cu risc mic</h2>
+          <p>Pentru un prim server MCP, aș urma pașii de mai jos:</p>
+          <ol>
+            <li>Alege un singur sistem și o întrebare frecventă, de exemplu „ce stoc și ce preț are produsul X?”.</li>
+            <li>Construiește un server care doar citește date, cu un cont dedicat și drepturi minime.</li>
+            <li>Scrie descrieri clare pentru fiecare instrument și testează cereri obișnuite, ambigue și greșite.</li>
+            <li>Păstrează un jurnal al apelurilor: cine a cerut, ce instrument a rulat și ce date au fost returnate.</li>
+            <li>Adaugă operații care modifică date abia după acest pilot, cu aprobare umană pentru fiecare acțiune importantă.</li>
+          </ol>
+          <p>Pentru agentul care va folosi serverul, metoda din articolul despre <a href="../cum-testezi-un-agent-ia/">testarea unui agent IA</a> se aplică direct: verifici starea finală din sisteme, nu doar răspunsul din conversație.</p>
+          <p>Dacă vrei ca un asistent IA să lucreze cu datele firmei tale, notează ce sisteme folosește echipa zilnic și ce informații sunt copiate cel mai des manual dintr-o aplicație în alta. Acolo găsești, de obicei, primul candidat pentru un server MCP.</p>
+
+          <nav class="post-related" aria-label="Articole conexe"><p><strong>Citește și</strong></p><ul><li><a href="../cum-testezi-un-agent-ia/">Agentul IA a trecut demo-ul. Cum îl testezi în practică?</a></li><li><a href="../diferenta-dintre-chat-ia-si-agent-ia/">Chat AI și agent AI: care este diferența?</a></li><li><a href="../internetul-agentic-este-aici/">Internetul agentic este aici. De la informație la acțiune.</a></li></ul></nav>
+          <div class="post-end"><a href="../../">Proiectul Pagini Web</a><a href="../">← Înapoi la blog</a></div>
+        </div>
+      </div>
+    </article>
+    <section class="blog-cta section-shell"><p>Ce sistem al firmei tale ar trebui să-l poată folosi un agent IA?</p><a class="button dark" href="../../#contact">Hai să vorbim <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer section-shell"><div class="footer-top"><a class="footer-name" href="../../">Proiectul<br />Pagini Web<span class="orange">.</span></a><p>Ambiție umană.<br />Posibilități cu agenți IA.</p><a class="back-top" href="#">Înapoi sus <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© 2026 Proiectul Pagini Web</span><span>Construit cu IA. Centrat pe oameni.</span><a href="../../#contact">Scrie-ne ↗</a></div></footer>
+</body>
+</html>

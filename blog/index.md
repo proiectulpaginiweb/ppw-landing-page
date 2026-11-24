@@ -8,6 +8,22 @@ Explicații și exemple despre agenți IA, modele pentru afaceri, dezvoltare cu 
 
 ## Articole
 
+25 noiembrie 2026· Agenți IA
+
+### [Ce este MCP? Cum conectezi agenții IA la datele firmei](https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/)
+
+Cum funcționează Model Context Protocol, de ce l-au adoptat ChatGPT, Gemini și Copilot, ce reguli de securitate stabilești și când merită un server MCP propriu.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/ce-este-mcp-model-context-protocol/)
+
+23 noiembrie 2026· IA în practică
+
+### [Agentul IA a trecut demo-ul. Cum îl testezi în practică?](https://www.proiectulpaginiweb.ro/blog/cum-testezi-un-agent-ia/)
+
+Un exemplu cu cereri de ofertă arată cum verifici rezultatele unui agent IA, cât costă intervenția oamenilor și când merită să-i dai mai multă autonomie.
+
+[Citește articolul](https://www.proiectulpaginiweb.ro/blog/cum-testezi-un-agent-ia/)
+
 17 noiembrie 2026· Arhitectură software
 
 ### [Rust lângă Java: module mici, rapide și sigure în aplicații mari](https://www.proiectulpaginiweb.ro/blog/rust-java-module-rapide-sigure/)
